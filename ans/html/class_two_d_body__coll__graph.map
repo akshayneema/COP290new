@@ -1,0 +1,5 @@
+<map id="TwoDBody" name="TwoDBody">
+<area shape="rect" id="node2" href="$class_visible_edge.html" title="VisibleEdge" alt="" coords="5,5,96,32"/>
+<area shape="rect" id="node3" href="$class_hidden_edge.html" title="HiddenEdge" alt="" coords="120,5,213,32"/>
+<area shape="rect" id="node4" href="$class_vertex2_d.html" title="Vertex2D" alt="" coords="237,5,315,32"/>
+</map>
