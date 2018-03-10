@@ -2,20 +2,20 @@
 class Vertex3D
 {
     public:
-        float x,y,z;
-	void translatex(float dx)
+        double x,y,z;
+	void translatex(double dx)
 	{
-		
+		x=x+dx;
 	}
-	void translatey(float dy)
+	void translatey(double dy)
 	{
-	
+		y=y+dy;
 	}
-	void translatez(float dz)
+	void translatez(double dz)
 	{
-		
+		z=z+dz;
 	}
-	void rotate(float delta, float theta, bool dirdelta, bool dirtheta, Vertex3D axis)
+	void rotate(double delta, double theta, bool dirdelta, bool dirtheta, Vertex3D axis)
 	{
 		//rotates
 	}
@@ -24,21 +24,21 @@ class Vertex3D
 class Edge3D
 {
     public:
-        float x1,y1,z1;
-	float x2,y2,z2;
-	void translatex(float dx)
+        double x1,y1,z1;
+	double x2,y2,z2;
+	void translatex(double dx)
 	{
 		//translate the edge in x direction
 	}
-	void translatey(float dy)
+	void translatey(double dy)
 	{
 		//y direction
 	}
-	void translatez(float dz)
+	void translatez(double dz)
 	{
 		//z direction
 	}
-	void rotate(float delta, float theta, bool dirdelta, bool dirtheta, Vertex3D axis)
+	void rotate(double delta, double theta, bool dirdelta, bool dirtheta, Vertex3D axis)
 	{
 		//rotates
 	}
@@ -48,19 +48,19 @@ class Plane3D
 {
     public:
         std::vector<Edge3D> plane;
-	void translatex(float dx)
+	void translatex(double dx)
 	{
 		//translate the edge in x direction
 	}
-	void translatey(float dy)
+	void translatey(double dy)
 	{
 		//y direction
 	}
-	void translatez(float dz)
+	void translatez(double dz)
 	{
 		//z direction
 	}
-	void rotate(float delta, float theta, bool dirdelta, bool dirtheta, Vertex3D axis)
+	void rotate(double delta, double theta, bool dirdelta, bool dirtheta, Vertex3D axis)
 	{
 		//rotates
 	}
@@ -68,21 +68,21 @@ class Plane3D
 class HiddenEdge3D
 {
     public:
-        float x1,y1,z1;
-	float x2,y2,z2;
-	void translatex(float dx)
+        double x1,y1,z1;
+	double x2,y2,z2;
+	void translatex(double dx)
 	{
 		//translate the edge in x direction
 	}
-	void translatey(float dy)
+	void translatey(double dy)
 	{
 		//y direction
 	}
-	void translatez(float dz)
+	void translatez(double dz)
 	{
 		//z direction
 	}
-	void rotate(float delta, float theta, bool dirdelta, bool dirtheta, Vertex3D axis)
+	void rotate(double delta, double theta, bool dirdelta, bool dirtheta, Vertex3D axis)
 	{
 		//rotates
 	}
@@ -90,21 +90,21 @@ class HiddenEdge3D
 class VisibleEdge3D
 {
     public:
-        float x1,y1,z1;
-	float x2,y2,z2;
-	void translatex(float dx)
+        double x1,y1,z1;
+	double x2,y2,z2;
+	void translatex(double dx)
 	{
 		//translate the edge in x direction
 	}
-	void translatey(float dy)
+	void translatey(double dy)
 	{
 		//y direction
 	}
-	void translatez(float dz)
+	void translatez(double dz)
 	{
 		//z direction
 	}
-	void rotate(float delta, float theta, bool dirdelta, bool dirtheta, Vertex3D axis)
+	void rotate(double delta, double theta, bool dirdelta, bool dirtheta, Vertex3D axis)
 	{
 		//rotates
 	}

@@ -12,9 +12,17 @@
 #include <fstream>
 #include <string>
 #include <vector>
-std::vector<float> normalofplane(char* plane)
+#include <math.h>
+std::vector<double> normalofplane(double a, double b, double c, double d)
 {
-	//derives normal of the plane
+	double temp= (a*a)+(b*b)+(c*c);
+	temp=sqrt(temp);
+	std::vector<double> normal;
+	normal.push_back(a/temp);
+	normal.push_back(b/temp);
+	normal.push_back(c/temp);
+	return normal;
+	//derives unit vector in the direction of normal of the plane
 }
 void rotate3D(ThreeDBody threedbody, std::vector<float> normal, std::vector<char> plane)
 {

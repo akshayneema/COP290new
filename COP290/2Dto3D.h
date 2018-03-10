@@ -13,10 +13,7 @@
 #include <string>
 #include <vector>
 
-std::vector<float> normalofplane(char* plane)
-{
-	//derives normal of the plane
-}
+
 
 void viewtype(TwoDBody twodbody)
 {
