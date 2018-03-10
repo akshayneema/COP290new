@@ -31,7 +31,7 @@ void topologicalRepresentation(TwoDBody twodbody)
 }
 
 
-void threeDReconstruct(TwoDBody twodbody, Threebody threebody)
+void threeDReconstruct(TwoDBody twodbody, ThreeDBody threedbody)
 {
 	//reconstructs 3D skeleton.
 
