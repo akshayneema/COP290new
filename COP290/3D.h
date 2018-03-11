@@ -1,4 +1,5 @@
 #include <vector>
+#include <math.h>
 using namespace std;
 class Vertex3D
 {
@@ -72,9 +73,9 @@ class Vertex3D
 	}
 	void rotate(double deltax, bool dirx, double deltay, bool diry, double deltaz, bool dirz)
 	{
-		this.rotatex(deltax, dirx);
-		this.rotatey(deltay, diry);
-		this.rotatez(deltaz, dirz);
+		this->rotatex(deltax, dirx);
+		this->rotatey(deltay, diry);
+		this->rotatez(deltaz, dirz);
 	}
 };
 
@@ -182,9 +183,9 @@ class Edge3D
 	}
 	void rotate(double deltax, bool dirx, double deltay, bool diry, double deltaz, bool dirz)
 	{
-		this.rotatex(deltax, dirx);
-		this.rotatey(deltay, diry);
-		this.rotatez(deltaz, dirz);
+		this->rotatex(deltax, dirx);
+		this->rotatey(deltay, diry);
+		this->rotatez(deltaz, dirz);
 	}
 	
 };
@@ -197,28 +198,28 @@ class Plane3D
 	{
 		for (std::vector<Edge3D>::iterator it = plane.begin() ; it != plane.end(); it++)
 		{
-			*it.translatex(dx);
+			(*it).translatex(dx);
 		}//translate the edge in x direction
 	}
 	void translatey(double dy)
 	{
 		for (std::vector<Edge3D>::iterator it = plane.begin() ; it != plane.end(); it++)
 		{
-			*it.translatey(dy);
+			(*it).translatey(dy);
 		}//y direction
 	}
 	void translatez(double dz)
 	{
 		for (std::vector<Edge3D>::iterator it = plane.begin() ; it != plane.end(); it++)
 		{
-			*it.translatez(dz);
+			(*it).translatez(dz);
 		}//z direction
 	}
 	void rotate(double deltax, bool dirx, double deltay, bool diry, double deltaz, bool dirz)
 	{
 		for (std::vector<Edge3D>::iterator it = plane.begin() ; it != plane.end(); it++)
 		{
-			*it.rotate(deltax, dirx, deltay, diry, deltaz, dirz);
+			(*it).rotate(deltax, dirx, deltay, diry, deltaz, dirz);
 		}//rotates
 	}
 };
@@ -327,9 +328,9 @@ class HiddenEdge3D
 	}
 	void rotate(double deltax, bool dirx, double deltay, bool diry, double deltaz, bool dirz)
 	{
-		this.rotatex(deltax, dirx);
-		this.rotatey(deltay, diry);
-		this.rotatez(deltaz, dirz);
+		this->rotatex(deltax, dirx);
+		this->rotatey(deltay, diry);
+		this->rotatez(deltaz, dirz);
 	}
 };
 class VisibleEdge3D
@@ -437,9 +438,9 @@ class VisibleEdge3D
 	}
 	void rotate(double deltax, bool dirx, double deltay, bool diry, double deltaz, bool dirz)
 	{
-		this.rotatex(deltax, dirx);
-		this.rotatey(deltay, diry);
-		this.rotatez(deltaz, dirz);
+		this->rotatex(deltax, dirx);
+		this->rotatey(deltay, diry);
+		this->rotatez(deltaz, dirz);
 	}
 };
 class ThreeDBody

@@ -50,7 +50,7 @@ class VisibleEdge
 		y1=y1+dy;
 		y2=y2+dy;//y direction
 	}
-	void rotate(double delta, bool dird)
+	void rotate(double delta, bool dirdelta)
 	{
 		double tempx1, tempy1;
 		double tempx2, tempy2;
