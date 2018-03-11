@@ -13,23 +13,23 @@ class Vertex2D
 		y=y+dy;
 	}
 	
-	void rotate(double delta, bool dirdelta, Vertex2D axis)
+	void rotate(double delta, bool dirdelta)
 	{
 		double tempx, tempy;
 		
 		if(dirdelta==true)//anticlockwise rotation
 		{
-			tempx=((x-axis.x)*cos(delta))+((y-axis.y)*sin(delta));
-			tempy=-((x-axis.x)*sin(delta))+((y-axis.y)*cos(delta));
-			x=tempx+axis.x;
-			y=tempy+axis.y;
+			tempx=((x)*cos(delta))+((y)*sin(delta));
+			tempy=-((x)*sin(delta))+((y)*cos(delta));
+			x=tempx;
+			y=tempy;
 		}
 		else
 		{
-			tempx=((x-axis.x)*cos(delta))-((y-axis.y)*sin(delta));
-			tempy=((x-axis.x)*sin(delta))+((y-axis.y)*cos(delta));
-			x=(x-axis.x)*(1-cos(delta))+axis.x;
-			y=(y-axis.y)*(1-sin(delta))+axis.y;
+			tempx=((x)*cos(delta))-((y)*sin(delta));
+			tempy=((x)*sin(delta))+((y)*cos(delta));
+			x=tempx;
+			y=tempy;
 		}
 	}
 };
@@ -50,31 +50,31 @@ class VisibleEdge
 		y1=y1+dy;
 		y2=y2+dy;//y direction
 	}
-	void rotate(double delta, bool dirdelta, Vertex2D axis)
+	void rotate(double delta, bool dird)
 	{
 		double tempx1, tempy1;
 		double tempx2, tempy2;
 		if(dirdelta==true)//anticlockwise rotation
 		{
-			tempx1=((x1-axis.x1)*cos(delta))+((y1-axis.y1)*sin(delta));
-			tempy1=-((x1-axis.x1)*sin(delta))+((y1-axis.y1)*cos(delta));
-			x1=tempx1+axis.x1;
-			y1=tempy1+axis.y1;
-			tempx2=((x2-axis.x2)*cos(delta))+((y2-axis.y2)*sin(delta));
-			tempy2=-((x2-axis.x2)*sin(delta))+((y2-axis.y2)*cos(delta));
-			x2=tempx2+axis.x2;
-			y2=tempy2+axis.y2;
+			tempx1=((x1)*cos(delta))+((y1)*sin(delta));
+			tempy1=-((x1)*sin(delta))+((y1)*cos(delta));
+			x1=tempx1;
+			y1=tempy1;
+			tempx2=((x2)*cos(delta))+((y2)*sin(delta));
+			tempy2=-((x2)*sin(delta))+((y2)*cos(delta));
+			x2=tempx2;
+			y2=tempy2;
 		}
 		else
 		{
-			tempx1=((x1-axis.x1)*cos(delta))-((y1-axis.y1)*sin(delta));
-			tempy1=((x1-axis.x1)*sin(delta))+((y1-axis.y1)*cos(delta));
-			x1=tempx1+axis.x1;
-			y1=tempy1+axis.y1;
-			tempx2=((x2-axis.x2)*cos(delta))-((y2-axis.y2)*sin(delta));
-			tempy2=((x2-axis.x2)*sin(delta))+((y2-axis.y2)*cos(delta));
-			x2=tempx2+axis.x2;
-			y2=tempy2+axis.y2;
+			tempx1=((x1)*cos(delta))-((y1)*sin(delta));
+			tempy1=((x1)*sin(delta))+((y1)*cos(delta));
+			x1=tempx1;
+			y1=tempy1;
+			tempx2=((x2)*cos(delta))-((y2)*sin(delta));
+			tempy2=((x2)*sin(delta))+((y2)*cos(delta));
+			x2=tempx2;
+			y2=tempy2;
 		}//rotates
 	}
 };
@@ -102,31 +102,31 @@ class HiddenEdge
 		y1=y1+dy;
 		y2=y2+dy;//y direction
 	}
-	void rotate(double delta, bool dirdelta, Vertex2D axis)
+	void rotate(double delta, bool dirdelta)
 	{
 		double tempx1, tempy1;
 		double tempx2, tempy2;
 		if(dirdelta==true)//anticlockwise rotation
 		{
-			tempx1=((x1-axis.x1)*cos(delta))+((y1-axis.y1)*sin(delta));
-			tempy1=-((x1-axis.x1)*sin(delta))+((y1-axis.y1)*cos(delta));
-			x1=tempx1+axis.x1;
-			y1=tempy1+axis.y1;
-			tempx2=((x2-axis.x2)*cos(delta))+((y2-axis.y2)*sin(delta));
-			tempy2=-((x2-axis.x2)*sin(delta))+((y2-axis.y2)*cos(delta));
-			x2=tempx2+axis.x2;
-			y2=tempy2+axis.y2;
+			tempx1=((x1)*cos(delta))+((y1)*sin(delta));
+			tempy1=-((x1)*sin(delta))+((y1)*cos(delta));
+			x1=tempx1;
+			y1=tempy1;
+			tempx2=((x2)*cos(delta))+((y2)*sin(delta));
+			tempy2=-((x2)*sin(delta))+((y2)*cos(delta));
+			x2=tempx2;
+			y2=tempy2;
 		}
 		else
 		{
-			tempx1=((x1-axis.x1)*cos(delta))-((y1-axis.y1)*sin(delta));
-			tempy1=((x1-axis.x1)*sin(delta))+((y1-axis.y1)*cos(delta));
-			x1=tempx1+axis.x1;
-			y1=tempy1+axis.y1;
-			tempx2=((x2-axis.x2)*cos(delta))-((y2-axis.y2)*sin(delta));
-			tempy2=((x2-axis.x2)*sin(delta))+((y2-axis.y2)*cos(delta));
-			x2=tempx2+axis.x2;
-			y2=tempy2+axis.y2;;
+			tempx1=((x1)*cos(delta))-((y1)*sin(delta));
+			tempy1=((x1)*sin(delta))+((y1)*cos(delta));
+			x1=tempx1;
+			y1=tempy1;
+			tempx2=((x2)*cos(delta))-((y2)*sin(delta));
+			tempy2=((x2)*sin(delta))+((y2)*cos(delta));
+			x2=tempx2;
+			y2=tempy2;
 		}//rotates
 	}
 };
