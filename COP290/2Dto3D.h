@@ -12,7 +12,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
-
+#include <math.h>
 
 
 void viewtype(TwoDBody twodbody)
