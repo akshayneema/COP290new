@@ -131,6 +131,19 @@ class HiddenEdge
 	}
 };
 
+class Edge2D
+{
+	public:
+		double x1, y1;
+		double x2, y2;
+};
+
+class Plane2D
+{
+	public:
+		std::vector<Edge2D> plane;
+};
+
 class TwoDBody
 {
 	public:
