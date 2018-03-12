@@ -4,7 +4,7 @@ using namespace std;
 class Vertex3D
 {
     public:
-        double x,y,z;
+        double x,y,z,l;
 	void translatex(double dx)
 	{
 		x=x+dx;
@@ -84,6 +84,7 @@ class Edge3D
     public:
         double x1,y1,z1;
 	double x2,y2,z2;
+	bool visibility=true;
 	void translatex(double dx)
 	{
 		x1= x1+dx;

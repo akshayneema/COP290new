@@ -120,9 +120,157 @@ void rotate3D(ThreeDBody threedbody, std::vector<double> normal)
 	threedbody.p=ptemp;
 	//rotate the coordinate axes and updates the 3D object coordinates
 }
-void hiddenedgedetection(ThreeDBody threedbody, std::vector<char> plane)
+std::vector<Edge3D> edge_segmentation(ThreeDBody threedbody)
 {
-	//for every edge classifies it into hidden-part and visible-part and updates vertices accordingly
+	std::vector<Edge3D> tempe;
+	for (std::vector<Edge3D>::iterator it = threedbody.e.begin() ; it != threedbody.e.end(); it++)
+	{
+		std::vector<Vertex3D> tempv;
+		for (std::vector<Edge3D>::iterator itr = threedbody.e.begin() ; itr != threedbody.e.end(); itr++)
+		{
+			double x,y,z,q;
+			if((*it).x2==(*it).x1)
+			{
+				if((*itr).x2!=(*itr).x1)
+				{
+					Vertex3D v3d;
+					x=(*it).x1;
+					y=((((*itr).y1)*((*it).x1-(*itr).x2))+(((*itr).y2)*((*itr).x1-(*it).x2)))/((*itr).x1-(*itr).x2);
+					if(((y>=(*it).y1)&&(y<=(*it).y2))||((y<=(*it).y1)&&(y>=(*it).y2)))
+					{
+						z= ((((*it).z2)*(y-(*it).y1))+(((*it).z1)*((*it).y2-y)))/((*it).y2-(*it).y1);
+						v3d.x=x;
+						v3d.y=y;
+						v3d.z=z;
+						v3d.l=(y-(*it).y1)/((*it).y2-(*it).y1);
+						tempv.push_back(v3d);
+					}
+					
+				}
+			}
+			else if((*itr).x2==(*itr).x1)
+			{
+				if((*it).x2!=(*it).x1)
+				{
+					Vertex3D v3d;
+					x=(*itr).x1;
+					y=((((*it).y1)*((*itr).x1-(*it).x2))+(((*it).y2)*((*it).x1-(*itr).x2)))/((*itr).x1-(*itr).x2);
+					if(((y>=(*itr).y1)&&(y<=(*itr).y2))||((y<=(*itr).y1)&&(y>=(*itr).y2)))
+					{
+						z= ((((*it).z2)*(y-(*it).y1))+(((*it).z1)*((*it).y2-y)))/((*it).y2-(*it).y1);
+						v3d.x=x;
+						v3d.y=y;
+						v3d.z=z;
+						v3d.l=(y-(*it).y1)/((*it).y2-(*it).y1);
+						tempv.push_back(v3d);
+					}
+					
+				}
+			}
+			else if((*it).y2==(*it).y1)
+			{
+				if((*itr).y2!=(*itr).y1)
+				{
+					Vertex3D v3d;
+					x=((((*itr).x1)*((*it).y1-(*itr).y2))+(((*itr).x2)*((*itr).y1-(*it).y1)))/((*itr).y1-(*itr).y2);
+					y=(*it).y2;
+					if(((x>=(*it).x1)&&(x<=(*it).x2))||((x<=(*it).x1)&&(x>=(*it).x2)))
+					{
+						z= ((((*it).z2)*(x-(*it).x1))+(((*it).z1)*((*it).x2-x)))/((*it).x2-(*it).x1);
+						v3d.x=x;
+						v3d.y=y;
+						v3d.z=z;
+						v3d.l=(x-(*it).x1)/((*it).x2-(*it).x1);
+						tempv.push_back(v3d);
+					}
+					
+				}
+			}
+			else if((*itr).y2==(*itr).y1)
+			{
+				if((*it).y2!=(*it).y1)
+				{
+					Vertex3D v3d;
+					x=((((*it).x1)*((*it).y2-(*itr).y1))+(((*it).x2)*((*itr).y1-(*it).y1)))/((*it).y2-(*it).y1);
+					y=(*itr).y2;
+					if(((x>=(*it).x1)&&(x<=(*it).x2))||((x<=(*it).x1)&&(x>=(*it).x2)))
+					{
+						z= ((((*it).z2)*(x-(*it).x1))+(((*it).z1)*((*it).x2-x)))/((*it).x2-(*it).x1);
+						v3d.x=x;
+						v3d.y=y;
+						v3d.z=z;
+						v3d.l=(x-(*it).x1)/((*it).x2-(*it).x1);
+						tempv.push_back(v3d);
+					}
+					
+				}
+			}
+			else
+			{
+				if(!(((*it).y2-(*it).y1)/((*it).x2-(*it).x1)==((*itr).y2-(*itr).y1)/((*itr).x2-(*itr).x1))||(((*it).y2-(*it).y1)/((*it).x2-(*it).x1)==-((*itr).y2-(*itr).y1)/((*itr).x2-(*itr).x1)))
+				{
+					Vertex3D v3d;
+					x= ((((((*it).x1)*((*it).y2))-(((*it).y1)*((*it).x2)))*(((*itr).x1)-((*itr).x2)))-(((((*itr).x1)*((*itr).y2))-(((*itr).y1)*((*itr).x2)))*(((*it).x1)-((*it).x2))));
+					y= ((((((*it).x1)*((*it).y2))-(((*it).y1)*((*it).x2)))*(((*itr).y1)-((*itr).y2)))-(((((*itr).x1)*((*itr).y2))-(((*itr).y1)*((*itr).x2)))*(((*it).y1)-((*it).y2))));
+					q= ((((*it).x1)-((*it).x2))*(((*itr).y1)-((*itr).y2)))-((((*it).y1)-((*it).y2))*(((*itr).x1)-((*itr).x2)));
+					x=x/q;
+					y=y/q;
+					if(((y-(*it).y1)/(x-(*it).x1))==(((*it).y2-y)/((*it).x2-x)))
+					{
+						z= ((((*it).z2)*(x-(*it).x1))+(((*it).z1)*((*it).x2-x)))/((*it).x2-(*it).x1);
+						v3d.x=x;
+						v3d.y=y;
+						v3d.z=z;
+						v3d.l=(x-(*it).x1)/((*it).x2-(*it).x1);
+						tempv.push_back(v3d);
+					}
+
+				}
+			}
+		}
+		int i;
+		int j;
+		for (i=0; i<tempv.size();  i++)
+		{
+			for(j=i+1; j<tempv.size(); j++)
+			{
+				if(tempv[i].l>tempv[j].l)
+				{
+					std::swap(tempv[i],tempv[j]);
+				}
+			}
+		}
+		//tempv ko sort krna hai l ke basis pe
+		for(i=0; i<tempv.size()-1; i++)
+		{
+			if(!((tempv[i].x==tempv[i+1].x)&&(tempv[i].y==tempv[i+1].y)))
+			{
+				Edge3D eobj;
+				eobj.x1=tempv[i].x;
+				eobj.y1=tempv[i].y;
+				eobj.z1=tempv[i].z;
+				eobj.x2=tempv[i+1].x;
+				eobj.y2=tempv[i+1].y;
+				eobj.z2=tempv[i+1].z;
+				tempe.push_back(eobj);
+			}
+
+		}
+		//edges nikaal ke
+		//tempe me add kro saari edges
+	}
+	return tempe;
+}
+void hiddenedgedetection(ThreeDBody threedbody, double a, double b, double c, double d)
+{
+	std::vector<Edge3D> tempe= edge_segmentation(threedbody);
+	for (std::vector<Edge3D>::iterator it = tempe.begin() ; it != tempe.end(); it++)
+	{
+		for (std::vector<Plane3D>::iterator itr = threedbody.p.begin() ; itr != threedbody.p.end(); itr++)
+		{
+			
+		}
+	}//for every edge classifies it into hidden-part and visible-part and updates vertices accordingly
 }
 TwoDBody TopView(ThreeDBody threedbody)
 {
