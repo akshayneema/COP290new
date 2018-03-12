@@ -1,9 +1,15 @@
 #include <math.h>
 #include <vector>
+#include <string>
+using namespace std;
+
 class Vertex2D
 {
     public:
         double x,y;
+		string label;
+		vector<string> vec_label;
+		
 	void translatex(double dx)
 	{
 		x=x+dx;
@@ -39,6 +45,7 @@ class VisibleEdge
     public:
         double x1,y1;
 		double x2,y2;
+		//string a,b;         //Edge
 
 	void translatex(double dx)
 	{
@@ -86,6 +93,12 @@ class OrthographicView
 
 };
 
+class Label
+{
+	public:
+		string label;
+};
+
 class HiddenEdge
 {
     public:
@@ -131,13 +144,27 @@ class HiddenEdge
 	}
 };
 
+
+//Assume that we have got the number of vertices.
+//Input Format (v1,v2,Label a)
+
 class TwoDBody
 {
 	public:
 		std::vector<Vertex2D> v;
 		std::vector<VisibleEdge> ve;
 		std::vector<HiddenEdge> he;
-		std::vector<OrthographicView> view;
+		int val;
+
+};
+
+class Labelled2D
+{
+	public:
+		std::vector<Vertex2D> v;
+		std::vector<VisibleEdge> ve;
+		std::vector<HiddenEdge> he;
+		std::vector<Label> lbl;
 
 };
 
