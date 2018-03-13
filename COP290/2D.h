@@ -7,7 +7,7 @@ class Vertex2D
 {
     public:
         double x,y;
-		string label;
+		string imp_label;
 		vector<string> vec_label;
 		
 	void translatex(double dx)
@@ -45,7 +45,7 @@ class VisibleEdge
     public:
         double x1,y1;
 		double x2,y2;
-		//string a,b;         //Edge
+		string a,b;         //Edge bw imp_label
 
 	void translatex(double dx)
 	{

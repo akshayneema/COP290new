@@ -15,7 +15,7 @@
 #include <math.h>
 
 // top-> xz  front -> xy left -> zy
-void threeDlabel (TwoDBody top,TwoDBody front) //,Labelled2D side
+void threeDlabel (TwoDBody top,TwoDBody front,TwoDBody left) //,Labelled2D side
 {
 	ThreeDBody temp;
 	std::vector<Vertex3D> vobj;
@@ -43,7 +43,7 @@ void threeDlabel (TwoDBody top,TwoDBody front) //,Labelled2D side
  		for (int i=0;i<label_sz;i++)
 		 {
 			string labeled = vec_label.front();
-			for (auto it = front1.v.begin(); it != front1.v.end(); ++it)
+			for (std::vector<Vertex2D>::iterator it = front1.v.begin(); it != front1.v.end(); ++it)
 			{
 				vector<string> tmp = (*it).vec_label;
 				int size_lp = tmp.size();
@@ -69,24 +69,208 @@ void threeDlabel (TwoDBody top,TwoDBody front) //,Labelled2D side
 		vtemp.str = labeler;
 
 		vobj.push_back(vtemp);
+		temp.v.push_back(vtemp);
 		top1.v.pop_back();
 		//temp.v.push_back();
 	}
 
+	
+	std::vector<Vertex3D> temp_vobj = vobj;
 	top1 = top;
 	front1 = front;
+
+	int limit = temp.v.size();
 	int adj[n][n];
-	for (int i = 0; i < n; i++)
+	for (int i = 0; i < limit; i++)
 	{
-		for(int j = 0; j < n; j++)
+		for(int j = 0; j < limit; j++)
 		{
-			adj[i][j] = 1;
+			if(i<j) adj[i][j] = 1;
+			else adj[i][j]=0;
 		}
 	}
 
-	for(int i=0; i < n; i++ )
+	int x_1,y_1,z_1,x_2,y_2,z_2;
+	vector< pair <double,double> > front_e,top_e,left_e;
+/*
+	std::vector<VisibleEdge> front_edges,top_edges,left_edges;
+	front_edges = front.ve;
+	top_edges = top.ve;
+	left_edges = left.ve;
+
+
+
+	for (std::vector<HiddenEdge>::iterator it = top.he.begin(); it != top.he.end(); ++it)
 	{
-		Edge3D eobj;
+		x_1 = (*it).x1 ;
+		y_1 = (*it).y1 ;
+
+		front_edges.push_back();
+		//top_e.push_back(make_pair(x_1,y_1));	
+
+	}	
+*/
+	for (std::vector<Vertex3D>::iterator it = temp.v.begin(); it != temp.v.end(); ++it)
+	{
+		x = (*it).x ;
+		y = (*it).y ;
+		z = (*it).z ;
+
+// top-> xz  front -> xy left -> zy
+		int aa,bb,cc;
+		int v1,v2,v3;
+
+		for (std::vector<Vertex3D>::iterator it = temp.v.begin(); it != temp.v.end(); ++it)
+		{
+			aa = (*it).x ;
+			bb = (*it).y ;	
+			cc = (*it).z ;
+			v1=2;
+			v2=2;
+			v3=2;
+
+//Top x-z
+			if( x==aa && z==cc)
+			{
+				v1 =1;
+			}
+			else
+			{
+				for (std::vector<VisibleEdge>::iterator it = top.ve.begin(); it != top.ve.end(); ++it)
+				{
+					if(x == ((*it).x1) && z == ((*it).y1))
+					{
+						if( aa == ((*it).x2) && cc == ((*it).y2) ) v1 =1;
+						else v1=0;
+					}
+
+					else if (aa == ((*it).x1) && cc == ((*it).y1))
+					{
+						if( x == ((*it).x2) && z == ((*it).y2) ) v1 =1;
+						else v1=0;						
+					}
+
+					//if(v1==0 || v1==1) break;
+
+				}
+
+				for (std::vector<HiddenEdge>::iterator it = top.he.begin(); it != top.he.end(); ++it)
+				{
+					if(x == ((*it).x1) && z == ((*it).y1))
+					{
+						if( aa == ((*it).x2) && cc == ((*it).y2) ) v1 =1;
+						else v1=0;
+					}
+
+					else if (aa == ((*it).x1) && cc == ((*it).y1))
+					{
+						if( x == ((*it).x2) && z == ((*it).y2) ) v1 =1;
+						else v1=0;						
+					}
+					//if(v1==0 || v1==1) break;
+
+				}
+			}
+
+//Front x-y 
+			if( x==aa && y==bb)
+			{
+				v2 =1;
+			}
+			else
+			{
+				for (std::vector<VisibleEdge>::iterator it = front.ve.begin(); it != front.ve.end(); ++it)
+				{
+					if(x == ((*it).x1) && y == ((*it).y1))
+					{
+						if( aa == ((*it).x2) && bb == ((*it).y2) ) v2 =1;
+						else v2=0;
+					}
+
+					else if (aa == ((*it).x1) && bb == ((*it).y1))
+					{
+						if( x == ((*it).x2) && y == ((*it).y2) ) v2 =1;
+						else v2=0;						
+					}
+
+					//if(v2==0 || v2==1) break;
+
+				}
+
+				for (std::vector<HiddenEdge>::iterator it = front.he.begin(); it != front.he.end(); ++it)
+				{
+					if(x == ((*it).x1) && y == ((*it).y1))
+					{
+						if( aa == ((*it).x2) && bb == ((*it).y2) ) v2 =1;
+						else v2=0;
+					}
+
+					else if (aa == ((*it).x1) && bb == ((*it).y1))
+					{
+						if( x == ((*it).x2) && y == ((*it).y2) ) v2 =1;
+						else v2=0;						
+					}
+					//if(v2==0 || v2==1) break;
+
+				}
+			}
+
+//Left z-y
+			if( z==cc && y==bb)
+			{
+				v3 =1;
+			}
+			else
+			{
+				for (std::vector<VisibleEdge>::iterator it = left.ve.begin(); it != left.ve.end(); ++it)
+				{
+					if(z == ((*it).x1) && y == ((*it).y1))
+					{
+						if( cc == ((*it).x2) && bb == ((*it).y2) ) v3 =1;
+						else v3=0;
+					}
+
+					else if (cc == ((*it).x1) && bb == ((*it).y1))
+					{
+						if( bb == ((*it).x2) && y == ((*it).y2) ) v3 =1;
+						else v3=0;						
+					}
+
+					//if(v3==0 || v3==1) break;
+
+				}
+
+				for (std::vector<HiddenEdge>::iterator it = left.he.begin(); it != left.he.end(); ++it)
+				{
+					if(z == ((*it).x1) && y == ((*it).y1))
+					{
+						if( cc == ((*it).x2) && bb == ((*it).y2) ) v3 =1;
+						else v3=0;
+					}
+
+					else if (cc == ((*it).x1) && bb == ((*it).y1))
+					{
+						if( z == ((*it).x2) && y == ((*it).y2) ) v3 =1;
+						else v3=0;						
+					}
+					//if(v3==0 || v3==1) break;
+
+				}
+			}
+
+			if(v1 && v2 && v3)
+			{
+				;
+				//Add the edge.
+			}
+
+		}
+
+	}
+	for(int i=0; i < limit; i++ )
+	{
+		;
+
 		
 		
 	}
