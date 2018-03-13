@@ -144,9 +144,23 @@ class HiddenEdge
 	}
 };
 
+class Edge2D
+{
+	public:
+		double x1, y1;
+		double x2, y2;
+};
+
+class Plane2D
+{
+	public:
+		std::vector<Edge2D> plane;
+};
+
 
 //Assume that we have got the number of vertices.
 //Input Format (v1,v2,Label a)
+
 
 class TwoDBody
 {
