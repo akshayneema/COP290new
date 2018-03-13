@@ -504,8 +504,22 @@ void hiddenedgedetection(ThreeDBody threedbody, double a, double b, double c, do
 						temped.y2=(*itrr).y2;
 						temppl.plane.push_back(temped);
 					}
-					raycast(x1,y1,temppl);
-					raycast(x2,y2,temppl);
+					int point1=raycast(x1,y1,temppl);
+					int point2=raycast(x2,y2,temppl);
+					if(((point1==2)&&(point2==1))||((point2==2)&&(point1==1))||((point1==1)&&(point2==1)))//ek andar ek bahar aur dono andar
+					{
+						(*it).visibility=false;
+					}
+					else if((point1==2)&&(point2==2))//both the endpoints are on edge
+					{
+						double midx= (x1+x2)/2;
+						double midy= (y1+y2)/2;
+						int midray= raycast(midx, midy, temppl);
+						if(midray==1)
+						{
+							(*it).visibility=false;
+						}
+					}
 				}
 			}
 			//dono points k liye aage piche check
