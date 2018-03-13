@@ -13,6 +13,7 @@
 #include <string>
 #include <vector>
 #include <math.h>
+#include <set>
 std::vector<double> normalofplane(double a, double b, double c, double d)
 {
 	double temp= (a*a)+(b*b)+(c*c);
@@ -290,9 +291,9 @@ int raycast(double x, double y, Plane2D plane)// 0-> out 1->in 2-> on the line
 		double y2= plane.plane[i].y2;
 		if(((y-y1)*(x2-x1))==((y2-y1)*(x-x1)))
 		{
-			double d1= sqrt((y-y1)^2+(x-x1)^2);
-			double d2= sqrt((y2-y)^2+(x2-x)^2);
-			double d= sqrt((y2-y1)^2+(x2-x1)^2);
+			double d1= sqrt(pow((y-y1),2.0)+pow((x-x1),2.0));
+			double d2= sqrt(pow((y2-y),2.0)+pow((x2-x),2.0));
+			double d= sqrt(pow((y2-y1),2.0)+((x2-x1),2.0));
 			if(d1+d2==d)
 			{
 				return 2;
@@ -328,7 +329,7 @@ int raycast(double x, double y, Plane2D plane)// 0-> out 1->in 2-> on the line
 	{
 		std::vector<double> othery;
 
-		if((y==vertex.y)&&(x<vertex.x))
+		if((y==vertex[i].y)&&(x<vertex[i].x))
 		{
 			for(int j=0; j<plane.plane.size(); j++)
 			{
@@ -412,16 +413,17 @@ int raycast(double x, double y, Plane2D plane)// 0-> out 1->in 2-> on the line
 	
 	for(int i=0; i<plane.plane.size(); i++)
 	{
+		double x1= plane.plane[i].x1;
+		double y1= plane.plane[i].y1;
+		double x2= plane.plane[i].x2;
+		double y2= plane.plane[i].y2;
 		if(y2!=y1)
 		{
-			double x1= plane.plane[i].x1;
-			double y1= plane.plane[i].y1;
-			double x2= plane.plane[i].x2;
-			double y2= plane.plane[i].y2;
+			
 			double xintersect= ((y-y1)*(x2-x1)/(y2-y1))+x1;
-			double d1= sqrt((y-y1)^2+(xintersect-x1)^2);
-			double d2= sqrt((y2-y)^2+(x2-xintersect)^2);
-			double d= sqrt((y2-y1)^2+(x2-x1)^2);
+			double d1= sqrt(pow((y-y1),2.0)+pow((xintersect-x1),2.0));
+			double d2= sqrt(pow((y2-y),2.0)+pow((x2-xintersect),2.0));
+			double d= sqrt(pow((y2-y1),2.0)+pow((x2-x1),2.0));
 			if((d1>0)&&(d2>0)&&(d1+d2==d))
 			{
 				if(xintersect>x)
@@ -493,14 +495,14 @@ void hiddenedgedetection(ThreeDBody threedbody, double a, double b, double c, do
 				if((((tempz>0)&&(k1>0))||((tempz<0)&&(k1<0)))&&(((tempz>0)&&(k2>0))||((tempz<0)&&(k2<0))))//point 1 behind and point.2 behind
 				{
 					Plane2D temppl;
-					for (std::vector<Edge3D>::iterator itrr = (*itr).begin() ; itrr != (*itr).end(); itrr++)
+					for (std::vector<Edge3D>::iterator itrr = (*itr).plane.begin() ; itrr != (*itr).plane.end(); itrr++)
 					{
 						Edge2D temped;
 						temped.x1=(*itrr).x1;
 						temped.y1=(*itrr).y1;
 						temped.x2=(*itrr).x2;
 						temped.y2=(*itrr).y2;
-						temppl.push_back(temped);
+						temppl.plane.push_back(temped);
 					}
 					raycast(x1,y1,temppl);
 					raycast(x2,y2,temppl);
