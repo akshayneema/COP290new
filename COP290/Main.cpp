@@ -55,9 +55,10 @@ int main(int argc, char** argv){
 	//For Top View . SImilar ones required for other views.
 	{
 		{
+			//x-z View
 			//Vertices
 			temp.x =1;
-			temp.y =2;
+			temp.y =1;
 			vec_label_tmp.push_back("a");
 			vec_label_tmp.push_back("b");
 			vec_label_tmp.push_back("d");
@@ -81,6 +82,7 @@ int main(int argc, char** argv){
 	//For Front View . SImilar ones required for other views.
 	{
 		{
+			//x-y view
 			//Vertices
 			temp.x =1;
 			temp.y =2;
@@ -130,7 +132,7 @@ int main(int argc, char** argv){
 	}
 
 	threeDlabel(top,front,left);
-	
+
 	return 0;
 
 };

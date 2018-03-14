@@ -55,6 +55,8 @@ void threeDlabel (TwoDBody top,TwoDBody front,TwoDBody left) //,Labelled2D side
 					{
 						y = (*it).y;
 						labeler = asli; 
+
+						cout << y << endl;
 					}
 				}
 			}
