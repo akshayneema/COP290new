@@ -87,7 +87,9 @@ void threeDlabel (TwoDBody top,TwoDBody front,TwoDBody left) //,Labelled2D side
 		{
 			if(i<j) adj[i][j] = 1;
 			else adj[i][j]=0;
+			printf("%d",adj[i][j]);
 		}
+		printf("\n");
 	}
 
 	int x_1,y_1,z_1,x_2,y_2,z_2;

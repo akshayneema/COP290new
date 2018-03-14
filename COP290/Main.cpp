@@ -6,6 +6,10 @@
 #include "Reduce2DInput.h"
 #include "2Dto3D.h"
 #include "Recreate3DOutput.h"
+
+#include <string>
+#include <vector>
+#include <math.h>
 // GUI interface
 
 
@@ -28,12 +32,105 @@ void display() {
 //int main(std::ifstream &InputFile)
 int main(int argc, char** argv){
 
+/*
 	glutInit(&argc, argv);                 // Initialize GLUT
 	glutCreateWindow("OpenGL Setup Test"); // Create a window with the given title
 	glutInitWindowSize(640, 320);   // Set the window's initial width & height
 	glutInitWindowPosition(100, 50); // Position the window's initial top-left corner
 	glutDisplayFunc(display); // Register display callback handler for window re-paint
 	glutMainLoop();           // Enter the infinitely event-processing loop
+*/
+
+	TwoDBody top,front,left;
+	std::vector<Vertex2D> vobj;
+	std::vector<VisibleEdge> e1_obj;
+	std::vector<HiddenEdge> e2_obj;
+	Vertex2D temp;
+	VisibleEdge ve_temp;
+	HiddenEdge he_temp; 
+	vector<string> vec_label_tmp;
+
+	//vobj.push_back(temp);
+
+	//For Top View . SImilar ones required for other views.
+	{
+		{
+			//Vertices
+			temp.x =1;
+			temp.y =2;
+			vec_label_tmp.push_back("a");
+			vec_label_tmp.push_back("b");
+			vec_label_tmp.push_back("d");
+			temp.vec_label = vec_label_tmp ;
+
+			top.v.push_back(temp);
+		}
+
+		{
+			//Edges
+			ve_temp.x1 =1;
+			ve_temp.y1 =2;
+			ve_temp.x2 =3;
+			ve_temp.y2 =4;
+
+			top.ve.push_back(ve_temp);
+			
+		}
+	}
+
+	//For Front View . SImilar ones required for other views.
+	{
+		{
+			//Vertices
+			temp.x =1;
+			temp.y =2;
+			vec_label_tmp.push_back("a");
+			vec_label_tmp.push_back("b");
+			vec_label_tmp.push_back("d");
+			temp.vec_label = vec_label_tmp ;
+
+			front.v.push_back(temp);
+		}
+
+		{
+			//Edges
+			ve_temp.x1 =1;
+			ve_temp.y1 =2;
+			ve_temp.x2 =3;
+			ve_temp.y2 =4;
+
+			front.ve.push_back(ve_temp);
+			
+		}
+	}
+	//For Left View . SImilar ones required for other views.
+	{
+		{
+			//Vertices
+			temp.x =1;
+			temp.y =2;
+			vec_label_tmp.push_back("a");
+			vec_label_tmp.push_back("b");
+			vec_label_tmp.push_back("d");
+			temp.vec_label = vec_label_tmp ;
+
+			left.v.push_back(temp);
+		}
+
+		{
+			//Edges
+			ve_temp.x1 =1;
+			ve_temp.y1 =2;
+			ve_temp.x2 =3;
+			ve_temp.y2 =4;
+
+			left.ve.push_back(ve_temp);
+			
+		}
+	}
+
+	threeDlabel(top,front,left);
+	
 	return 0;
 
 };
