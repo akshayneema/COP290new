@@ -12,7 +12,7 @@
 #include <math.h>
 // GUI interface
 
-
+/*
 void display() {
 
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f); // Set background color to black and opaque
@@ -28,7 +28,7 @@ void display() {
  
 	glFlush();  // Render now
 };
-
+*/
 //int main(std::ifstream &InputFile)
 int main(int argc, char** argv){
 
@@ -61,20 +61,68 @@ int main(int argc, char** argv){
 			temp.y =1;
 			vec_label_tmp.push_back("a");
 			vec_label_tmp.push_back("b");
-			vec_label_tmp.push_back("d");
+			//vec_label_tmp.push_back("d");
 			temp.vec_label = vec_label_tmp ;
 
 			top.v.push_back(temp);
+			vec_label_tmp.clear();
+
+			temp.x =2;
+			temp.y =1;
+			vec_label_tmp.push_back("c");
+			vec_label_tmp.push_back("d");
+			//vec_label_tmp.push_back("d");
+			temp.vec_label = vec_label_tmp ;
+
+			top.v.push_back(temp);
+
+
+vec_label_tmp.clear();
+
+			temp.x =1;
+			temp.y =2;
+			vec_label_tmp.push_back("e");
+			vec_label_tmp.push_back("f");
+			//vec_label_tmp.push_back("d");
+			temp.vec_label = vec_label_tmp ;
+
+			top.v.push_back(temp);
+vec_label_tmp.clear();
+
+			temp.x =2;
+			temp.y =2;
+			vec_label_tmp.push_back("g");
+			vec_label_tmp.push_back("h");
+			//vec_label_tmp.push_back("d");
+			temp.vec_label = vec_label_tmp ;
+
+			top.v.push_back(temp);			
+vec_label_tmp.clear();
 		}
 
 		{
 			//Edges
 			ve_temp.x1 =1;
-			ve_temp.y1 =2;
-			ve_temp.x2 =3;
-			ve_temp.y2 =4;
+			ve_temp.y1 =1;
+			ve_temp.x2 =1;
+			ve_temp.y2 =2;
 
 			top.ve.push_back(ve_temp);
+
+			ve_temp.x2 =2;
+			ve_temp.y2 =1;
+
+			top.ve.push_back(ve_temp);
+
+			ve_temp.x1 =2;
+			ve_temp.y1 =2;
+			top.ve.push_back(ve_temp);
+
+			ve_temp.x2 =1;
+			ve_temp.y2 =2;
+
+			top.ve.push_back(ve_temp);
+
 			
 		}
 	}
@@ -85,24 +133,66 @@ int main(int argc, char** argv){
 			//x-y view
 			//Vertices
 			temp.x =1;
-			temp.y =2;
+			temp.y =1;
 			vec_label_tmp.push_back("a");
-			vec_label_tmp.push_back("b");
-			vec_label_tmp.push_back("d");
+			vec_label_tmp.push_back("e");
+			
 			temp.vec_label = vec_label_tmp ;
 
 			front.v.push_back(temp);
+vec_label_tmp.clear();
+			temp.x =1;
+			temp.y =2;
+			vec_label_tmp.push_back("b");
+			vec_label_tmp.push_back("f");
+			
+			temp.vec_label = vec_label_tmp ;
+
+			front.v.push_back(temp);
+vec_label_tmp.clear();
+			temp.x =2;
+			temp.y =1;
+			vec_label_tmp.push_back("c");
+			vec_label_tmp.push_back("g");
+			
+			temp.vec_label = vec_label_tmp ;
+
+			front.v.push_back(temp);
+vec_label_tmp.clear();
+			temp.x =2;
+			temp.y =2;
+			vec_label_tmp.push_back("d");
+			vec_label_tmp.push_back("h");
+			
+			temp.vec_label = vec_label_tmp ;
+
+			front.v.push_back(temp);
+
+vec_label_tmp.clear();									
 		}
 
 		{
 			//Edges
 			ve_temp.x1 =1;
-			ve_temp.y1 =2;
-			ve_temp.x2 =3;
-			ve_temp.y2 =4;
+			ve_temp.y1 =1;
+			ve_temp.x2 =1;
+			ve_temp.y2 =2;
 
 			front.ve.push_back(ve_temp);
-			
+
+			ve_temp.x2 =2;
+			ve_temp.y2 =1;
+
+			front.ve.push_back(ve_temp);
+
+			ve_temp.x1 =2;
+			ve_temp.y1 =2;
+			front.ve.push_back(ve_temp);
+
+			ve_temp.x2 =1;
+			ve_temp.y2 =2;
+
+			front.ve.push_back(ve_temp);			
 		}
 	}
 	//For Left View . SImilar ones required for other views.
@@ -110,23 +200,66 @@ int main(int argc, char** argv){
 		{
 			//Vertices
 			temp.x =1;
-			temp.y =2;
+			temp.y =1;
 			vec_label_tmp.push_back("a");
-			vec_label_tmp.push_back("b");
-			vec_label_tmp.push_back("d");
+			vec_label_tmp.push_back("c");
+			//vec_label_tmp.push_back("d");
 			temp.vec_label = vec_label_tmp ;
 
 			left.v.push_back(temp);
+vec_label_tmp.clear();
+			temp.x =1;
+			temp.y =2;
+			vec_label_tmp.push_back("b");
+			vec_label_tmp.push_back("d");
+			//vec_label_tmp.push_back("d");
+			temp.vec_label = vec_label_tmp ;
+
+			left.v.push_back(temp);
+vec_label_tmp.clear();
+			temp.x =2;
+			temp.y =1;
+			vec_label_tmp.push_back("e");
+			vec_label_tmp.push_back("g");
+			//vec_label_tmp.push_back("d");
+			temp.vec_label = vec_label_tmp ;
+
+			left.v.push_back(temp);
+vec_label_tmp.clear();
+			temp.x =2;
+			temp.y =2;
+			vec_label_tmp.push_back("f");
+			vec_label_tmp.push_back("h");
+			//vec_label_tmp.push_back("d");
+			temp.vec_label = vec_label_tmp ;
+
+			left.v.push_back(temp);	
+
+vec_label_tmp.clear();								
 		}
 
 		{
 			//Edges
 			ve_temp.x1 =1;
-			ve_temp.y1 =2;
-			ve_temp.x2 =3;
-			ve_temp.y2 =4;
+			ve_temp.y1 =1;
+			ve_temp.x2 =1;
+			ve_temp.y2 =2;
 
 			left.ve.push_back(ve_temp);
+
+			ve_temp.x2 =2;
+			ve_temp.y2 =1;
+
+			left.ve.push_back(ve_temp);
+
+			ve_temp.x1 =2;
+			ve_temp.y1 =2;
+			left.ve.push_back(ve_temp);
+
+			ve_temp.x2 =1;
+			ve_temp.y2 =2;
+
+			left.ve.push_back(ve_temp);			
 			
 		}
 	}
