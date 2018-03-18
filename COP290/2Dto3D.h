@@ -113,6 +113,7 @@ void threeDlabel (TwoDBody top,TwoDBody front,TwoDBody left) //,Labelled2D side
 
 	//cout<< left.ve.size()<<"  " <<108<<endl;
 	//cout<< left.ve.at(1).x1<<"  " <<109<<endl;
+/*	
 	for (int i = 0; i < limit; i++)
 	{
 		//cout<< left.ve.size()<<"  " <<112<<endl;
@@ -126,6 +127,8 @@ void threeDlabel (TwoDBody top,TwoDBody front,TwoDBody left) //,Labelled2D side
 		}
 		printf("\n");
 	}
+
+	*/
 
 	// cout<< 120<<endl;
 	// cout<< top.ve.size()<<"  " <<122<<endl;
@@ -168,8 +171,15 @@ cout << top.v.size() << endl;
 // top-> xz  front -> xy left -> zy
 		double aa,bb,cc;
 		int v1,v2,v3;
+		//bool atmp =false;
 
-		for (std::vector<Vertex3D>::iterator it = (++it_a); it != temp.v.end(); ++it)
+		std::vector<Vertex3D>::iterator it = (it_a);
+		
+		
+
+		if(it == temp.v.end()) break;
+
+		for (it = ++it; it != temp.v.end() ; ++it)
 		{
 			//cout << 151 <<endl;
 			
