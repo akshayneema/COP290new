@@ -48,9 +48,14 @@ int main(int argc, char** argv){
 	//char output[100];
 	TwoDBody top,front,left;
 
-	Vertex2D v_temp;
-	VisibleEdge e_temp;
+	Vertex2D v_temp2D;
+	VisibleEdge e_temp2D;
 	vector<string> vec_label_tmp;
+
+	Vertex3D v_temp3D;
+	Edge3D e_temp3D;
+	Plane3D p_temp3D;
+
 	string output;
 
 	if (inFile.is_open()) 
@@ -64,95 +69,239 @@ int main(int argc, char** argv){
 			else cout << "Try Again" <<endl;
 
 		}
-		while(type == 1 && !inFile.eof())
-		{
-			inFile >> output;
-			//cout<<output<<endl;
 
-			transform(output.begin(), output.end(), output.begin(), ::tolower);
-			string view_type = output;
-			TwoDBody temp;
-
-			inFile >> output;
-			inFile >> output;
-
-			while (!inFile.eof()) 
+		if(type==1)
+		{	
+			while(!inFile.eof())
 			{
+				inFile >> output;
+				//cout<<output<<endl;
 
-				//v_temp.x = atof(output);
-				v_temp.x = atof (output.c_str());
+				transform(output.begin(), output.end(), output.begin(), ::tolower);
+				string view_type = output;
+				TwoDBody temp;
+
 				inFile >> output;
-				v_temp.y = atof(output.c_str());
 				inFile >> output;
-				inFile >> output;
-				while(output != "]")
-				{	
-					vec_label_tmp.push_back(output);
+
+				while (!inFile.eof()) 
+				{
+
+					//v_temp2D.x = atof(output);
+					v_temp2D.x = atof (output.c_str());
 					inFile >> output;
+					v_temp2D.y = atof(output.c_str());
+					inFile >> output;
+					inFile >> output;
+					while(output != "]")
+					{	
+						vec_label_tmp.push_back(output);
+						inFile >> output;
+					}
+					v_temp2D.vec_label = vec_label_tmp;
+					temp.v.push_back(v_temp2D);
+
+					vec_label_tmp.clear();
+
+					inFile >> output;
+					if(output == ";") break;
+				
+
 				}
-				v_temp.vec_label = vec_label_tmp;
-				temp.v.push_back(v_temp);
-
-				vec_label_tmp.clear();
 
 				inFile >> output;
-				if(output == ";") break;
-			
-
-			}
-
-			inFile >> output;
-			
-			//cout << output <<endl;
-			inFile >> output;
-
-			while (!inFile.eof()) 
-			{
-				e_temp.x1 = atof (output.c_str());
+				
+				//cout << output <<endl;
 				inFile >> output;
-				e_temp.y1 = atof(output.c_str());
-				inFile >> output;
-				e_temp.x2 = atof (output.c_str());
-				inFile >> output;
-				e_temp.y2 = atof(output.c_str());
 
-				temp.ve.push_back(e_temp);
+				while (!inFile.eof()) 
+				{
+					e_temp2D.x1 = atof (output.c_str());
+					inFile >> output;
+					e_temp2D.y1 = atof(output.c_str());
+					inFile >> output;
+					e_temp2D.x2 = atof (output.c_str());
+					inFile >> output;
+					e_temp2D.y2 = atof(output.c_str());
 
-				inFile >> output;
-				if(output == ";;") break;
+					temp.ve.push_back(e_temp2D);
+
+					inFile >> output;
+					if(output == ";;") break;
+				}
+
+				//inFile >> output;
+				//cout << output <<endl;
+
+				if(view_type == "top")
+				{
+					//cout << "Stop" << endl;
+					top = temp;
+				}
+				else if(view_type == "front")
+				{
+					//cout << "Stop2" << endl;
+					front = temp;
+				}
+				else if(view_type == "left")
+				{
+					//cout << "Stop3" << endl;
+					left = temp;
+				}
+				else 
+				{
+					cout << "Something Wrong" << endl;
+				}
+
 			}
 
-			//inFile >> output;
-			//cout << output <<endl;
-
-			if(view_type == "top")
-			{
-				//cout << "Stop" << endl;
-				top = temp;
-			}
-			else if(view_type == "front")
-			{
-				//cout << "Stop2" << endl;
-				front = temp;
-			}
-			else if(view_type == "left")
-			{
-				//cout << "Stop3" << endl;
-				left = temp;
-			}
-			else 
-			{
-				cout << "Something Wrong" << endl;
-			}
-
+			threeDlabel(top,front,left);
 		}
 
-	}
+		else if(type==2)
+		{
+			ThreeDBody temp;
+			double aq,sw,de,fr;
+			while(!inFile.eof())
+			{
+				
 
-	threeDlabel(top,front,left);
+				inFile >> output;
+				inFile >> output;
+
+				while (!inFile.eof()) 
+				{
+
+					//v_temp2D.x = atof(output);
+					v_temp3D.x = atof (output.c_str());
+					inFile >> output;
+					v_temp3D.y = atof(output.c_str());
+					inFile >> output;
+					v_temp3D.z = atof(output.c_str());
+					//inFile >> output;
+					//inFile >> output;
+					
+					temp.v.push_back(v_temp3D);
+
+
+					inFile >> output;
+					if(output == ";") break;
+				
+
+				}
+
+				inFile >> output;
+				
+				//cout << output <<endl;
+				inFile >> output;
+
+				while (!inFile.eof()) 
+				{
+					e_temp3D.x1 = atof (output.c_str());
+					inFile >> output;
+					e_temp3D.y1 = atof(output.c_str());
+					inFile >> output;
+					e_temp3D.z1 = atof(output.c_str());
+					inFile >> output;
+					e_temp3D.x2 = atof (output.c_str());
+					inFile >> output;
+					e_temp3D.y2 = atof(output.c_str());
+					inFile >> output;
+					e_temp3D.z2 = atof(output.c_str());
+
+					temp.e.push_back(e_temp3D);
+
+					inFile >> output;
+					if(output == ";;") break;
+				}
+
+				inFile >> output;
+				inFile >> output;
+				//boolean bigClos = true;
+
+				std::vector<Edge3D> plane;
+
+				while(true)
+				{
+					while(true)
+					{
+						
+
+						inFile >> output;
+
+						e_temp3D.x1 = atof (output.c_str());
+						inFile >> output;
+						e_temp3D.y1 = atof(output.c_str());
+						inFile >> output;
+						e_temp3D.z1 = atof(output.c_str());
+						inFile >> output;
+						e_temp3D.x2 = atof (output.c_str());
+						inFile >> output;
+						e_temp3D.y2 = atof(output.c_str());
+						inFile >> output;
+						e_temp3D.z2 = atof(output.c_str());
+						inFile >> output;
+
+						inFile >> output;
+
+						plane.push_back(e_temp3D);
+						if(output == "]") break;
+
+
+					}
+					Plane3D pl;
+					pl.plane=plane;
+					temp.p.push_back(pl);
+
+					inFile >> output;
+					if(output == ";;;") break;
+
+
+					inFile >> output;
+
+
+				}
+
+				
+
+				inFile >> output;
+				aq = atof (output.c_str());
+
+				inFile >> output;
+				sw = atof (output.c_str());
+
+				inFile >> output;
+				de = atof (output.c_str());
+
+				inFile >> output;
+				fr = atof (output.c_str());
+
+
+
+			}
+			rotate3D(temp,normalofplane(aq,sw,de,fr));
+			hiddenedgedetection(temp, aq,sw,de,fr);
+			TwoDBody twdb;
+			twdb=TopView(temp);
+			auto app = Gtk::Application::create(argc, argv, "org.gtkmm.example");
+
+		   Gtk::Window win;
+		   win.set_title("AutoCad");
+
+		   MyArea area;
+		   win.add(area);
+		   area.show();
+
+		   return app->run(win);
+
+
+			
+		}
+	}
 
 	return 0;
 }
+
 
 /*
 //int main(std::ifstream &InputFile)
@@ -438,8 +587,8 @@ int main(int argc, char** argv){
 // 	std::vector<VisibleEdge> e1_obj;
 // 	std::vector<HiddenEdge> e2_obj;
 // 	Vertex2D temp;
-// 	VisibleEdge ve_temp;
-// 	HiddenEdge he_temp; 
+// 	VisibleEdge ve_temp2D;
+// 	HiddenEdge he_temp2D; 
 // 	vector<string> vec_label_tmp;
 
 // 	//vobj.push_back(temp);
@@ -527,44 +676,44 @@ int main(int argc, char** argv){
 <<<<<<< HEAD
 // 		{
 // 			//Edges
-// 			ve_temp.x1 =1;
-// 			ve_temp.y1 =1;
-// 			ve_temp.x2 =1;
-// 			ve_temp.y2 =2;
+// 			ve_temp2D.x1 =1;
+// 			ve_temp2D.y1 =1;
+// 			ve_temp2D.x2 =1;
+// 			ve_temp2D.y2 =2;
 =======
 		{
 			//Edges
-			ve_temp.x1 =0.6;
-			ve_temp.y1 =0.6;
-			ve_temp.x2 =0.6;
-			ve_temp.y2 =2;
+			ve_temp2D.x1 =0.6;
+			ve_temp2D.y1 =0.6;
+			ve_temp2D.x2 =0.6;
+			ve_temp2D.y2 =2;
 >>>>>>> 3069c33604abf2d7abdbcdb45af4677a2e0114e0
 
-// 			top.ve.push_back(ve_temp);
+// 			top.ve.push_back(ve_temp2D);
 
 <<<<<<< HEAD
-// 			ve_temp.x2 =2;
-// 			ve_temp.y2 =1;
+// 			ve_temp2D.x2 =2;
+// 			ve_temp2D.y2 =1;
 =======
-			ve_temp.x2 =2;
-			ve_temp.y2 =0.6;
+			ve_temp2D.x2 =2;
+			ve_temp2D.y2 =0.6;
 >>>>>>> 3069c33604abf2d7abdbcdb45af4677a2e0114e0
 
-// 			top.ve.push_back(ve_temp);
+// 			top.ve.push_back(ve_temp2D);
 
-// 			ve_temp.x1 =2;
-// 			ve_temp.y1 =2;
-// 			top.ve.push_back(ve_temp);
+// 			ve_temp2D.x1 =2;
+// 			ve_temp2D.y1 =2;
+// 			top.ve.push_back(ve_temp2D);
 
 <<<<<<< HEAD
-// 			ve_temp.x2 =1;
-// 			ve_temp.y2 =2;
+// 			ve_temp2D.x2 =1;
+// 			ve_temp2D.y2 =2;
 =======
-			ve_temp.x2 =0.6;
-			ve_temp.y2 =2;
+			ve_temp2D.x2 =0.6;
+			ve_temp2D.y2 =2;
 >>>>>>> 3069c33604abf2d7abdbcdb45af4677a2e0114e0
 
-// 			top.ve.push_back(ve_temp);
+// 			top.ve.push_back(ve_temp2D);
 
 			
 <<<<<<< HEAD
@@ -650,26 +799,26 @@ vec_label_tmp.clear();
 
 // 		{
 // 			//Edges
-// 			ve_temp.x1 =1;
-// 			ve_temp.y1 =1;
-// 			ve_temp.x2 =1;
-// 			ve_temp.y2 =2;
+// 			ve_temp2D.x1 =1;
+// 			ve_temp2D.y1 =1;
+// 			ve_temp2D.x2 =1;
+// 			ve_temp2D.y2 =2;
 
-// 			front.ve.push_back(ve_temp);
+// 			front.ve.push_back(ve_temp2D);
 
-// 			ve_temp.x2 =2;
-// 			ve_temp.y2 =1;
+// 			ve_temp2D.x2 =2;
+// 			ve_temp2D.y2 =1;
 
-// 			front.ve.push_back(ve_temp);
+// 			front.ve.push_back(ve_temp2D);
 
-// 			ve_temp.x1 =2;
-// 			ve_temp.y1 =2;
-// 			front.ve.push_back(ve_temp);
+// 			ve_temp2D.x1 =2;
+// 			ve_temp2D.y1 =2;
+// 			front.ve.push_back(ve_temp2D);
 
-// 			ve_temp.x2 =1;
-// 			ve_temp.y2 =2;
+// 			ve_temp2D.x2 =1;
+// 			ve_temp2D.y2 =2;
 
-// 			front.ve.push_back(ve_temp);			
+// 			front.ve.push_back(ve_temp2D);			
 // 		}
 // 	}
 // 	//For Left View . SImilar ones required for other views.
@@ -717,26 +866,26 @@ vec_label_tmp.clear();
 
 // 		{
 // 			//Edges
-// 			ve_temp.x1 =1;
-// 			ve_temp.y1 =1;
-// 			ve_temp.x2 =1;
-// 			ve_temp.y2 =2;
+// 			ve_temp2D.x1 =1;
+// 			ve_temp2D.y1 =1;
+// 			ve_temp2D.x2 =1;
+// 			ve_temp2D.y2 =2;
 
-// 			left.ve.push_back(ve_temp);
+// 			left.ve.push_back(ve_temp2D);
 
-// 			ve_temp.x2 =2;
-// 			ve_temp.y2 =1;
+// 			ve_temp2D.x2 =2;
+// 			ve_temp2D.y2 =1;
 
-// 			left.ve.push_back(ve_temp);
+// 			left.ve.push_back(ve_temp2D);
 
-// 			ve_temp.x1 =2;
-// 			ve_temp.y1 =2;
-// 			left.ve.push_back(ve_temp);
+// 			ve_temp2D.x1 =2;
+// 			ve_temp2D.y1 =2;
+// 			left.ve.push_back(ve_temp2D);
 
-// 			ve_temp.x2 =1;
-// 			ve_temp.y2 =2;
+// 			ve_temp2D.x2 =1;
+// 			ve_temp2D.y2 =2;
 
-// 			left.ve.push_back(ve_temp);			
+// 			left.ve.push_back(ve_temp2D);			
 =======
 			temp.vec_label = vec_label_tmp ;
 
@@ -747,26 +896,26 @@ vec_label_tmp.clear();
 
 		{
 			//Edges
-			ve_temp.x1 =0.6;
-			ve_temp.y1 =0.6;
-			ve_temp.x2 =0.6;
-			ve_temp.y2 =2;
+			ve_temp2D.x1 =0.6;
+			ve_temp2D.y1 =0.6;
+			ve_temp2D.x2 =0.6;
+			ve_temp2D.y2 =2;
 
-			front.ve.push_back(ve_temp);
+			front.ve.push_back(ve_temp2D);
 
-			ve_temp.x2 =2;
-			ve_temp.y2 =0.6;
+			ve_temp2D.x2 =2;
+			ve_temp2D.y2 =0.6;
 
-			front.ve.push_back(ve_temp);
+			front.ve.push_back(ve_temp2D);
 
-			ve_temp.x1 =2;
-			ve_temp.y1 =2;
-			front.ve.push_back(ve_temp);
+			ve_temp2D.x1 =2;
+			ve_temp2D.y1 =2;
+			front.ve.push_back(ve_temp2D);
 
-			ve_temp.x2 =0.6;
-			ve_temp.y2 =2;
+			ve_temp2D.x2 =0.6;
+			ve_temp2D.y2 =2;
 
-			front.ve.push_back(ve_temp);			
+			front.ve.push_back(ve_temp2D);			
 		}
 	}
 	//For Left View . SImilar ones required for other views.
@@ -814,26 +963,26 @@ vec_label_tmp.clear();
 
 		{
 			//Edges
-			ve_temp.x1 =0.6;
-			ve_temp.y1 =0.6;
-			ve_temp.x2 =0.6;
-			ve_temp.y2 =2;
+			ve_temp2D.x1 =0.6;
+			ve_temp2D.y1 =0.6;
+			ve_temp2D.x2 =0.6;
+			ve_temp2D.y2 =2;
 
-			left.ve.push_back(ve_temp);
+			left.ve.push_back(ve_temp2D);
 
-			ve_temp.x2 =2;
-			ve_temp.y2 =0.6;
+			ve_temp2D.x2 =2;
+			ve_temp2D.y2 =0.6;
 
-			left.ve.push_back(ve_temp);
+			left.ve.push_back(ve_temp2D);
 
-			ve_temp.x1 =2;
-			ve_temp.y1 =2;
-			left.ve.push_back(ve_temp);
+			ve_temp2D.x1 =2;
+			ve_temp2D.y1 =2;
+			left.ve.push_back(ve_temp2D);
 
-			ve_temp.x2 =0.6;
-			ve_temp.y2 =2;
+			ve_temp2D.x2 =0.6;
+			ve_temp2D.y2 =2;
 
-			left.ve.push_back(ve_temp);			
+			left.ve.push_back(ve_temp2D);			
 >>>>>>> 3069c33604abf2d7abdbcdb45af4677a2e0114e0
 			
 // 		}

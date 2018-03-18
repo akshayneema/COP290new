@@ -18,6 +18,10 @@ of the object.
 git clone <url>
 sudo apt-get install freeglut3 freeglut3-dev 
 sudo apt-get install mesa-common-dev libgtkmm-3.0-dev
-g++ -c -o Main.o Main.cpp
-g++ -o Main Main.o -lglut -lGLU -lGL 
+g++ -c -o Main.o Main.cpp `pkg-config gtkmm-3.0 --cflags --libs`
+g++ -o Main Main.o `pkg-config gtkmm-3.0 --cflags --libs`
 ./Main
+
+or
+
+g++ Main.cpp `pkg-config gtkmm-3.0 --cflags --libs`
