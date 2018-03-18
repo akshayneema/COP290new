@@ -155,7 +155,7 @@ void threeDlabel (TwoDBody top,TwoDBody front,TwoDBody left) //,Labelled2D side
 	}	
 */
 //cout<< left.ve.size()<<136<<endl;
-cout << top.v.size() << endl;
+//cout << top.v.size() << endl;
 
 
 	for (std::vector<Vertex3D>::iterator it_a = temp.v.begin(); it_a != temp.v.end(); ++it_a)
@@ -165,7 +165,7 @@ cout << top.v.size() << endl;
 		z = (*it_a).z ;
 
 		//cout << 143 <<endl;
-		cout << (*it_a).str << endl;
+		//cout << (*it_a).str << endl;
 		
 
 // top-> xz  front -> xy left -> zy
@@ -358,66 +358,7 @@ cout << top.v.size() << endl;
 		}
 
 	}
-
-	/*
-	for(int i=0; i < limit; i++ )
-	{
-		;
-
-		
-		
-	}*/
-
 }
-
-
-// class AdjacencyMatrix
-// {
-//     private:
-//         int n;
-//         int **adj;
-//         bool *visited;
-//     public:
-//         AdjacencyMatrix(int n)
-//         {
-//             this->n = n;
-//             visited = new bool [n];
-//             adj = new int* [n];
-//             for (int i = 0; i < n; i++)
-//             {
-//                 adj[i] = new int [n];
-//                 for(int j = 0; j < n; j++)
-//                 {
-//                     adj[i][j] = 0;
-//                 }
-//             }
-//         }
-
-//         void add_edge(int origin, int destin)
-//         {
-//             if( origin > n || destin > n || origin < 0 || destin < 0)
-//             {   
-//                 cout<<"Invalid edge!\n";
-//             }
-//             else
-//             {
-//                 adj[origin - 1][destin - 1] = 1;
-//             }
-//         }
-//         /*
-//          * Print the graph
-//          */ 
-//         void display()
-//         {
-//             int i,j;
-//             for(i = 0;i < n;i++)
-//             {
-//                 for(j = 0; j < n; j++)
-//                     cout<<adj[i][j]<<"  ";
-//                 cout<<endl;
-//             }
-//         }
-// };
 
 
 

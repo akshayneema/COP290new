@@ -41,7 +41,7 @@ void display() {
 
 int main(int argc, char** argv){
 	ifstream inFile;
-	inFile.open("test.txt");
+	inFile.open("testP.txt");
 
 	int type=0; 
 
