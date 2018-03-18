@@ -41,11 +41,9 @@ void display() {
 
 int main(int argc, char** argv){
 	ifstream inFile;
-<<<<<<< HEAD
-	inFile.open("testP.txt");
-=======
+
 	inFile.open("3dip.txt");
->>>>>>> e027de3d275ae66f8b27d338a69d56d1f2ec9390
+
 
 	int type=0; 
 
@@ -597,7 +595,6 @@ int main(int argc, char** argv){
 
 // 	//vobj.push_back(temp);
 
-<<<<<<< HEAD
 // 	//For Top View . SImilar ones required for other views.
 // 	{
 // 		{
@@ -609,99 +606,45 @@ int main(int argc, char** argv){
 // 			vec_label_tmp.push_back("b");
 // 			//vec_label_tmp.push_back("d");
 // 			temp.vec_label = vec_label_tmp ;
-=======
-	//For Top View . SImilar ones required for other views.
-	{
-		{
-			//x-z View
-			//Vertices
-			temp.x =0.6;
-			temp.y =0.6;
-			vec_label_tmp.push_back("a");
-			vec_label_tmp.push_back("b");
-			//vec_label_tmp.push_back("d");
-			temp.vec_label = vec_label_tmp ;
->>>>>>> 3069c33604abf2d7abdbcdb45af4677a2e0114e0
 
 // 			top.v.push_back(temp);
 // 			vec_label_tmp.clear();
 
-<<<<<<< HEAD
 // 			temp.x =2;
 // 			temp.y =1;
 // 			vec_label_tmp.push_back("c");
 // 			vec_label_tmp.push_back("d");
 // 			//vec_label_tmp.push_back("d");
 // 			temp.vec_label = vec_label_tmp ;
-=======
-			temp.x =2;
-			temp.y =0.6;
-			vec_label_tmp.push_back("c");
-			vec_label_tmp.push_back("d");
-			//vec_label_tmp.push_back("d");
-			temp.vec_label = vec_label_tmp ;
->>>>>>> 3069c33604abf2d7abdbcdb45af4677a2e0114e0
 
 // 			top.v.push_back(temp);
 
 
 // vec_label_tmp.clear();
 
-<<<<<<< HEAD
-// 			temp.x =1;
 // 			temp.y =2;
 // 			vec_label_tmp.push_back("e");
 // 			vec_label_tmp.push_back("f");
 // 			//vec_label_tmp.push_back("d");
 // 			temp.vec_label = vec_label_tmp ;
-=======
-			temp.x =0.6;
-			temp.y =2;
-			vec_label_tmp.push_back("e");
-			vec_label_tmp.push_back("f");
-			//vec_label_tmp.push_back("d");
-			temp.vec_label = vec_label_tmp ;
->>>>>>> 3069c33604abf2d7abdbcdb45af4677a2e0114e0
 
-// 			top.v.push_back(temp);
-// vec_label_tmp.clear();
-
-// 			temp.x =2;
-// 			temp.y =2;
-// 			vec_label_tmp.push_back("g");
-// 			vec_label_tmp.push_back("h");
-// 			//vec_label_tmp.push_back("d");
 // 			temp.vec_label = vec_label_tmp ;
 
 // 			top.v.push_back(temp);			
 // vec_label_tmp.clear();
 // 		}
 
-<<<<<<< HEAD
 // 		{
 // 			//Edges
 // 			ve_temp2D.x1 =1;
 // 			ve_temp2D.y1 =1;
 // 			ve_temp2D.x2 =1;
 // 			ve_temp2D.y2 =2;
-=======
-		{
-			//Edges
-			ve_temp2D.x1 =0.6;
-			ve_temp2D.y1 =0.6;
-			ve_temp2D.x2 =0.6;
-			ve_temp2D.y2 =2;
->>>>>>> 3069c33604abf2d7abdbcdb45af4677a2e0114e0
 
 // 			top.ve.push_back(ve_temp2D);
 
-<<<<<<< HEAD
 // 			ve_temp2D.x2 =2;
 // 			ve_temp2D.y2 =1;
-=======
-			ve_temp2D.x2 =2;
-			ve_temp2D.y2 =0.6;
->>>>>>> 3069c33604abf2d7abdbcdb45af4677a2e0114e0
 
 // 			top.ve.push_back(ve_temp2D);
 
@@ -709,18 +652,12 @@ int main(int argc, char** argv){
 // 			ve_temp2D.y1 =2;
 // 			top.ve.push_back(ve_temp2D);
 
-<<<<<<< HEAD
 // 			ve_temp2D.x2 =1;
 // 			ve_temp2D.y2 =2;
-=======
-			ve_temp2D.x2 =0.6;
-			ve_temp2D.y2 =2;
->>>>>>> 3069c33604abf2d7abdbcdb45af4677a2e0114e0
 
 // 			top.ve.push_back(ve_temp2D);
 
 			
-<<<<<<< HEAD
 // 		}
 // 	}
 
@@ -751,38 +688,6 @@ int main(int argc, char** argv){
 // 			temp.y =1;
 // 			vec_label_tmp.push_back("c");
 // 			vec_label_tmp.push_back("g");
-=======
-		}
-	}
-
-	//For Front View . SImilar ones required for other views.
-	{
-		{
-			//x-y view
-			//Vertices
-			temp.x =0.6;
-			temp.y =0.6;
-			vec_label_tmp.push_back("a");
-			vec_label_tmp.push_back("e");
-			
-			temp.vec_label = vec_label_tmp ;
-
-			front.v.push_back(temp);
-vec_label_tmp.clear();
-			temp.x =0.6;
-			temp.y =2;
-			vec_label_tmp.push_back("b");
-			vec_label_tmp.push_back("f");
-			
-			temp.vec_label = vec_label_tmp ;
-
-			front.v.push_back(temp);
-vec_label_tmp.clear();
-			temp.x =2;
-			temp.y =0.6;
-			vec_label_tmp.push_back("c");
-			vec_label_tmp.push_back("g");
->>>>>>> 3069c33604abf2d7abdbcdb45af4677a2e0114e0
 			
 // 			temp.vec_label = vec_label_tmp ;
 
@@ -793,7 +698,6 @@ vec_label_tmp.clear();
 // 			vec_label_tmp.push_back("d");
 // 			vec_label_tmp.push_back("h");
 			
-<<<<<<< HEAD
 // 			temp.vec_label = vec_label_tmp ;
 
 // 			front.v.push_back(temp);
@@ -890,104 +794,6 @@ vec_label_tmp.clear();
 // 			ve_temp2D.y2 =2;
 
 // 			left.ve.push_back(ve_temp2D);			
-=======
-			temp.vec_label = vec_label_tmp ;
-
-			front.v.push_back(temp);
-
-vec_label_tmp.clear();									
-		}
-
-		{
-			//Edges
-			ve_temp2D.x1 =0.6;
-			ve_temp2D.y1 =0.6;
-			ve_temp2D.x2 =0.6;
-			ve_temp2D.y2 =2;
-
-			front.ve.push_back(ve_temp2D);
-
-			ve_temp2D.x2 =2;
-			ve_temp2D.y2 =0.6;
-
-			front.ve.push_back(ve_temp2D);
-
-			ve_temp2D.x1 =2;
-			ve_temp2D.y1 =2;
-			front.ve.push_back(ve_temp2D);
-
-			ve_temp2D.x2 =0.6;
-			ve_temp2D.y2 =2;
-
-			front.ve.push_back(ve_temp2D);			
-		}
-	}
-	//For Left View . SImilar ones required for other views.
-	{
-		{
-			//Vertices
-			temp.x =0.6;
-			temp.y =0.6;
-			vec_label_tmp.push_back("a");
-			vec_label_tmp.push_back("c");
-			//vec_label_tmp.push_back("d");
-			temp.vec_label = vec_label_tmp ;
-
-			left.v.push_back(temp);
-vec_label_tmp.clear();
-			temp.x =0.6;
-			temp.y =2;
-			vec_label_tmp.push_back("b");
-			vec_label_tmp.push_back("d");
-			//vec_label_tmp.push_back("d");
-			temp.vec_label = vec_label_tmp ;
-
-			left.v.push_back(temp);
-vec_label_tmp.clear();
-			temp.x =2;
-			temp.y =0.6;
-			vec_label_tmp.push_back("e");
-			vec_label_tmp.push_back("g");
-			//vec_label_tmp.push_back("d");
-			temp.vec_label = vec_label_tmp ;
-
-			left.v.push_back(temp);
-vec_label_tmp.clear();
-			temp.x =2;
-			temp.y =2;
-			vec_label_tmp.push_back("f");
-			vec_label_tmp.push_back("h");
-			//vec_label_tmp.push_back("d");
-			temp.vec_label = vec_label_tmp ;
-
-			left.v.push_back(temp);	
-
-vec_label_tmp.clear();								
-		}
-
-		{
-			//Edges
-			ve_temp2D.x1 =0.6;
-			ve_temp2D.y1 =0.6;
-			ve_temp2D.x2 =0.6;
-			ve_temp2D.y2 =2;
-
-			left.ve.push_back(ve_temp2D);
-
-			ve_temp2D.x2 =2;
-			ve_temp2D.y2 =0.6;
-
-			left.ve.push_back(ve_temp2D);
-
-			ve_temp2D.x1 =2;
-			ve_temp2D.y1 =2;
-			left.ve.push_back(ve_temp2D);
-
-			ve_temp2D.x2 =0.6;
-			ve_temp2D.y2 =2;
-
-			left.ve.push_back(ve_temp2D);			
->>>>>>> 3069c33604abf2d7abdbcdb45af4677a2e0114e0
 			
 // 		}
 // 	}
