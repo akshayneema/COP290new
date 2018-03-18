@@ -41,7 +41,11 @@ void display() {
 
 int main(int argc, char** argv){
 	ifstream inFile;
+<<<<<<< HEAD
 	inFile.open("testP.txt");
+=======
+	inFile.open("3dip.txt");
+>>>>>>> e027de3d275ae66f8b27d338a69d56d1f2ec9390
 
 	int type=0; 
 
