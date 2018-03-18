@@ -4,8 +4,8 @@
 #endif
 
 #include <iostream>
-#include <fstream>
-#include <string>
+#include "myarea.h"
+#include <cairomm/context.h>
 void recreate2D(TwoDBody twodbody)
 {
 	//recreate 2d image to its displayable file

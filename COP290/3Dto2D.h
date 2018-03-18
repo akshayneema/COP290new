@@ -14,6 +14,9 @@
 #include <vector>
 #include <math.h>
 #include <set>
+#include "myarea.h"
+#include <cairomm/context.h>
+TwoDBody twodbodyy;
 std::vector<double> normalofplane(double a, double b, double c, double d)
 {
 	double temp= (a*a)+(b*b)+(c*c);
@@ -680,7 +683,7 @@ void hiddenedgedetection(ThreeDBody &threedbody, double a, double b, double c, d
 	}//for every edge classifies it into hidden-part and visible-part and updates vertices accordingly
 	threedbody.e=tempe;
 }
-TwoDBody TopView(ThreeDBody threedbody)
+TwoDBody TopView(ThreeDBody &threedbody)
 {
 	TwoDBody twodbody;
 	for (std::vector<Vertex3D>::iterator it = threedbody.v.begin() ; it != threedbody.v.end(); it++)
@@ -690,24 +693,147 @@ TwoDBody TopView(ThreeDBody threedbody)
 		vobj.y=(*it).y;
 		twodbody.v.push_back(vobj);
 	}
-	for (std::vector<VisibleEdge3D>::iterator it = threedbody.ve.begin() ; it != threedbody.ve.end(); it++)
+	for (std::vector<Edge3D>::iterator it = threedbody.e.begin() ; it != threedbody.e.end(); it++)
 	{
-		VisibleEdge veobj;
-		veobj.x1=(*it).x1;
-		veobj.y1=(*it).y1;
-		veobj.x2=(*it).x2;
-		veobj.y2=(*it).y2;
-		twodbody.ve.push_back(veobj);
+		Edge2D eobj;
+		eobj.x1=(*it).x1;
+		eobj.y1=(*it).y1;
+		eobj.x2=(*it).x2;
+		eobj.y2=(*it).y2;
+		eobj.visibility=(*it).visibility;
+		twodbody.e.push_back(eobj);
 	}
-	for (std::vector<HiddenEdge3D>::iterator it = threedbody.he.begin() ; it != threedbody.he.end(); it++)
-	{
-		HiddenEdge heobj;
-		heobj.x1=(*it).x1;
-		heobj.y1=(*it).y1;
-		heobj.x2=(*it).x2;
-		heobj.y2=(*it).y2;
-		twodbody.he.push_back(heobj);
-	}
+	// for (std::vector<HiddenEdge3D>::iterator it = threedbody.he.begin() ; it != threedbody.he.end(); it++)
+	// {
+	// 	HiddenEdge heobj;
+	// 	heobj.x1=(*it).x1;
+	// 	heobj.y1=(*it).y1;
+	// 	heobj.x2=(*it).x2;
+	// 	heobj.y2=(*it).y2;
+	// 	twodbody.he.push_back(heobj);
+	// }
+	twodbodyy=twodbody;
 	return twodbody;
 	//takes top view of all the vertices, hidden edges and visible edges
 }
+MyArea::MyArea()
+{
+}
+
+MyArea::~MyArea()
+{
+}
+bool MyArea::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
+{
+  Gtk::Allocation allocation = get_allocation();
+  const int width = allocation.get_width();
+  const int height = allocation.get_height();
+
+  // coordinates for the center of the window
+  int xc, yc;
+  xc = width / 2;
+  yc = height / 2;
+
+  cr->set_line_width(2.0);
+
+  // draw red lines out from the center of the window
+  // cr->set_source_rgb(0.0, 0.0, 0.0);
+  // cr->move_to(0, 0);
+  // cr->line_to(100.5, 100.5);
+  // cr->move_to(0,0);
+  // cr->line_to(1,1);
+  for (std::vector<Edge2D>::iterator it = twodbodyy.e.begin() ; it != twodbodyy.e.end(); it++)
+	{
+		if((*it).visibility==1)
+		{
+			// cr->set_dash({10, 5}, 0);
+			cr->move_to(100*(*it).x1+xc, 100*(*it).y1+yc);
+  			cr->line_to(100*(*it).x2+xc,100*(*it).y2+yc);
+  			cr->stroke();
+  			// cr->restore();
+		}
+		else
+		{
+			std::vector<double> vec;
+			vec.push_back(10.0);
+			vec.push_back(5.0);
+			cr->set_dash(vec, 0);
+			cr->move_to(100*(*it).x1+xc, 100*(*it).y1+yc);
+  			cr->line_to(100*(*it).x2+xc,100*(*it).y2+yc);
+  			cr->stroke();
+  			cr->restore();
+		}
+	}
+  // cr->move_to(-0+xc, 0+yc);
+  // cr->line_to(-0+xc,098.1307+yc);
+  // cr->set_source_rgb(1.0, 1.0, 0.0);
+  // cr->move_to(-0+xc, 0+yc);
+  // cr->line_to(-098.0581+xc,-003.77426+yc);
+
+  // cr->stroke();
+  // cr->restore();
+  // cr->move_to(0+xc,0+yc);
+  // cr->line_to(-019.6116+xc,018.8713+yc);  cr->move_to(-019.6116+xc,018.8713+yc);
+  // cr->line_to(-480.741e-17+xc,098.1307+yc);
+  // cr->move_to(-480.741e-17+xc,098.1307+yc);
+  // cr->line_to(-098.0581+xc,-003.77426+yc);
+  // cr->move_to(-098.0581+xc,-003.77426+yc);
+  // cr->line_to(-019.6116+xc,018.8713+yc);
+  // // cr->line_to(0, height);
+  // // cr->move_to(xc, yc);
+  // // cr->line_to(width, yc);
+  // cr->stroke();
+
+  return true;
+}
+
+
+// MyArea::MyArea()
+// {
+// }
+
+// MyArea::~MyArea()
+// {
+// }
+
+// bool MyArea::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
+// {
+//   Gtk::Allocation allocation = get_allocation();
+//   const int width = allocation.get_width();
+//   const int height = allocation.get_height();
+
+//   // coordinates for the center of the window
+//   int xc, yc;
+//   xc = width / 2;
+//   yc = height / 2;
+
+//   cr->set_line_width(2.0);
+
+//   // draw red lines out from the center of the window
+//   // cr->set_source_rgb(0.0, 0.0, 0.0);
+//   // cr->move_to(0, 0);
+//   // cr->line_to(100.5, 100.5);
+//   // cr->move_to(0,0);
+//   // cr->line_to(1,1);
+//   cr->move_to(-0+xc, 0+yc);
+//   cr->line_to(-0+xc,098.1307+yc);
+//   cr->set_source_rgb(1.0, 1.0, 0.0);
+//   cr->move_to(-0+xc, 0+yc);
+//   cr->line_to(-098.0581+xc,-003.77426+yc);
+
+//   cr->stroke();
+//   cr->restore();
+//   cr->move_to(0+xc,0+yc);
+//   cr->line_to(-019.6116+xc,018.8713+yc);  cr->move_to(-019.6116+xc,018.8713+yc);
+//   cr->line_to(-480.741e-17+xc,098.1307+yc);
+//   cr->move_to(-480.741e-17+xc,098.1307+yc);
+//   cr->line_to(-098.0581+xc,-003.77426+yc);
+//   cr->move_to(-098.0581+xc,-003.77426+yc);
+//   cr->line_to(-019.6116+xc,018.8713+yc);
+//   // cr->line_to(0, height);
+//   // cr->move_to(xc, yc);
+//   // cr->line_to(width, yc);
+//   cr->stroke();
+
+//   return true;
+// }
