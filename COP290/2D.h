@@ -149,6 +149,7 @@ class Edge2D
 	public:
 		double x1, y1;
 		double x2, y2;
+		bool visibility;
 };
 
 class Plane2D
@@ -168,6 +169,7 @@ class TwoDBody
 		std::vector<Vertex2D> v;
 		std::vector<VisibleEdge> ve;
 		std::vector<HiddenEdge> he;
+		std::vector<Edge2D> e;
 		int val;
 
 };
