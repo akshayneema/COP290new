@@ -193,6 +193,7 @@ int main(int argc, char** argv){
 				}
 
 				inFile >> output;
+				cout<<output<<endl;
 				
 				//cout << output <<endl;
 				inFile >> output;
@@ -216,12 +217,14 @@ int main(int argc, char** argv){
 					inFile >> output;
 					if(output == ";;") break;
 				}
-
+				cout<<output<<endl;
+				inFile >> output;
 				inFile >> output;
 				inFile >> output;
 				//boolean bigClos = true;
 
 				std::vector<Edge3D> plane;
+				cout<<output<<endl;
 
 				while(true)
 				{
@@ -230,6 +233,8 @@ int main(int argc, char** argv){
 						
 
 						inFile >> output;
+						if(output!="-10.0")cout<<output<<endl;
+						//cout<<output<<endl;
 
 						e_temp3D.x1 = atof (output.c_str());
 						inFile >> output;
@@ -247,15 +252,20 @@ int main(int argc, char** argv){
 						inFile >> output;
 
 						plane.push_back(e_temp3D);
+
 						if(output == "]") break;
 
 
 					}
+
+					//cout<<output<<endl;
 					Plane3D pl;
 					pl.plane=plane;
 					temp.p.push_back(pl);
 
 					inFile >> output;
+
+					cout<<output<<endl;
 					if(output == ";;;") break;
 
 
