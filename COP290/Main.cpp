@@ -13,6 +13,12 @@
 #include "myarea.h"
 #include <gtkmm/application.h>
 #include <gtkmm/window.h>
+#include <fstream>
+#include<bits/stdc++.h>
+#include <stdlib.h> 
+using namespace std;
+
+
 // GUI interface
 
 /*
@@ -32,6 +38,123 @@ void display() {
 	glFlush();  // Render now
 };
 */
+
+int main(int argc, char** argv){
+	ifstream inFile;
+	inFile.open("test.txt");
+
+	int type=0; 
+
+	//char output[100];
+	TwoDBody top,front,left;
+
+	Vertex2D v_temp;
+	VisibleEdge e_temp;
+	vector<string> vec_label_tmp;
+	string output;
+
+	if (inFile.is_open()) 
+	{
+		if(!inFile.eof())
+		{
+			inFile >> output;
+			transform(output.begin(), output.end(), output.begin(), ::tolower);
+			if(output == "2dto3d") type=1;
+			else if (output == "3dto2d") type=2;
+			else cout << "Try Again" <<endl;
+
+		}
+		while(type == 1 && !inFile.eof())
+		{
+			inFile >> output;
+			//cout<<output<<endl;
+
+			transform(output.begin(), output.end(), output.begin(), ::tolower);
+			string view_type = output;
+			TwoDBody temp;
+
+			inFile >> output;
+			inFile >> output;
+
+			while (!inFile.eof()) 
+			{
+
+				//v_temp.x = atof(output);
+				v_temp.x = atof (output.c_str());
+				inFile >> output;
+				v_temp.y = atof(output.c_str());
+				inFile >> output;
+				inFile >> output;
+				while(output != "]")
+				{	
+					vec_label_tmp.push_back(output);
+					inFile >> output;
+				}
+				v_temp.vec_label = vec_label_tmp;
+				temp.v.push_back(v_temp);
+
+				vec_label_tmp.clear();
+
+				inFile >> output;
+				if(output == ";") break;
+			
+
+			}
+
+			inFile >> output;
+			
+			//cout << output <<endl;
+			inFile >> output;
+
+			while (!inFile.eof()) 
+			{
+				e_temp.x1 = atof (output.c_str());
+				inFile >> output;
+				e_temp.y1 = atof(output.c_str());
+				inFile >> output;
+				e_temp.x2 = atof (output.c_str());
+				inFile >> output;
+				e_temp.y2 = atof(output.c_str());
+
+				temp.ve.push_back(e_temp);
+
+				inFile >> output;
+				if(output == ";;") break;
+			}
+
+			//inFile >> output;
+			//cout << output <<endl;
+
+			if(view_type == "top")
+			{
+				//cout << "Stop" << endl;
+				top = temp;
+			}
+			else if(view_type == "front")
+			{
+				//cout << "Stop2" << endl;
+				front = temp;
+			}
+			else if(view_type == "left")
+			{
+				//cout << "Stop3" << endl;
+				left = temp;
+			}
+			else 
+			{
+				cout << "Something Wrong" << endl;
+			}
+
+		}
+
+	}
+
+	threeDlabel(top,front,left);
+
+	return 0;
+}
+
+/*
 //int main(std::ifstream &InputFile)
 int main(int argc, char** argv){
 
@@ -301,14 +424,14 @@ int main(int argc, char** argv){
    return app->run(win);
 // 	          // Enter the infinitely event-processing loop
 // =======
-/*
-	glutInit(&argc, argv);                 // Initialize GLUT
-	glutCreateWindow("OpenGL Setup Test"); // Create a window with the given title
-	glutInitWindowSize(640, 320);   // Set the window's initial width & height
-	glutInitWindowPosition(100, 50); // Position the window's initial top-left corner
-	glutDisplayFunc(display); // Register display callback handler for window re-paint
-	glutMainLoop();           // Enter the infinitely event-processing loop
-*/
+// 
+// 	glutInit(&argc, argv);                 // Initialize GLUT
+// 	glutCreateWindow("OpenGL Setup Test"); // Create a window with the given title
+// 	glutInitWindowSize(640, 320);   // Set the window's initial width & height
+// 	glutInitWindowPosition(100, 50); // Position the window's initial top-left corner
+// 	glutDisplayFunc(display); // Register display callback handler for window re-paint
+// 	glutMainLoop();           // Enter the infinitely event-processing loop
+// 
 
 // 	TwoDBody top,front,left;
 // 	std::vector<Vertex2D> vobj;
@@ -321,6 +444,7 @@ int main(int argc, char** argv){
 
 // 	//vobj.push_back(temp);
 
+<<<<<<< HEAD
 // 	//For Top View . SImilar ones required for other views.
 // 	{
 // 		{
@@ -332,28 +456,59 @@ int main(int argc, char** argv){
 // 			vec_label_tmp.push_back("b");
 // 			//vec_label_tmp.push_back("d");
 // 			temp.vec_label = vec_label_tmp ;
+=======
+	//For Top View . SImilar ones required for other views.
+	{
+		{
+			//x-z View
+			//Vertices
+			temp.x =0.6;
+			temp.y =0.6;
+			vec_label_tmp.push_back("a");
+			vec_label_tmp.push_back("b");
+			//vec_label_tmp.push_back("d");
+			temp.vec_label = vec_label_tmp ;
+>>>>>>> 3069c33604abf2d7abdbcdb45af4677a2e0114e0
 
 // 			top.v.push_back(temp);
 // 			vec_label_tmp.clear();
 
+<<<<<<< HEAD
 // 			temp.x =2;
 // 			temp.y =1;
 // 			vec_label_tmp.push_back("c");
 // 			vec_label_tmp.push_back("d");
 // 			//vec_label_tmp.push_back("d");
 // 			temp.vec_label = vec_label_tmp ;
+=======
+			temp.x =2;
+			temp.y =0.6;
+			vec_label_tmp.push_back("c");
+			vec_label_tmp.push_back("d");
+			//vec_label_tmp.push_back("d");
+			temp.vec_label = vec_label_tmp ;
+>>>>>>> 3069c33604abf2d7abdbcdb45af4677a2e0114e0
 
 // 			top.v.push_back(temp);
 
 
 // vec_label_tmp.clear();
 
+<<<<<<< HEAD
 // 			temp.x =1;
 // 			temp.y =2;
 // 			vec_label_tmp.push_back("e");
 // 			vec_label_tmp.push_back("f");
 // 			//vec_label_tmp.push_back("d");
 // 			temp.vec_label = vec_label_tmp ;
+=======
+			temp.x =0.6;
+			temp.y =2;
+			vec_label_tmp.push_back("e");
+			vec_label_tmp.push_back("f");
+			//vec_label_tmp.push_back("d");
+			temp.vec_label = vec_label_tmp ;
+>>>>>>> 3069c33604abf2d7abdbcdb45af4677a2e0114e0
 
 // 			top.v.push_back(temp);
 // vec_label_tmp.clear();
@@ -369,17 +524,31 @@ int main(int argc, char** argv){
 // vec_label_tmp.clear();
 // 		}
 
+<<<<<<< HEAD
 // 		{
 // 			//Edges
 // 			ve_temp.x1 =1;
 // 			ve_temp.y1 =1;
 // 			ve_temp.x2 =1;
 // 			ve_temp.y2 =2;
+=======
+		{
+			//Edges
+			ve_temp.x1 =0.6;
+			ve_temp.y1 =0.6;
+			ve_temp.x2 =0.6;
+			ve_temp.y2 =2;
+>>>>>>> 3069c33604abf2d7abdbcdb45af4677a2e0114e0
 
 // 			top.ve.push_back(ve_temp);
 
+<<<<<<< HEAD
 // 			ve_temp.x2 =2;
 // 			ve_temp.y2 =1;
+=======
+			ve_temp.x2 =2;
+			ve_temp.y2 =0.6;
+>>>>>>> 3069c33604abf2d7abdbcdb45af4677a2e0114e0
 
 // 			top.ve.push_back(ve_temp);
 
@@ -387,12 +556,18 @@ int main(int argc, char** argv){
 // 			ve_temp.y1 =2;
 // 			top.ve.push_back(ve_temp);
 
+<<<<<<< HEAD
 // 			ve_temp.x2 =1;
 // 			ve_temp.y2 =2;
+=======
+			ve_temp.x2 =0.6;
+			ve_temp.y2 =2;
+>>>>>>> 3069c33604abf2d7abdbcdb45af4677a2e0114e0
 
 // 			top.ve.push_back(ve_temp);
 
 			
+<<<<<<< HEAD
 // 		}
 // 	}
 
@@ -423,6 +598,38 @@ int main(int argc, char** argv){
 // 			temp.y =1;
 // 			vec_label_tmp.push_back("c");
 // 			vec_label_tmp.push_back("g");
+=======
+		}
+	}
+
+	//For Front View . SImilar ones required for other views.
+	{
+		{
+			//x-y view
+			//Vertices
+			temp.x =0.6;
+			temp.y =0.6;
+			vec_label_tmp.push_back("a");
+			vec_label_tmp.push_back("e");
+			
+			temp.vec_label = vec_label_tmp ;
+
+			front.v.push_back(temp);
+vec_label_tmp.clear();
+			temp.x =0.6;
+			temp.y =2;
+			vec_label_tmp.push_back("b");
+			vec_label_tmp.push_back("f");
+			
+			temp.vec_label = vec_label_tmp ;
+
+			front.v.push_back(temp);
+vec_label_tmp.clear();
+			temp.x =2;
+			temp.y =0.6;
+			vec_label_tmp.push_back("c");
+			vec_label_tmp.push_back("g");
+>>>>>>> 3069c33604abf2d7abdbcdb45af4677a2e0114e0
 			
 // 			temp.vec_label = vec_label_tmp ;
 
@@ -433,6 +640,7 @@ int main(int argc, char** argv){
 // 			vec_label_tmp.push_back("d");
 // 			vec_label_tmp.push_back("h");
 			
+<<<<<<< HEAD
 // 			temp.vec_label = vec_label_tmp ;
 
 // 			front.v.push_back(temp);
@@ -529,6 +737,104 @@ int main(int argc, char** argv){
 // 			ve_temp.y2 =2;
 
 // 			left.ve.push_back(ve_temp);			
+=======
+			temp.vec_label = vec_label_tmp ;
+
+			front.v.push_back(temp);
+
+vec_label_tmp.clear();									
+		}
+
+		{
+			//Edges
+			ve_temp.x1 =0.6;
+			ve_temp.y1 =0.6;
+			ve_temp.x2 =0.6;
+			ve_temp.y2 =2;
+
+			front.ve.push_back(ve_temp);
+
+			ve_temp.x2 =2;
+			ve_temp.y2 =0.6;
+
+			front.ve.push_back(ve_temp);
+
+			ve_temp.x1 =2;
+			ve_temp.y1 =2;
+			front.ve.push_back(ve_temp);
+
+			ve_temp.x2 =0.6;
+			ve_temp.y2 =2;
+
+			front.ve.push_back(ve_temp);			
+		}
+	}
+	//For Left View . SImilar ones required for other views.
+	{
+		{
+			//Vertices
+			temp.x =0.6;
+			temp.y =0.6;
+			vec_label_tmp.push_back("a");
+			vec_label_tmp.push_back("c");
+			//vec_label_tmp.push_back("d");
+			temp.vec_label = vec_label_tmp ;
+
+			left.v.push_back(temp);
+vec_label_tmp.clear();
+			temp.x =0.6;
+			temp.y =2;
+			vec_label_tmp.push_back("b");
+			vec_label_tmp.push_back("d");
+			//vec_label_tmp.push_back("d");
+			temp.vec_label = vec_label_tmp ;
+
+			left.v.push_back(temp);
+vec_label_tmp.clear();
+			temp.x =2;
+			temp.y =0.6;
+			vec_label_tmp.push_back("e");
+			vec_label_tmp.push_back("g");
+			//vec_label_tmp.push_back("d");
+			temp.vec_label = vec_label_tmp ;
+
+			left.v.push_back(temp);
+vec_label_tmp.clear();
+			temp.x =2;
+			temp.y =2;
+			vec_label_tmp.push_back("f");
+			vec_label_tmp.push_back("h");
+			//vec_label_tmp.push_back("d");
+			temp.vec_label = vec_label_tmp ;
+
+			left.v.push_back(temp);	
+
+vec_label_tmp.clear();								
+		}
+
+		{
+			//Edges
+			ve_temp.x1 =0.6;
+			ve_temp.y1 =0.6;
+			ve_temp.x2 =0.6;
+			ve_temp.y2 =2;
+
+			left.ve.push_back(ve_temp);
+
+			ve_temp.x2 =2;
+			ve_temp.y2 =0.6;
+
+			left.ve.push_back(ve_temp);
+
+			ve_temp.x1 =2;
+			ve_temp.y1 =2;
+			left.ve.push_back(ve_temp);
+
+			ve_temp.x2 =0.6;
+			ve_temp.y2 =2;
+
+			left.ve.push_back(ve_temp);			
+>>>>>>> 3069c33604abf2d7abdbcdb45af4677a2e0114e0
 			
 // 		}
 // 	}
@@ -540,3 +846,4 @@ int main(int argc, char** argv){
 
 };
 	//encapsulates all the functions involving 3d to 2d projection.
+	*/

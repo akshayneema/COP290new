@@ -87,7 +87,7 @@ class Edge3D
     public:
         double x1,y1,z1;
 		double x2,y2,z2;
-		bool visibility=true;
+		bool visibility;
 	void translatex(double dx)
 	{
 		x1= x1+dx;
