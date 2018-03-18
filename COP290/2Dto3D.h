@@ -31,11 +31,11 @@ void threeDlabel (TwoDBody top,TwoDBody front,TwoDBody left) //,Labelled2D side
 
 	for(int i=0; i < n; i++ )
 	{
-		int x = top1.v.back().x;
+		x = top1.v.back().x;
 		//cout << x << " " << 34 <<endl;
-		int y;
+		y;
 		//int y = front1.v.front().y;
-		int z = top1.v.back().y;
+		z = top1.v.back().y;
 		string labeler;
 		//string label = top1.v.front().label;
 		vector<string> vec_label = top1.v.back().vec_label;
@@ -80,7 +80,7 @@ void threeDlabel (TwoDBody top,TwoDBody front,TwoDBody left) //,Labelled2D side
 							vobj.push_back(vtemp);
 							temp.v.push_back(vtemp);
 
-						cout << x << y << z << labeler << endl;
+						cout << labeler << "   ("<< x << ','<< y << ','<< z << ")  "  << endl;
 
 						// cout << endl;
 						// cout << labeler << endl;
@@ -109,6 +109,7 @@ void threeDlabel (TwoDBody top,TwoDBody front,TwoDBody left) //,Labelled2D side
 
 	int limit = temp.v.size();
 	int adj[limit][limit];
+	//cout << limit<<n<<n<<endl;
 
 	//cout<< left.ve.size()<<"  " <<108<<endl;
 	//cout<< left.ve.at(1).x1<<"  " <<109<<endl;
@@ -337,7 +338,7 @@ cout << top.v.size() << endl;
 				vtemp.y2 = bb;
 				vtemp.z1 = z;
 				vtemp.z2 = cc;
-				cout << x << y << z << "   "<<aa<<bb<<cc <<endl;
+				cout << '('<< x << ','<< y << ','<< z << ")   ("<<aa<< ','<< bb << ','<<cc << ')'<< endl;
 
 				//vobj.push_back(vtemp);
 				temp.e.push_back(vtemp);

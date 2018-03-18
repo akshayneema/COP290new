@@ -57,8 +57,8 @@ int main(int argc, char** argv){
 		{
 			//x-z View
 			//Vertices
-			temp.x =1.1;
-			temp.y =1.1;
+			temp.x =0.6;
+			temp.y =0.6;
 			vec_label_tmp.push_back("a");
 			vec_label_tmp.push_back("b");
 			//vec_label_tmp.push_back("d");
@@ -68,7 +68,7 @@ int main(int argc, char** argv){
 			vec_label_tmp.clear();
 
 			temp.x =2;
-			temp.y =1.1;
+			temp.y =0.6;
 			vec_label_tmp.push_back("c");
 			vec_label_tmp.push_back("d");
 			//vec_label_tmp.push_back("d");
@@ -79,7 +79,7 @@ int main(int argc, char** argv){
 
 vec_label_tmp.clear();
 
-			temp.x =1.1;
+			temp.x =0.6;
 			temp.y =2;
 			vec_label_tmp.push_back("e");
 			vec_label_tmp.push_back("f");
@@ -102,15 +102,15 @@ vec_label_tmp.clear();
 
 		{
 			//Edges
-			ve_temp.x1 =1.1;
-			ve_temp.y1 =1.1;
-			ve_temp.x2 =1.1;
+			ve_temp.x1 =0.6;
+			ve_temp.y1 =0.6;
+			ve_temp.x2 =0.6;
 			ve_temp.y2 =2;
 
 			top.ve.push_back(ve_temp);
 
 			ve_temp.x2 =2;
-			ve_temp.y2 =1.1;
+			ve_temp.y2 =0.6;
 
 			top.ve.push_back(ve_temp);
 
@@ -118,7 +118,7 @@ vec_label_tmp.clear();
 			ve_temp.y1 =2;
 			top.ve.push_back(ve_temp);
 
-			ve_temp.x2 =1.1;
+			ve_temp.x2 =0.6;
 			ve_temp.y2 =2;
 
 			top.ve.push_back(ve_temp);
@@ -132,8 +132,8 @@ vec_label_tmp.clear();
 		{
 			//x-y view
 			//Vertices
-			temp.x =1;
-			temp.y =1.1;
+			temp.x =0.6;
+			temp.y =0.6;
 			vec_label_tmp.push_back("a");
 			vec_label_tmp.push_back("e");
 			
@@ -141,7 +141,7 @@ vec_label_tmp.clear();
 
 			front.v.push_back(temp);
 vec_label_tmp.clear();
-			temp.x =1.1;
+			temp.x =0.6;
 			temp.y =2;
 			vec_label_tmp.push_back("b");
 			vec_label_tmp.push_back("f");
@@ -151,7 +151,7 @@ vec_label_tmp.clear();
 			front.v.push_back(temp);
 vec_label_tmp.clear();
 			temp.x =2;
-			temp.y =1.1;
+			temp.y =0.6;
 			vec_label_tmp.push_back("c");
 			vec_label_tmp.push_back("g");
 			
@@ -173,15 +173,15 @@ vec_label_tmp.clear();
 
 		{
 			//Edges
-			ve_temp.x1 =1.1;
-			ve_temp.y1 =1.1;
-			ve_temp.x2 =1.1;
+			ve_temp.x1 =0.6;
+			ve_temp.y1 =0.6;
+			ve_temp.x2 =0.6;
 			ve_temp.y2 =2;
 
 			front.ve.push_back(ve_temp);
 
 			ve_temp.x2 =2;
-			ve_temp.y2 =1.1;
+			ve_temp.y2 =0.6;
 
 			front.ve.push_back(ve_temp);
 
@@ -189,7 +189,7 @@ vec_label_tmp.clear();
 			ve_temp.y1 =2;
 			front.ve.push_back(ve_temp);
 
-			ve_temp.x2 =1.1;
+			ve_temp.x2 =0.6;
 			ve_temp.y2 =2;
 
 			front.ve.push_back(ve_temp);			
@@ -199,8 +199,8 @@ vec_label_tmp.clear();
 	{
 		{
 			//Vertices
-			temp.x =1.1;
-			temp.y =1.1;
+			temp.x =0.6;
+			temp.y =0.6;
 			vec_label_tmp.push_back("a");
 			vec_label_tmp.push_back("c");
 			//vec_label_tmp.push_back("d");
@@ -208,7 +208,7 @@ vec_label_tmp.clear();
 
 			left.v.push_back(temp);
 vec_label_tmp.clear();
-			temp.x =1.1;
+			temp.x =0.6;
 			temp.y =2;
 			vec_label_tmp.push_back("b");
 			vec_label_tmp.push_back("d");
@@ -218,7 +218,7 @@ vec_label_tmp.clear();
 			left.v.push_back(temp);
 vec_label_tmp.clear();
 			temp.x =2;
-			temp.y =1.1;
+			temp.y =0.6;
 			vec_label_tmp.push_back("e");
 			vec_label_tmp.push_back("g");
 			//vec_label_tmp.push_back("d");
@@ -240,15 +240,15 @@ vec_label_tmp.clear();
 
 		{
 			//Edges
-			ve_temp.x1 =1.1;
-			ve_temp.y1 =1.1;
-			ve_temp.x2 =1.1;
+			ve_temp.x1 =0.6;
+			ve_temp.y1 =0.6;
+			ve_temp.x2 =0.6;
 			ve_temp.y2 =2;
 
 			left.ve.push_back(ve_temp);
 
 			ve_temp.x2 =2;
-			ve_temp.y2 =1.1;
+			ve_temp.y2 =0.6;
 
 			left.ve.push_back(ve_temp);
 
@@ -256,7 +256,7 @@ vec_label_tmp.clear();
 			ve_temp.y1 =2;
 			left.ve.push_back(ve_temp);
 
-			ve_temp.x2 =1.1;
+			ve_temp.x2 =0.6;
 			ve_temp.y2 =2;
 
 			left.ve.push_back(ve_temp);			
