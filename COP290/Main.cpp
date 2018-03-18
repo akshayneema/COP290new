@@ -10,6 +10,11 @@
 #include <string>
 #include <vector>
 #include <math.h>
+#include <fstream>
+#include<bits/stdc++.h>
+#include <stdlib.h> 
+using namespace std;
+
 // GUI interface
 
 /*
@@ -29,6 +34,123 @@ void display() {
 	glFlush();  // Render now
 };
 */
+
+int main(int argc, char** argv){
+	ifstream inFile;
+	inFile.open("test.txt");
+
+	int type=0; 
+
+	//char output[100];
+	TwoDBody top,front,left;
+
+	Vertex2D v_temp;
+	VisibleEdge e_temp;
+	vector<string> vec_label_tmp;
+	string output;
+
+	if (inFile.is_open()) 
+	{
+		if(!inFile.eof())
+		{
+			inFile >> output;
+			transform(output.begin(), output.end(), output.begin(), ::tolower);
+			if(output == "2dto3d") type=1;
+			else if (output == "3dto2d") type=2;
+			else cout << "Try Again" <<endl;
+
+		}
+		while(type == 1 && !inFile.eof())
+		{
+			inFile >> output;
+			//cout<<output<<endl;
+
+			transform(output.begin(), output.end(), output.begin(), ::tolower);
+			string view_type = output;
+			TwoDBody temp;
+
+			inFile >> output;
+			inFile >> output;
+
+			while (!inFile.eof()) 
+			{
+
+				//v_temp.x = atof(output);
+				v_temp.x = atof (output.c_str());
+				inFile >> output;
+				v_temp.y = atof(output.c_str());
+				inFile >> output;
+				inFile >> output;
+				while(output != "]")
+				{	
+					vec_label_tmp.push_back(output);
+					inFile >> output;
+				}
+				v_temp.vec_label = vec_label_tmp;
+				temp.v.push_back(v_temp);
+
+				vec_label_tmp.clear();
+
+				inFile >> output;
+				if(output == ";") break;
+			
+
+			}
+
+			inFile >> output;
+			
+			//cout << output <<endl;
+			inFile >> output;
+
+			while (!inFile.eof()) 
+			{
+				e_temp.x1 = atof (output.c_str());
+				inFile >> output;
+				e_temp.y1 = atof(output.c_str());
+				inFile >> output;
+				e_temp.x2 = atof (output.c_str());
+				inFile >> output;
+				e_temp.y2 = atof(output.c_str());
+
+				temp.ve.push_back(e_temp);
+
+				inFile >> output;
+				if(output == ";;") break;
+			}
+
+			//inFile >> output;
+			//cout << output <<endl;
+
+			if(view_type == "top")
+			{
+				//cout << "Stop" << endl;
+				top = temp;
+			}
+			else if(view_type == "front")
+			{
+				//cout << "Stop2" << endl;
+				front = temp;
+			}
+			else if(view_type == "left")
+			{
+				//cout << "Stop3" << endl;
+				left = temp;
+			}
+			else 
+			{
+				cout << "Something Wrong" << endl;
+			}
+
+		}
+
+	}
+
+	threeDlabel(top,front,left);
+
+	return 0;
+}
+
+/*
 //int main(std::ifstream &InputFile)
 int main(int argc, char** argv){
 
@@ -159,14 +281,14 @@ int main(int argc, char** argv){
 // 	}
 // 	          // Enter the infinitely event-processing loop
 // =======
-/*
-	glutInit(&argc, argv);                 // Initialize GLUT
-	glutCreateWindow("OpenGL Setup Test"); // Create a window with the given title
-	glutInitWindowSize(640, 320);   // Set the window's initial width & height
-	glutInitWindowPosition(100, 50); // Position the window's initial top-left corner
-	glutDisplayFunc(display); // Register display callback handler for window re-paint
-	glutMainLoop();           // Enter the infinitely event-processing loop
-*/
+// 
+// 	glutInit(&argc, argv);                 // Initialize GLUT
+// 	glutCreateWindow("OpenGL Setup Test"); // Create a window with the given title
+// 	glutInitWindowSize(640, 320);   // Set the window's initial width & height
+// 	glutInitWindowPosition(100, 50); // Position the window's initial top-left corner
+// 	glutDisplayFunc(display); // Register display callback handler for window re-paint
+// 	glutMainLoop();           // Enter the infinitely event-processing loop
+// 
 
 	TwoDBody top,front,left;
 	std::vector<Vertex2D> vobj;
@@ -398,3 +520,4 @@ vec_label_tmp.clear();
 
 };
 	//encapsulates all the functions involving 3d to 2d projection.
+	*/
