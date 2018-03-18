@@ -24,7 +24,7 @@ void threeDlabel (TwoDBody top,TwoDBody front,TwoDBody left) //,Labelled2D side
 	//int n = top.val; //top.val = front.val
 	int n = top.v.size();
 	//cout<< left.ve.size()<<endl;
-	int x,y,z;
+	double x,y,z;
 
 	TwoDBody top1 = top;
 	TwoDBody front1 = front;
@@ -165,7 +165,7 @@ cout << top.v.size() << endl;
 		
 
 // top-> xz  front -> xy left -> zy
-		int aa,bb,cc;
+		double aa,bb,cc;
 		int v1,v2,v3;
 
 		for (std::vector<Vertex3D>::iterator it = (++it_a); it != temp.v.end(); ++it)
