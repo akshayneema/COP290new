@@ -40,9 +40,19 @@ void display() {
 */
 
 int main(int argc, char** argv){
+	// cout<<"enter file name:"<<argv[1]<<"\n";
 	ifstream inFile;
 
-	inFile.open("3dip.txt");
+	cout << "Give a file name to input " << endl;
+	// char[] fl_name[50];
+	// cin << fl_name;
+
+	string fl_name;
+	getline(cin,fl_name);
+
+	inFile.open(fl_name);
+
+	// cout << inFile.is_open() <<endl;
 
 
 	int type=0; 
@@ -156,15 +166,34 @@ int main(int argc, char** argv){
 				}
 
 			}
+			ThreeDBody threedb;
+			threedb=threeDlabel(top,front,left);
+			//threedb.rotate()
 
-			threeDlabel(top,front,left);
+			rotate3D(threedb,normalofplane(1,1,1,1));
+			
+			TopView(threedb);
+			auto app = Gtk::Application::create(argc, argv, "org.gtkmm.example");
+  			
+
+			Gtk::Window win;
+			win.set_default_size(640, 360);
+			win.set_title("AutoCad");
+
+			MyArea area;
+			win.add(area);
+			area.show();
+
+			return app->run(win);
+
+
 		}
 
 		else if(type==2)
 		{
 			ThreeDBody temp;
 			double aq,sw,de,fr;
-			while(!inFile.eof())
+			if(!inFile.eof())
 			{
 				
 
@@ -253,6 +282,8 @@ int main(int argc, char** argv){
 
 						plane.push_back(e_temp3D);
 
+
+
 						if(output == "]") break;
 
 
@@ -261,6 +292,8 @@ int main(int argc, char** argv){
 					//cout<<output<<endl;
 					Plane3D pl;
 					pl.plane=plane;
+
+					plane.clear();
 					temp.p.push_back(pl);
 
 					inFile >> output;
@@ -290,7 +323,9 @@ int main(int argc, char** argv){
 
 
 
+
 			}
+			cout<<"d="<<fr<<"\n";
 			rotate3D(temp,normalofplane(aq,sw,de,fr));
 			hiddenedgedetection(temp, aq,sw,de,fr);
 			TwoDBody twdb;
@@ -299,6 +334,7 @@ int main(int argc, char** argv){
 
 		   Gtk::Window win;
 		   win.set_title("AutoCad");
+		   win.set_default_size(640, 360);
 
 		   MyArea area;
 		   win.add(area);

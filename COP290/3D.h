@@ -87,7 +87,7 @@ class Edge3D
     public:
         double x1,y1,z1;
 		double x2,y2,z2;
-		bool visibility;
+		bool visibility=true;
 	void translatex(double dx)
 	{
 		x1= x1+dx;
@@ -455,6 +455,18 @@ class ThreeDBody
 		std::vector<Plane3D> p;
 		std::vector<HiddenEdge3D> he;
 		std::vector<VisibleEdge3D> ve;
+	void rotate(double deltax, bool dirx, double deltay, bool diry, double deltaz, bool dirz)
+	{
+		for (std::vector<Edge3D>::iterator it = this->e.begin() ; it != this->e.end(); it++)
+		{
+			(*it).rotate(deltax, dirx, deltay, diry, deltaz, dirz);
+		}
+		for (std::vector<Vertex3D>::iterator it = this->v.begin() ; it != this->v.end(); it++)
+		{
+			(*it).rotate(deltax, dirx, deltay, diry, deltaz, dirz);
+		}
+	}
+	
 
 };
 

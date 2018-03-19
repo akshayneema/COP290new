@@ -15,7 +15,7 @@
 #include <math.h>
 
 // top-> xz  front -> xy left -> zy
-void threeDlabel (TwoDBody top,TwoDBody front,TwoDBody left) //,Labelled2D side
+ThreeDBody threeDlabel (TwoDBody &top,TwoDBody &front,TwoDBody &left) //,Labelled2D side
 {
 	ThreeDBody temp;
 	std::vector<Vertex3D> vobj;
@@ -358,6 +358,7 @@ void threeDlabel (TwoDBody top,TwoDBody front,TwoDBody left) //,Labelled2D side
 		}
 
 	}
+	return temp;
 }
 
 

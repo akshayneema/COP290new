@@ -609,7 +609,7 @@ void hiddenedgedetection(ThreeDBody &threedbody, double a, double b, double c, d
 		double x2=(*it).x2;
 		double y2=(*it).y2;
 		double z2=(*it).z2;
-		cout<<"New Edge"<<"\n";
+		cout<<"New Edge-----------------------------------------------------------------------"<<"\n";
 		cout<< "("<<x1<<","<<y1<<","<<z1<<")"<<" "<< "("<<x2<<","<<y2<<","<<z2<<")"<<"\n";
 		for (std::vector<Plane3D>::iterator itr = threedbody.p.begin() ; itr != threedbody.p.end(); itr++)
 		{
@@ -744,9 +744,10 @@ bool MyArea::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
   // cr->line_to(1,1);
   for (std::vector<Edge2D>::iterator it = twodbodyy.e.begin() ; it != twodbodyy.e.end(); it++)
 	{
-		if((*it).visibility==1)
+		if((*it).visibility==true)
 		{
 			// cr->set_dash({10, 5}, 0);
+			cout<<"visible\n";
 			cr->move_to(100*(*it).x1+xc, 100*(*it).y1+yc);
   			cr->line_to(100*(*it).x2+xc,100*(*it).y2+yc);
   			cr->stroke();
@@ -754,6 +755,7 @@ bool MyArea::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 		}
 		else
 		{
+			cout<<"not visible\n";
 			std::vector<double> vec;
 			vec.push_back(10.0);
 			vec.push_back(5.0);
