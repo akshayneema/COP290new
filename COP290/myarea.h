@@ -1,17 +1,24 @@
 #ifndef GTKMM_EXAMPLE_MYAREA_H
 #define GTKMM_EXAMPLE_MYAREA_H
 
-#include <gtkmm/drawingarea.h>
+// #include <gtkmm/drawingarea.h>
+#include <gtkmm.h>
 
-class MyArea : public Gtk::DrawingArea
+class MyWindow : public Gtk::Window
 {
 public:
-  MyArea();
-  virtual ~MyArea();
+  MyWindow();
+  virtual ~MyWindow();
 
 protected:
   //Override default signal handler:
-  bool on_draw(const Cairo::RefPtr<Cairo::Context>& cr) override;
+  Gtk::Grid grid;
+  Gtk::DrawingArea area;
+  Gtk::Button buttonx;
+  Gtk::Button buttony;
+  Gtk::Button buttonz;
+  bool on_drawe(const Cairo::RefPtr<Cairo::Context>& cr);
+  void on_click(int x);
 };
 
 #endif // GTKMM_EXAMPLE_MYAREA_H

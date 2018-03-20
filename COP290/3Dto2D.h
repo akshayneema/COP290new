@@ -16,7 +16,9 @@
 #include <set>
 #include "myarea.h"
 #include <cairomm/context.h>
+int type=0; 
 TwoDBody twodbodyy;
+ThreeDBody wire_frame;
 std::vector<double> normalofplane(double a, double b, double c, double d)
 {
 	double temp= (a*a)+(b*b)+(c*c);
@@ -28,11 +30,12 @@ std::vector<double> normalofplane(double a, double b, double c, double d)
 	return normal;
 	//derives unit vector in the direction of normal of the plane
 }
-void rotate3D(ThreeDBody &threedbody, std::vector<double> normal)
+ThreeDBody rotate3D(ThreeDBody &threedbody, std::vector<double> normal)
 {
 	std::vector<Vertex3D> vtemp;
 	std::vector<Edge3D> etemp;
 	std::vector<Plane3D> ptemp;
+	// ThreeDBody returntdb;
 	double a= normal[0];
 	double b= normal[1];
 	double c= normal[2];
@@ -130,7 +133,7 @@ void rotate3D(ThreeDBody &threedbody, std::vector<double> normal)
 	// cout<< threedbody.v[1].x<<threedbody.v[1].y<<threedbody.v[1].z;
 	threedbodytemp.e=etemp;
 	threedbodytemp.p=ptemp;
-	threedbody=threedbodytemp;
+	return threedbodytemp;
 	//rotate the coordinate axes and updates the 3D object coordinates
 }
 std::vector<Edge3D> edge_segmentation(ThreeDBody &threedbody)
@@ -716,14 +719,69 @@ TwoDBody TopView(ThreeDBody &threedbody)
 	return twodbody;
 	//takes top view of all the vertices, hidden edges and visible edges
 }
-MyArea::MyArea()
+MyWindow::MyWindow()
+: buttonx("Rotatex"),
+ buttony("Rotatey"),
+ buttonz("Rotatez")
 {
+	// button.override_background_color(GTK_STATE_FLAGS_NORMAL, Gdk::RGBA(0.1 , 0.0 , 0.0, 0.1));
+	// cout<<"constructor called\n";
+// GdkColor color;
+
+// 	color.red = 0xffff;
+// color.green = 0xffff;
+// color.blue = 0;
+
+    // p_s_window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    // // gtk_window_set_position(GTK_WINDOW(p_s_window), GTK_WIN_POS_CENTER);
+    // // gtk_window_set_title(GTK_WINDOW(p_s_window), "hello");
+    // gtk_widget_modify_background_color(p_s_window, GTK_STATE_NORMAL, &color);
+	
+	if(type==1)
+	{
+		add(grid);
+		area.set_size_request(800,800);
+		grid.add(area);
+		grid.attach_next_to(buttonx,area,Gtk::POS_BOTTOM,1,1);
+		grid.attach_next_to(buttony,buttonx,Gtk::POS_BOTTOM,1,1);
+		grid.attach_next_to(buttonz,buttony,Gtk::POS_BOTTOM,1,1);
+		area.signal_draw().connect(sigc::mem_fun(*this,
+				&MyWindow::on_drawe));
+		buttonx.signal_clicked().connect( sigc::bind<int>(sigc::mem_fun(*this, 
+				&MyWindow::on_click),1));
+		buttony.signal_clicked().connect( sigc::bind<int>(sigc::mem_fun(*this, 
+				&MyWindow::on_click),2));
+
+		buttonz.signal_clicked().connect( sigc::bind<int>(sigc::mem_fun(*this, 
+				&MyWindow::on_click),3));
+		show_all_children();
+	}
+	else if(type==2)
+	{
+		add(grid);
+		area.set_size_request(800,800);
+		grid.add(area);
+		// grid.attach_next_to(buttonx,area,Gtk::POS_BOTTOM,1,1);
+		// grid.attach_next_to(buttony,buttonx,Gtk::POS_BOTTOM,1,1);
+		// grid.attach_next_to(buttonz,buttony,Gtk::POS_BOTTOM,1,1);
+		area.signal_draw().connect(sigc::mem_fun(*this,
+				&MyWindow::on_drawe));
+		// buttonx.signal_clicked().connect( sigc::bind<int>(sigc::mem_fun(*this, 
+		// 		&MyWindow::on_click),1));
+		// buttony.signal_clicked().connect( sigc::bind<int>(sigc::mem_fun(*this, 
+		// 		&MyWindow::on_click),2));
+
+		// buttonz.signal_clicked().connect( sigc::bind<int>(sigc::mem_fun(*this, 
+		// 		&MyWindow::on_click),3));
+		show_all_children();
+	}
+	
 }
 
-MyArea::~MyArea()
+MyWindow::~MyWindow()
 {
 }
-bool MyArea::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
+bool MyWindow::on_drawe(const Cairo::RefPtr<Cairo::Context>& cr)
 {
   Gtk::Allocation allocation = get_allocation();
   const int width = allocation.get_width();
@@ -735,28 +793,25 @@ bool MyArea::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
   yc = height / 2;
 
   cr->set_line_width(2.0);
-
-  // draw red lines out from the center of the window
-  // cr->set_source_rgb(0.0, 0.0, 0.0);
-  // cr->move_to(0, 0);
-  // cr->line_to(100.5, 100.5);
-  // cr->move_to(0,0);
-  // cr->line_to(1,1);
   for (std::vector<Edge2D>::iterator it = twodbodyy.e.begin() ; it != twodbodyy.e.end(); it++)
 	{
 		if((*it).visibility==true)
 		{
-			// cr->set_dash({10, 5}, 0);
-			cout<<"visible\n";
+			// cr->save();
+			cr->set_source_rgb(0.0,0.5,1.0);
+			// cout<<"visible\n";
 			cr->move_to(100*(*it).x1+xc, 100*(*it).y1+yc);
   			cr->line_to(100*(*it).x2+xc,100*(*it).y2+yc);
   			cr->stroke();
   			// cr->restore();
+			  //cout << wire_frame.v[0].x;
 		}
 		else
 		{
-			cout<<"not visible\n";
+			// cr->save();
+			// cout<<"not visible\n";
 			std::vector<double> vec;
+			cr->set_source_rgb(0.0,0.5,1.0);
 			vec.push_back(10.0);
 			vec.push_back(5.0);
 			cr->set_dash(vec, 0);
@@ -764,78 +819,42 @@ bool MyArea::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
   			cr->line_to(100*(*it).x2+xc,100*(*it).y2+yc);
   			cr->stroke();
   			cr->restore();
+			  
 		}
 	}
-  // cr->move_to(-0+xc, 0+yc);
-  // cr->line_to(-0+xc,098.1307+yc);
-  // cr->set_source_rgb(1.0, 1.0, 0.0);
-  // cr->move_to(-0+xc, 0+yc);
-  // cr->line_to(-098.0581+xc,-003.77426+yc);
-
-  // cr->stroke();
-  // cr->restore();
-  // cr->move_to(0+xc,0+yc);
-  // cr->line_to(-019.6116+xc,018.8713+yc);  cr->move_to(-019.6116+xc,018.8713+yc);
-  // cr->line_to(-480.741e-17+xc,098.1307+yc);
-  // cr->move_to(-480.741e-17+xc,098.1307+yc);
-  // cr->line_to(-098.0581+xc,-003.77426+yc);
-  // cr->move_to(-098.0581+xc,-003.77426+yc);
-  // cr->line_to(-019.6116+xc,018.8713+yc);
-  // // cr->line_to(0, height);
-  // // cr->move_to(xc, yc);
-  // // cr->line_to(width, yc);
-  // cr->stroke();
-
+	 cout<<"return of on draw\n";
   return true;
 }
 
+void MyWindow::on_click(int x)
+{
+	cout<<"return of on draw 1\n";
+	if(x==1) 
+	{
+		wire_frame.rotate(0.05,true,0.0,false,0.0,true);
+		cout<<"x=1\n";
+	}
+	else if (x==2) wire_frame.rotate(0.0,true,0.05,true,0.0,true);
+	else if (x==3) wire_frame.rotate(0.0,false,0.0,true,0.05,true);
 
-// MyArea::MyArea()
-// {
-// }
+	cout << wire_frame.v[0].x<< "0000813";
+	ThreeDBody tdbtemp=rotate3D(wire_frame,normalofplane(1,1,1,1));
 
-// MyArea::~MyArea()
-// {
-// }
+	cout << wire_frame.v[0].x << "0000816";
+	TopView(tdbtemp);
 
-// bool MyArea::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
-// {
-//   Gtk::Allocation allocation = get_allocation();
-//   const int width = allocation.get_width();
-//   const int height = allocation.get_height();
+	
+	area.queue_draw();
 
-//   // coordinates for the center of the window
-//   int xc, yc;
-//   xc = width / 2;
-//   yc = height / 2;
+	cout<<"return of on draw 2\n";
 
-//   cr->set_line_width(2.0);
 
-//   // draw red lines out from the center of the window
-//   // cr->set_source_rgb(0.0, 0.0, 0.0);
-//   // cr->move_to(0, 0);
-//   // cr->line_to(100.5, 100.5);
-//   // cr->move_to(0,0);
-//   // cr->line_to(1,1);
-//   cr->move_to(-0+xc, 0+yc);
-//   cr->line_to(-0+xc,098.1307+yc);
-//   cr->set_source_rgb(1.0, 1.0, 0.0);
-//   cr->move_to(-0+xc, 0+yc);
-//   cr->line_to(-098.0581+xc,-003.77426+yc);
+}
 
-//   cr->stroke();
-//   cr->restore();
-//   cr->move_to(0+xc,0+yc);
-//   cr->line_to(-019.6116+xc,018.8713+yc);  cr->move_to(-019.6116+xc,018.8713+yc);
-//   cr->line_to(-480.741e-17+xc,098.1307+yc);
-//   cr->move_to(-480.741e-17+xc,098.1307+yc);
-//   cr->line_to(-098.0581+xc,-003.77426+yc);
-//   cr->move_to(-098.0581+xc,-003.77426+yc);
-//   cr->line_to(-019.6116+xc,018.8713+yc);
-//   // cr->line_to(0, height);
-//   // cr->move_to(xc, yc);
-//   // cr->line_to(width, yc);
-//   cr->stroke();
+void ThreeDBodi ( ThreeDBody need)
+{
+	wire_frame = need;
+	//cout << wire_frame.v[0].x;
 
-//   return true;
-// }
+}
+

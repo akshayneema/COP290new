@@ -1,6 +1,7 @@
 #include <vector>
 #include <math.h>
 #include <string>
+#include <iostream>
 using namespace std;
 
 class Vertex3D
@@ -457,6 +458,7 @@ class ThreeDBody
 		std::vector<VisibleEdge3D> ve;
 	void rotate(double deltax, bool dirx, double deltay, bool diry, double deltaz, bool dirz)
 	{
+		cout<<"line no. 460";
 		for (std::vector<Edge3D>::iterator it = this->e.begin() ; it != this->e.end(); it++)
 		{
 			(*it).rotate(deltax, dirx, deltay, diry, deltaz, dirz);
