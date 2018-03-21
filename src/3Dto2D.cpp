@@ -779,6 +779,10 @@ bool MyWindow::on_drawe(const Cairo::RefPtr<Cairo::Context>& cr)
   yc = height / 2;
 
   cr->set_line_width(2.0);
+  
+
+
+
   for (std::vector<Edge2D>::iterator it = twodbodyy.e.begin() ; it != twodbodyy.e.end(); it++)
 	{
 		if((*it).visibility==true)
