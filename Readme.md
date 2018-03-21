@@ -15,21 +15,21 @@ on to any cross section or cutting plane.
 of the object.
 
 # Directions to Use :-
-i) compile using make command 
-ii) change directory to build by using cd build
-iii) use ./main to run the executable file
-iv) write the input file name on command prompt (text file)
-v) Enjoy the rotation functionality if using the 2D to 3D.
+1. compile using make command 
+2. change directory to build by using cd build
+3. use ./main to run the executable file
+4. write the input file name on command prompt (text file)
+5. Enjoy the rotation functionality if using the 2D to 3D.
 
 # Assumptions:-
-i) if the plane of projection is above the origin then its considered to be top view else bottom view.
-ii) 3D objects are represented as wire-frame model.
+1. if the plane of projection is above the origin then its considered to be top view else bottom view.
+2. 3D objects are represented as wire-frame model.
 
 # Changes after last submission:-
 Have removed some files like AuxilliaryFunc2D.h, AuxilliaryFunc3D.h, Recreate2D.h, Recreate3D.h, Reduce2D.h and Recreate3D.h due to following reasons
-a)The input taken is already in a reduced form.
-b)Recreate part is incorporated in 3Dto2D.cpp.
-c)Auxilliary functions(Rotate) is used only in only one case so didn't make much sense to create a seperate file for that.
-d)corresponding .cpp files for the .h files are made and the directory is restructure so that it become same as Proff. SuBan directed in the session just after submission of last part.  	 
+1. The input taken is already in a reduced form.
+2. Recreate part is incorporated in 3Dto2D.cpp.
+3. Auxilliary functions(Rotate) is used only in only one case so didn't make much sense to create a seperate file for that.
+4. corresponding .cpp files for the .h files are made and the directory is restructure so that it become same as Proff. SuBan directed in the session just after submission of last part.  	 
 
 
