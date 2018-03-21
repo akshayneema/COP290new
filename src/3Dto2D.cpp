@@ -726,7 +726,7 @@ MyWindow::MyWindow()
 	if(type1==1)
 	{
 		add(grid);
-		area.set_size_request(800,800);
+		area.set_size_request(800,500);
 		grid.add(area);
 		grid.attach_next_to(buttonx,area,Gtk::POS_BOTTOM,1,1);
 		grid.attach_next_to(buttony,buttonx,Gtk::POS_BOTTOM,1,1);
@@ -745,7 +745,7 @@ MyWindow::MyWindow()
 	else if(type1==2)
 	{
 		add(grid);
-		area.set_size_request(800,800);
+		area.set_size_request(800,500);
 		grid.add(area);
 		// grid.attach_next_to(buttonx,area,Gtk::POS_BOTTOM,1,1);
 		// grid.attach_next_to(buttony,buttonx,Gtk::POS_BOTTOM,1,1);
