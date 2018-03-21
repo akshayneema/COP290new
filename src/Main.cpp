@@ -211,7 +211,7 @@ int main(int argc, char** argv){
 				}
 
 				inFile >> output;
-				cout<<output<<endl;
+				// cout<<output<<endl;
 				
 				//cout << output <<endl;
 				inFile >> output;
@@ -235,14 +235,14 @@ int main(int argc, char** argv){
 					inFile >> output;
 					if(output == ";;") break;
 				}
-				cout<<output<<endl;
+				// cout<<output<<endl;
 				inFile >> output;
 				inFile >> output;
 				inFile >> output;
 				//boolean bigClos = true;
 
 				std::vector<Edge3D> plane;
-				cout<<output<<endl;
+				// cout<<output<<endl;
 
 				while(true)
 				{
@@ -250,7 +250,7 @@ int main(int argc, char** argv){
 					{
 					
 						inFile >> output;
-						if(output!="-10.0")cout<<output<<endl;
+						// if(output!="-10.0")cout<<output<<endl;
 						//cout<<output<<endl;
 
 						e_temp3D.x1 = atof (output.c_str());
@@ -286,7 +286,7 @@ int main(int argc, char** argv){
 
 					inFile >> output;
 
-					cout<<output<<endl;
+					// cout<<output<<endl;
 					if(output == ";;;") break;
 
 					inFile >> output;
@@ -306,7 +306,7 @@ int main(int argc, char** argv){
 				fr = atof (output.c_str());
 
 			}
-			cout<<"d="<<fr<<"\n";
+			// cout<<"d="<<fr<<"\n";
 
 			
 			ThreeDBody tdbtemp=rotate3D(temp,normalofplane(aq,sw,de,fr));

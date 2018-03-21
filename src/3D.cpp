@@ -345,7 +345,7 @@
 
 	void ThreeDBody::rotate(double deltax, bool dirx, double deltay, bool diry, double deltaz, bool dirz)
 	{
-		cout<<"line no. 460";
+		// cout<<"line no. 460";
 		for (std::vector<Edge3D>::iterator it = this->e.begin() ; it != this->e.end(); it++)
 		{
 			(*it).rotate(deltax, dirx, deltay, diry, deltaz, dirz);

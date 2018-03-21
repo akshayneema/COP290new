@@ -72,7 +72,7 @@ ThreeDBody rotate3D(ThreeDBody &threedbody, std::vector<double> normal)
 	}
 	else
 	{
-		cout<<"else wala case";
+		// cout<<"else wala case";
 		for (std::vector<Vertex3D>::iterator it = threedbody.v.begin() ; it != threedbody.v.end(); it++)
 		{
 			Vertex3D vobj;
@@ -124,7 +124,7 @@ ThreeDBody rotate3D(ThreeDBody &threedbody, std::vector<double> normal)
 }
 std::vector<Edge3D> edge_segmentation(ThreeDBody &threedbody)
 {
-	cout<<"edge segmentation started\n";
+	// cout<<"edge segmentation started\n";
 	std::vector<Edge3D> tempe;
 	int k=0;
 	// for (std::vector<Edge3D>::iterator it = threedbody.e.begin() ; it != threedbody.e.end(); it++)
@@ -133,8 +133,8 @@ std::vector<Edge3D> edge_segmentation(ThreeDBody &threedbody)
 	// }
 	for (std::vector<Edge3D>::iterator it = threedbody.e.begin() ; it != threedbody.e.end(); it++)
 	{
-		cout<<"Next Edge\n";
-		cout<< "("<<(*it).x1<<","<<(*it).y1<<","<<(*it).z1<<")"<<" "<< "("<<(*it).x2<<","<<(*it).y2<<","<<(*it).z2<<")"<<"\n";
+		// cout<<"Next Edge\n";
+		// cout<< "("<<(*it).x1<<","<<(*it).y1<<","<<(*it).z1<<")"<<" "<< "("<<(*it).x2<<","<<(*it).y2<<","<<(*it).z2<<")"<<"\n";
 		// cout<< "("<<","<<","<<")"<<" "<< "("<<","<<","<<")"<<"\n";
 		std::vector<Vertex3D> tempv;
 		double x1= (*it).x1;
@@ -181,10 +181,10 @@ std::vector<Edge3D> edge_segmentation(ThreeDBody &threedbody)
 							v3d.y=y;
 							v3d.z=z;
 							v3d.l=sqrt(pow(x-x1,2.0)+pow(y-y1,2.0));
-							cout<<"first edge parallel to y axis\n";
+							// cout<<"first edge parallel to y axis\n";
 							tempv.push_back(v3d);
-							cout<<"("<<x<<","<<y<<","<<z<<")\n";
-							cout<< "("<<(*itr).x1<<","<<(*itr).y1<<","<<(*itr).z1<<")"<<" "<< "("<<(*itr).x2<<","<<(*itr).y2<<","<<(*itr).z2<<")"<<"\n";
+							// cout<<"("<<x<<","<<y<<","<<z<<")\n";
+							// cout<< "("<<(*itr).x1<<","<<(*itr).y1<<","<<(*itr).z1<<")"<<" "<< "("<<(*itr).x2<<","<<(*itr).y2<<","<<(*itr).z2<<")"<<"\n";
 						}
 						
 					}
@@ -211,10 +211,10 @@ std::vector<Edge3D> edge_segmentation(ThreeDBody &threedbody)
 							v3d.y=y;
 							v3d.z=z;
 							v3d.l=sqrt(pow(x-x1,2.0)+pow(y-y1,2.0));
-							cout<<"second edge parallel to y axis\n";
+							// cout<<"second edge parallel to y axis\n";
 							tempv.push_back(v3d);
-							cout<<"("<<x<<","<<y<<","<<z<<")\n";
-							cout<< "("<<(*itr).x1<<","<<(*itr).y1<<","<<(*itr).z1<<")"<<" "<< "("<<(*itr).x2<<","<<(*itr).y2<<","<<(*itr).z2<<")"<<"\n";
+							// cout<<"("<<x<<","<<y<<","<<z<<")\n";
+							// cout<< "("<<(*itr).x1<<","<<(*itr).y1<<","<<(*itr).z1<<")"<<" "<< "("<<(*itr).x2<<","<<(*itr).y2<<","<<(*itr).z2<<")"<<"\n";
 						}
 						
 					}
@@ -241,10 +241,10 @@ std::vector<Edge3D> edge_segmentation(ThreeDBody &threedbody)
 							v3d.y=y;
 							v3d.z=z;
 							v3d.l=sqrt(pow(x-x1,2.0)+pow(y-y1,2.0));
-							cout<<"first edge parallel to x-axis\n";
+							// cout<<"first edge parallel to x-axis\n";
 							tempv.push_back(v3d);
-							cout<<"("<<x<<","<<y<<","<<z<<")\n";
-							cout<< "("<<(*itr).x1<<","<<(*itr).y1<<","<<(*itr).z1<<")"<<" "<< "("<<(*itr).x2<<","<<(*itr).y2<<","<<(*itr).z2<<")"<<"\n";
+							// cout<<"("<<x<<","<<y<<","<<z<<")\n";
+							// cout<< "("<<(*itr).x1<<","<<(*itr).y1<<","<<(*itr).z1<<")"<<" "<< "("<<(*itr).x2<<","<<(*itr).y2<<","<<(*itr).z2<<")"<<"\n";
 						}
 						
 					}
@@ -271,10 +271,10 @@ std::vector<Edge3D> edge_segmentation(ThreeDBody &threedbody)
 							v3d.y=y;
 							v3d.z=z;
 							v3d.l=sqrt(pow(x-x1,2.0)+pow(y-y1,2.0));
-							cout<<"second edge parallel to x axis\n";
+							// cout<<"second edge parallel to x axis\n";
 							tempv.push_back(v3d);
-							cout<<"("<<x<<","<<y<<","<<z<<")\n";
-							cout<< "("<<(*itr).x1<<","<<(*itr).y1<<","<<(*itr).z1<<")"<<" "<< "("<<(*itr).x2<<","<<(*itr).y2<<","<<(*itr).z2<<")"<<"\n";
+							// cout<<"("<<x<<","<<y<<","<<z<<")\n";
+							// cout<< "("<<(*itr).x1<<","<<(*itr).y1<<","<<(*itr).z1<<")"<<" "<< "("<<(*itr).x2<<","<<(*itr).y2<<","<<(*itr).z2<<")"<<"\n";
 						}
 						
 					}
@@ -304,10 +304,10 @@ std::vector<Edge3D> edge_segmentation(ThreeDBody &threedbody)
 							v3d.y=y;
 							v3d.z=z;
 							v3d.l=sqrt(pow(x-x1,2.0)+pow(y-y1,2.0));
-							cout<<"general case\n";
+							// cout<<"general case\n";
 							tempv.push_back(v3d);
-							cout<<"("<<x<<","<<y<<","<<z<<")\n";
-							cout<< "("<<(*itr).x1<<","<<(*itr).y1<<","<<(*itr).z1<<")"<<" "<< "("<<(*itr).x2<<","<<(*itr).y2<<","<<(*itr).z2<<")"<<"\n";
+							// cout<<"("<<x<<","<<y<<","<<z<<")\n";
+							// cout<< "("<<(*itr).x1<<","<<(*itr).y1<<","<<(*itr).z1<<")"<<" "<< "("<<(*itr).x2<<","<<(*itr).y2<<","<<(*itr).z2<<")"<<"\n";
 						}
 
 					}
@@ -464,7 +464,7 @@ int raycast(double x, double y, Plane2D plane)// 0-> out 1->in 2-> on the line
 		{
 			if((othery[0]-y)*(othery[1]-y)<0)//both the other vertices of the edges are on different sides of casted ray.
 				{
-					cout<<"line no. 453\n";
+					// cout<<"line no. 453\n";
 					no=no+1;
 				}// this implies that the ray is of in<->out type.
 		}
@@ -524,7 +524,7 @@ int raycast(double x, double y, Plane2D plane)// 0-> out 1->in 2-> on the line
 		{
 			if((othery[0]-y)*(othery[1]-y)<0)//both the other vertices of the edges are on different sides of casted ray.
 			{
-				//cout<<"line no. 511\n";
+			
 				no=no+1;// this implies that the ray is of in<->out type.
 			}
 		}
@@ -547,7 +547,7 @@ int raycast(double x, double y, Plane2D plane)// 0-> out 1->in 2-> on the line
 			d=d-d1-d2;
 			if((d1>.000001)&&(d2>.000001)&&(d>-.000001)&&(d<.000001))
 			{
-				cout<<"d1="<<d1<<" d2="<<d2<<"\n";
+				// cout<<"d1="<<d1<<" d2="<<d2<<"\n";
 				if(xintersect>x)
 				{
 					//cout<<"line no. 534\n";
@@ -558,12 +558,12 @@ int raycast(double x, double y, Plane2D plane)// 0-> out 1->in 2-> on the line
 	}
 	if(no%2==0)
 	{
-		cout<<"no="<<no<<"\n";
+		// cout<<"no="<<no<<"\n";
 		return 0;
 	}
 	else
 	{
-		cout<<"no="<<no<<"\n";
+		// cout<<"no="<<no<<"\n";
 		return 1;
 	}
 	
@@ -572,7 +572,7 @@ int raycast(double x, double y, Plane2D plane)// 0-> out 1->in 2-> on the line
 
 void hiddenedgedetection(ThreeDBody &threedbody, double a, double b, double c, double d)
 {
-	cout<<"hidden edge detection started\n";
+	// cout<<"hidden edge detection started\n";
 	double q= (a*a)+(b*b)+(c*c);
 	double x= -a*d;
 	double y= -b*d;
@@ -584,12 +584,12 @@ void hiddenedgedetection(ThreeDBody &threedbody, double a, double b, double c, d
 	double tempz;
 	// vobj.z=(a*((*it).x))+(b*((*it).y))+(c*((*it).z));
 	tempz=normal[0]*(x)+normal[1]*(y)+normal[2]*(z);
-	cout<<"rotated plane="<<tempz<<"\n";
+	// cout<<"rotated plane="<<tempz<<"\n";
 	std::vector<Edge3D> tempe= edge_segmentation(threedbody);
-	for (std::vector<Edge3D>::iterator it = tempe.begin() ; it != tempe.end(); it++)
-	{
-		cout<< "("<<(*it).x1<<","<<(*it).y1<<","<<(*it).z1<<")"<<" "<< "("<<(*it).x2<<","<<(*it).y2<<","<<(*it).z2<<")"<<"\n";
-	}
+	// for (std::vector<Edge3D>::iterator it = tempe.begin() ; it != tempe.end(); it++)
+	// {
+	// 	cout<< "("<<(*it).x1<<","<<(*it).y1<<","<<(*it).z1<<")"<<" "<< "("<<(*it).x2<<","<<(*it).y2<<","<<(*it).z2<<")"<<"\n";
+	// }
 	for (std::vector<Edge3D>::iterator it = tempe.begin() ; it != tempe.end(); it++)
 	{
 		double x1=(*it).x1;
@@ -598,16 +598,16 @@ void hiddenedgedetection(ThreeDBody &threedbody, double a, double b, double c, d
 		double x2=(*it).x2;
 		double y2=(*it).y2;
 		double z2=(*it).z2;
-		cout<<"New Edge-----------------------------------------------------------------------"<<"\n";
-		cout<< "("<<x1<<","<<y1<<","<<z1<<")"<<" "<< "("<<x2<<","<<y2<<","<<z2<<")"<<"\n";
+		// cout<<"New Edge-----------------------------------------------------------------------"<<"\n";
+		// cout<< "("<<x1<<","<<y1<<","<<z1<<")"<<" "<< "("<<x2<<","<<y2<<","<<z2<<")"<<"\n";
 		for (std::vector<Plane3D>::iterator itr = threedbody.p.begin() ; itr != threedbody.p.end(); itr++)
 		{
 			// cout<<(*itr).plane.size()<<"\n";
-			cout<<"plane ki edges\n";
-			for (std::vector<Edge3D>::iterator itrr = (*itr).plane.begin() ; itrr != (*itr).plane.end(); itrr++)
-			{
-				cout<< "("<<(*itrr).x1<<","<<(*itrr).y1<<","<<(*itrr).z1<<")"<<" "<< "("<<(*itrr).x2<<","<<(*itrr).y2<<","<<(*itrr).z2<<")"<<"\n";
-			}
+			// cout<<"plane ki edges\n";
+			// for (std::vector<Edge3D>::iterator itrr = (*itr).plane.begin() ; itrr != (*itr).plane.end(); itrr++)
+			// {
+			// 	cout<< "("<<(*itrr).x1<<","<<(*itrr).y1<<","<<(*itrr).z1<<")"<<" "<< "("<<(*itrr).x2<<","<<(*itrr).y2<<","<<(*itrr).z2<<")"<<"\n";
+			// }
 			double ba[3];
 			double ca[3];
 			ba[0]=(*itr).plane[0].x2-(*itr).plane[0].x1;
@@ -619,19 +619,19 @@ void hiddenedgedetection(ThreeDBody &threedbody, double a, double b, double c, d
 			double tempn[3];
 			crossProduct(ba, ca, tempn);
 			double tempd= -((tempn[0]*(*itr).plane[0].x1)+(tempn[1]*(*itr).plane[0].y1)+(tempn[2]*(*itr).plane[0].z1));
-			cout<<tempn[0]<<"x+"<<tempn[1]<<"y+"<<tempn[2]<<"z+"<<tempd<<"=0\n";
+			// cout<<tempn[0]<<"x+"<<tempn[1]<<"y+"<<tempn[2]<<"z+"<<tempd<<"=0\n";
 			if(tempn[2]!=0)//c cant be zero coz plane parallel to z-axis
 			{
 				double k1,k2;
 				k1=-(tempd+(tempn[0]*x1)+(tempn[1]*y1)+(tempn[2]*z1))/tempn[2];
 				k2=-(tempd+(tempn[0]*x2)+(tempn[1]*y2)+(tempn[2]*z2))/tempn[2];
-				cout<<"k1="<<k1<<" k2="<<k2<<"\n";
+				// cout<<"k1="<<k1<<" k2="<<k2<<"\n";
 				//ye waali condition refine krni hai
 				// if(((((tempz>0)&&(k1>0))||((tempz<0)&&(k1<0)))&&(((tempz>0)&&(k2>0))||((tempz<0)&&(k2<0))))||((((tempz>0)&&(k1==0))||((tempz<0)&&(k1==0)))&&(((tempz>0)&&(k2>0))||((tempz<0)&&(k2<0))))||((((tempz>0)&&(k1>0))||((tempz<0)&&(k1<0)))&&(((tempz>0)&&(k2==0))||((tempz<0)&&(k2==0)))))//point 1 behind and point.2 behind
 				if(((((tempz>0)&&(k1>0))||((tempz<0)&&(k1<0)))&&(((tempz>0)&&(k2>0))||((tempz<0)&&(k2<0))))||(((k1>-0.000001)&&(k1<0.000001))&&(((tempz>0)&&(k2>0))||((tempz<0)&&(k2<0))))||(((k2>-0.000001)&&(k2<0.000001))&&(((tempz>0)&&(k1>0))||((tempz<0)&&(k1<0)))))
 				{
-					cout<<"line is behind\n";
-					cout<<"Now we will check that its hidden or not \n";
+					// cout<<"line is behind\n";
+					// cout<<"Now we will check that its hidden or not \n";
 					Plane2D temppl;
 					for (std::vector<Edge3D>::iterator itrr = (*itr).plane.begin() ; itrr != (*itr).plane.end(); itrr++)
 					{
@@ -640,17 +640,17 @@ void hiddenedgedetection(ThreeDBody &threedbody, double a, double b, double c, d
 						temped.y1=(*itrr).y1;
 						temped.x2=(*itrr).x2;
 						temped.y2=(*itrr).y2;
-						cout<<"("<<temped.x1<<","<<temped.y1<<")("<<temped.x2<<","<<temped.y2<<") \n";
+						// cout<<"("<<temped.x1<<","<<temped.y1<<")("<<temped.x2<<","<<temped.y2<<") \n";
 						temppl.plane.push_back(temped);
 					}
 					int point1=raycast(x1,y1,temppl);
-					cout<<"("<<x1<<","<<y1<<")raycast output is = "<<point1<<"\n";
+					// cout<<"("<<x1<<","<<y1<<")raycast output is = "<<point1<<"\n";
 					int point2=raycast(x2,y2,temppl);
-					cout<<"("<<x2<<","<<y2<<") raycast output is = "<<point2<<"\n";
+					// cout<<"("<<x2<<","<<y2<<") raycast output is = "<<point2<<"\n";
 					if(((point1==2)&&(point2==1))||((point2==2)&&(point1==1))||((point1==1)&&(point2==1)))//ek andar ek bahar aur dono andar
 					{
 						(*it).visibility=false;
-						cout<<"Ya!! its hidden\n";
+						// cout<<"Ya!! its hidden\n";
 					}
 					else if((point1==2)&&(point2==2))//both the endpoints are on edge
 					{
@@ -660,7 +660,7 @@ void hiddenedgedetection(ThreeDBody &threedbody, double a, double b, double c, d
 						if(midray==1)
 						{
 							(*it).visibility=false;
-							cout<<"Ya!! its hidden\n";
+							// cout<<"Ya!! its hidden\n";
 						}
 					}
 				}

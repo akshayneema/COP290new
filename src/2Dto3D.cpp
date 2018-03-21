@@ -54,7 +54,7 @@ ThreeDBody threeDlabel (TwoDBody &top,TwoDBody &front,TwoDBody &left) //,Labelle
 						vobj.push_back(vtemp);
 						temp.v.push_back(vtemp);
 
-						cout << labeler << "   ("<< x << ','<< y << ','<< z << ")  "  << endl;
+						// cout << labeler << "   ("<< x << ','<< y << ','<< z << ")  "  << endl;
 
 					}
 				}
@@ -251,7 +251,7 @@ ThreeDBody threeDlabel (TwoDBody &top,TwoDBody &front,TwoDBody &left) //,Labelle
 				vtemp.y2 = bb;
 				vtemp.z1 = z;
 				vtemp.z2 = cc;
-				cout << "Edges : "<<'('<< x << ','<< y << ','<< z << ")   ("<<aa<< ','<< bb << ','<<cc << ')'<< endl;
+				// cout << "Edges : "<<'('<< x << ','<< y << ','<< z << ")   ("<<aa<< ','<< bb << ','<<cc << ')'<< endl;
 
 				//vobj.push_back(vtemp);
 				temp.e.push_back(vtemp);
