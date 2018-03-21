@@ -176,43 +176,8 @@ int main(int argc, char** argv){
 			MyWindow win;
 			win.set_default_size(640, 360);
 			win.set_title("AutoCad");
-			// Buttons buttons;
-			// MyArea area;
-			// win.add(area);
-			// win.add(buttons);
 
-			cout<<"before show\n";
-		//    win.show();
-			cout<<"before return\n";
 		   return app->run(win);
-			// win.add(area);
-			// rotate3D(threedb,normalofplane(1,1,1,1));
-				
-			// TopView(threedb);
-			// area.show();
-			// return app->run(win);
-
-			// cout<<"before loop\n";
-			// for(int i=0; i<20; i++)
-			// {
-			// 	for(long j=0; j<1000000000; j++);
-			// 	threedb.rotate(true,.1,true,.15,true,.05);
-			// 	rotate3D(threedb,normalofplane(1,1,1,1));
-				
-			// 	TopView(threedb);
-			// 	// auto app = Gtk::Application::create(argc, argv, "org.gtkmm.example");
-				
-
-				
-			// 	area.queue_draw();
-			// 	cout<<"in loop\n";
-				
-
-			// }
-
-			
-
-
 		}
 
 		else if(type==2)
@@ -235,9 +200,7 @@ int main(int argc, char** argv){
 					v_temp3D.y = atof(output.c_str());
 					inFile >> output;
 					v_temp3D.z = atof(output.c_str());
-					//inFile >> output;
-					//inFile >> output;
-					
+						
 					temp.v.push_back(v_temp3D);
 
 
@@ -285,8 +248,7 @@ int main(int argc, char** argv){
 				{
 					while(true)
 					{
-						
-
+					
 						inFile >> output;
 						if(output!="-10.0")cout<<output<<endl;
 						//cout<<output<<endl;
@@ -356,10 +318,6 @@ int main(int argc, char** argv){
 		   MyWindow win;
 		   win.set_title("AutoCad");
 		   win.set_default_size(640, 360);
-
-		//    MyArea area;
-		//    win.add(area);
-		//    win.show();
 
 		   return app->run(win);
 		
