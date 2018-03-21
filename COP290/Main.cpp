@@ -1,11 +1,11 @@
 #include <GL/glut.h>
-#include "Reduce3DInput.h"
+// #include "Reduce3DInput.h"
 #include "3Dto2D.h"
-#include "Recreate2DOutput.h"
+// #include "Recreate2DOutput.h"
 
-#include "Reduce2DInput.h"
+// #include "Reduce2DInput.h"
 #include "2Dto3D.h"
-#include "Recreate3DOutput.h"
+// #include "Recreate3DOutput.h"
 
 #include <string>
 #include <vector>
@@ -20,7 +20,7 @@
 using namespace std;
 
 
-
+int type=0; 
 int main(int argc, char** argv){
 	// cout<<"enter file name:"<<argv[1]<<"\n";
 	ifstream inFile;
@@ -55,6 +55,7 @@ int main(int argc, char** argv){
 			if(output == "2dto3d") type=1;
 			else if (output == "3dto2d") type=2;
 			else cout << "Try Again" <<endl;
+			type_equal(type);
 
 		}
 
