@@ -736,17 +736,22 @@ MyWindow::MyWindow()
     // // gtk_window_set_position(GTK_WINDOW(p_s_window), GTK_WIN_POS_CENTER);
     // // gtk_window_set_title(GTK_WINDOW(p_s_window), "hello");
     // gtk_widget_modify_background_color(p_s_window, GTK_STATE_NORMAL, &color);
-	
+	cout << "\n\n" <<type << endl;
+
+			add(grid);
+		area.set_size_request(800,500);
+		grid.add(area);
+
+		area.signal_draw().connect(sigc::mem_fun(*this,
+				&MyWindow::on_drawe));
+
 	if(type==1)
 	{
-		add(grid);
-		area.set_size_request(800,800);
-		grid.add(area);
+
 		grid.attach_next_to(buttonx,area,Gtk::POS_BOTTOM,1,1);
 		grid.attach_next_to(buttony,buttonx,Gtk::POS_BOTTOM,1,1);
 		grid.attach_next_to(buttonz,buttony,Gtk::POS_BOTTOM,1,1);
-		area.signal_draw().connect(sigc::mem_fun(*this,
-				&MyWindow::on_drawe));
+		
 		buttonx.signal_clicked().connect( sigc::bind<int>(sigc::mem_fun(*this, 
 				&MyWindow::on_click),1));
 		buttony.signal_clicked().connect( sigc::bind<int>(sigc::mem_fun(*this, 
@@ -754,27 +759,10 @@ MyWindow::MyWindow()
 
 		buttonz.signal_clicked().connect( sigc::bind<int>(sigc::mem_fun(*this, 
 				&MyWindow::on_click),3));
-		show_all_children();
+		
 	}
-	else if(type==2)
-	{
-		add(grid);
-		area.set_size_request(800,800);
-		grid.add(area);
-		// grid.attach_next_to(buttonx,area,Gtk::POS_BOTTOM,1,1);
-		// grid.attach_next_to(buttony,buttonx,Gtk::POS_BOTTOM,1,1);
-		// grid.attach_next_to(buttonz,buttony,Gtk::POS_BOTTOM,1,1);
-		area.signal_draw().connect(sigc::mem_fun(*this,
-				&MyWindow::on_drawe));
-		// buttonx.signal_clicked().connect( sigc::bind<int>(sigc::mem_fun(*this, 
-		// 		&MyWindow::on_click),1));
-		// buttony.signal_clicked().connect( sigc::bind<int>(sigc::mem_fun(*this, 
-		// 		&MyWindow::on_click),2));
 
-		// buttonz.signal_clicked().connect( sigc::bind<int>(sigc::mem_fun(*this, 
-		// 		&MyWindow::on_click),3));
-		show_all_children();
-	}
+	show_all_children();
 	
 }
 
@@ -808,7 +796,7 @@ bool MyWindow::on_drawe(const Cairo::RefPtr<Cairo::Context>& cr)
 		}
 		else
 		{
-			// cr->save();
+			 cr->save();
 			// cout<<"not visible\n";
 			std::vector<double> vec;
 			cr->set_source_rgb(0.0,0.5,1.0);
