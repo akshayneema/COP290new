@@ -25,10 +25,10 @@ ThreeDBody rotate3D(ThreeDBody &threedbody, std::vector<double> normal)
 	double a= normal[0];
 	double b= normal[1];
 	double c= normal[2];
-	cout<<"rotate3d function called";
+	//cout<<"rotate3d function called";
 	if((a!=1)&&(a!=-1))
 	{
-		cout<<"if wala case";
+		//cout<<"if wala case";
 		double d= (b*b)+(c*c);
 		d=sqrt(d);
 		for (std::vector<Vertex3D>::iterator it = threedbody.v.begin() ; it != threedbody.v.end(); it++)
@@ -524,7 +524,7 @@ int raycast(double x, double y, Plane2D plane)// 0-> out 1->in 2-> on the line
 		{
 			if((othery[0]-y)*(othery[1]-y)<0)//both the other vertices of the edges are on different sides of casted ray.
 			{
-				cout<<"line no. 511\n";
+				//cout<<"line no. 511\n";
 				no=no+1;// this implies that the ray is of in<->out type.
 			}
 		}
@@ -550,7 +550,7 @@ int raycast(double x, double y, Plane2D plane)// 0-> out 1->in 2-> on the line
 				cout<<"d1="<<d1<<" d2="<<d2<<"\n";
 				if(xintersect>x)
 				{
-					cout<<"line no. 534\n";
+					//cout<<"line no. 534\n";
 					no=no+1;
 				}
 			}
@@ -714,25 +714,20 @@ MyWindow::MyWindow()
 	// cout<<"constructor called\n";
 // GdkColor color;
 
-// 	color.red = 0xffff;
-// color.green = 0xffff;
-// color.blue = 0;
 
-    // p_s_window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-    // // gtk_window_set_position(GTK_WINDOW(p_s_window), GTK_WIN_POS_CENTER);
-    // // gtk_window_set_title(GTK_WINDOW(p_s_window), "hello");
-    // gtk_widget_modify_background_color(p_s_window, GTK_STATE_NORMAL, &color);
-	
+	add(grid);
+	area.set_size_request(800,500);
+	grid.add(area);	
+
+	area.signal_draw().connect(sigc::mem_fun(*this,
+	&MyWindow::on_drawe));
+
 	if(type1==1)
 	{
-		add(grid);
-		area.set_size_request(800,500);
-		grid.add(area);
 		grid.attach_next_to(buttonx,area,Gtk::POS_BOTTOM,1,1);
 		grid.attach_next_to(buttony,buttonx,Gtk::POS_BOTTOM,1,1);
 		grid.attach_next_to(buttonz,buttony,Gtk::POS_BOTTOM,1,1);
-		area.signal_draw().connect(sigc::mem_fun(*this,
-				&MyWindow::on_drawe));
+
 		buttonx.signal_clicked().connect( sigc::bind<int>(sigc::mem_fun(*this, 
 				&MyWindow::on_click),1));
 		buttony.signal_clicked().connect( sigc::bind<int>(sigc::mem_fun(*this, 
@@ -740,27 +735,10 @@ MyWindow::MyWindow()
 
 		buttonz.signal_clicked().connect( sigc::bind<int>(sigc::mem_fun(*this, 
 				&MyWindow::on_click),3));
-		show_all_children();
+		
 	}
-	else if(type1==2)
-	{
-		add(grid);
-		area.set_size_request(800,500);
-		grid.add(area);
-		// grid.attach_next_to(buttonx,area,Gtk::POS_BOTTOM,1,1);
-		// grid.attach_next_to(buttony,buttonx,Gtk::POS_BOTTOM,1,1);
-		// grid.attach_next_to(buttonz,buttony,Gtk::POS_BOTTOM,1,1);
-		area.signal_draw().connect(sigc::mem_fun(*this,
-				&MyWindow::on_drawe));
-		// buttonx.signal_clicked().connect( sigc::bind<int>(sigc::mem_fun(*this, 
-		// 		&MyWindow::on_click),1));
-		// buttony.signal_clicked().connect( sigc::bind<int>(sigc::mem_fun(*this, 
-		// 		&MyWindow::on_click),2));
 
-		// buttonz.signal_clicked().connect( sigc::bind<int>(sigc::mem_fun(*this, 
-		// 		&MyWindow::on_click),3));
-		show_all_children();
-	}
+	show_all_children();
 	
 }
 
@@ -787,7 +765,7 @@ bool MyWindow::on_drawe(const Cairo::RefPtr<Cairo::Context>& cr)
 	{
 		if((*it).visibility==true)
 		{
-			// cr->save();
+			//cr->save();
 			cr->set_source_rgb(0.0,0.5,1.0);
 			// cout<<"visible\n";
 			cr->move_to(100*(*it).x1+xc, 100*(*it).y1+yc);
@@ -798,7 +776,7 @@ bool MyWindow::on_drawe(const Cairo::RefPtr<Cairo::Context>& cr)
 		}
 		else
 		{
-			// cr->save();
+			cr->save();
 			// cout<<"not visible\n";
 			std::vector<double> vec;
 			cr->set_source_rgb(0.0,0.5,1.0);
@@ -812,32 +790,25 @@ bool MyWindow::on_drawe(const Cairo::RefPtr<Cairo::Context>& cr)
 			  
 		}
 	}
-	 cout<<"return of on draw\n";
   return true;
 }
 
 void MyWindow::on_click(int x)
 {
-	cout<<"return of on draw 1\n";
 	if(x==1) 
 	{
 		wire_frame.rotate(0.05,true,0.0,false,0.0,true);
-		cout<<"x=1\n";
+		//cout<<"x=1\n";
 	}
 	else if (x==2) wire_frame.rotate(0.0,true,0.05,true,0.0,true);
 	else if (x==3) wire_frame.rotate(0.0,false,0.0,true,0.05,true);
 
-	cout << wire_frame.v[0].x<< "0000813";
 	ThreeDBody tdbtemp=rotate3D(wire_frame,normalofplane(1,1,1,1));
 
-	cout << wire_frame.v[0].x << "0000816";
 	TopView(tdbtemp);
 
 	
 	area.queue_draw();
-
-	cout<<"return of on draw 2\n";
-
 
 }
 
