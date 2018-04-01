@@ -19,15 +19,21 @@
 // #include "buttons.h"
 using namespace std;
 
+int arg_c;
+char** arg_v;
+
 
 int type=0; 
+//FileWindow window;
 
 string file_name;
 
 int file_inp(int argc, char** argv)
 {
+	arg_c = argc;
+	arg_v = argv;
 
-	auto app = Gtk::Application::create(argc, argv, "org.gtkmm.example");
+	auto app = Gtk::Application::create(argc, argv, "org.gtkmm.exeample");
 	FileWindow window;
 	window.set_default_size(600, 360);
 	window.set_title("AutoCad File Select");
@@ -35,22 +41,12 @@ int file_inp(int argc, char** argv)
 	return app->run(window);
 }
 
-int main(int argc, char** argv){
-	// cout<<"enter file name:"<<argv[1]<<"\n";
+int file_reader(int argc, char** argv)
+{
 	ifstream inFile;
-
-	file_inp(argc, argv);
-
-
-	cout << "Give a file name to input " << endl;
-	
-	// string fl_name;
-	// getline(cin,fl_name);
-
-	//inFile.open(fl_name);
 	inFile.open(file_name);
 
-	// int type=0; 
+    int type=0; 
 
 	TwoDBody top,front,left;
 
@@ -341,6 +337,25 @@ int main(int argc, char** argv){
 		
 		}
 	}
+
+	return 0;
+
+}
+
+int main(int argc, char** argv){
+	// cout<<"enter file name:"<<argv[1]<<"\n";
+	
+
+	file_inp(argc, argv);
+
+
+	//cout << "Give a file name to input " << endl;
+	
+	// string fl_name;
+	// getline(cin,fl_name);
+
+	//inFile.open(fl_name);
+
 	return 0;
 }
 
@@ -406,6 +421,8 @@ void FileWindow::on_button_file_clicked()
       file_name = dialog.get_filename();
 
       std::cout << "File selected: " <<  file_name << std::endl;
+	  file_reader(arg_c,arg_v);
+	  //window.hide();
       break;
     }
     case(Gtk::RESPONSE_CANCEL):
