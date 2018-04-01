@@ -21,16 +21,34 @@ using namespace std;
 
 
 int type=0; 
+
+string file_name;
+
+int file_inp(int argc, char** argv)
+{
+
+	auto app = Gtk::Application::create(argc, argv, "org.gtkmm.example");
+	FileWindow window;
+	window.set_default_size(600, 360);
+	window.set_title("AutoCad File Select");
+
+	return app->run(window);
+}
+
 int main(int argc, char** argv){
 	// cout<<"enter file name:"<<argv[1]<<"\n";
 	ifstream inFile;
 
+	file_inp(argc, argv);
+
+
 	cout << "Give a file name to input " << endl;
 	
-	string fl_name;
-	getline(cin,fl_name);
+	// string fl_name;
+	// getline(cin,fl_name);
 
-	inFile.open(fl_name);
+	//inFile.open(fl_name);
+	inFile.open(file_name);
 
 	// int type=0; 
 
@@ -324,4 +342,81 @@ int main(int argc, char** argv){
 		}
 	}
 	return 0;
+}
+
+
+FileWindow::FileWindow()
+: m_ButtonBox(Gtk::ORIENTATION_VERTICAL),
+  m_Button_File("Choose File")
+  {
+	add(m_ButtonBox);
+
+	m_ButtonBox.pack_start(m_Button_File);
+	m_Button_File.signal_clicked().connect(sigc::mem_fun(*this,
+				&FileWindow::on_button_file_clicked) );
+
+	show_all_children();
+  }
+
+FileWindow::~FileWindow()
+{
+
+}
+
+void FileWindow::on_button_file_clicked()
+{
+  Gtk::FileChooserDialog dialog("Please choose a file",
+          Gtk::FILE_CHOOSER_ACTION_OPEN);
+  dialog.set_transient_for(*this);
+
+  //Add response buttons the the dialog:
+  dialog.add_button("_Cancel", Gtk::RESPONSE_CANCEL);
+  dialog.add_button("_Open", Gtk::RESPONSE_OK);
+
+  //Add filters, so that only certain file types can be selected:
+
+  auto filter_text = Gtk::FileFilter::create();
+  filter_text->set_name("Text files");
+  filter_text->add_mime_type("text/plain");
+  dialog.add_filter(filter_text);
+
+  auto filter_cpp = Gtk::FileFilter::create();
+  filter_cpp->set_name("C/C++ files");
+  filter_cpp->add_mime_type("text/x-c");
+  filter_cpp->add_mime_type("text/x-c++");
+  filter_cpp->add_mime_type("text/x-c-header");
+  dialog.add_filter(filter_cpp);
+
+  auto filter_any = Gtk::FileFilter::create();
+  filter_any->set_name("Any files");
+  filter_any->add_pattern("*");
+  dialog.add_filter(filter_any);
+
+  //Show the dialog and wait for a user response:
+  int result = dialog.run();
+
+  //Handle the response:
+  switch(result)
+  {
+    case(Gtk::RESPONSE_OK):
+    {
+      std::cout << "Open clicked." << std::endl;
+
+      //Notice that this is a std::string, not a Glib::ustring.
+      file_name = dialog.get_filename();
+
+      std::cout << "File selected: " <<  file_name << std::endl;
+      break;
+    }
+    case(Gtk::RESPONSE_CANCEL):
+    {
+      std::cout << "Cancel clicked." << std::endl;
+      break;
+    }
+    default:
+    {
+      std::cout << "Unexpected button clicked." << std::endl;
+      break;
+    }
+  }
 }
