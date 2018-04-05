@@ -18,7 +18,7 @@ of the object.
 1. compile using make command 
 2. change directory to build by using cd build
 3. use ./main to run the executable file
-4. write the input file name on command prompt (text file)
+4. Choose the input file using GUI (text file)
 5. Enjoy the rotation functionality if using the 2D to 3D.
 
 # Assumptions:-
