@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['normalofplane',['normalofplane',['../2_dto3_d_8h.html#a2075cf7d8a5a2b03b220625722bae4b3',1,'normalofplane(char *plane):&#160;2Dto3D.h'],['../3_dto2_d_8h.html#a2075cf7d8a5a2b03b220625722bae4b3',1,'normalofplane(char *plane):&#160;3Dto2D.h']]]
+  ['file_5finp',['file_inp',['../_main_8cpp.html#a66ab2f09f5967d82b6f0074d2fed926c',1,'Main.cpp']]],
+  ['file_5freader',['file_reader',['../_main_8cpp.html#a3b8c85a14ec234a76b141b3aa355a071',1,'Main.cpp']]],
+  ['filewindow',['FileWindow',['../class_file_window.html#aa90776803aafb4745b145620e7f8390a',1,'FileWindow']]]
 ];

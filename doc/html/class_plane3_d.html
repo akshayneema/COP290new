@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>COP290: Plane3D Class Reference</title>
+<title>PackagED: Plane3D Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">COP290
+   <div id="projectname">PackagED
    </div>
   </td>
  </tr>
@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -62,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -94,14 +96,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a72b6c267c304c5765452b963d20b4b8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane3_d.html#a72b6c267c304c5765452b963d20b4b8b">translatex</a> (float dx)</td></tr>
-<tr class="separator:a72b6c267c304c5765452b963d20b4b8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af66b3d101511511e3090fb61e57d0975"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane3_d.html#af66b3d101511511e3090fb61e57d0975">translatey</a> (float dy)</td></tr>
-<tr class="separator:af66b3d101511511e3090fb61e57d0975"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6f6330a15fc8b4babca1b9fb97fdf87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane3_d.html#ac6f6330a15fc8b4babca1b9fb97fdf87">translatez</a> (float dz)</td></tr>
-<tr class="separator:ac6f6330a15fc8b4babca1b9fb97fdf87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a166c66868aa73a487fad0cbae308c9c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane3_d.html#a166c66868aa73a487fad0cbae308c9c6">rotate</a> (float delta, float theta, bool dirdelta, bool dirtheta, <a class="el" href="class_vertex3_d.html">Vertex3D</a> axis)</td></tr>
-<tr class="separator:a166c66868aa73a487fad0cbae308c9c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa68c89db7d9b2acd050fe7b6a8906988"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane3_d.html#aa68c89db7d9b2acd050fe7b6a8906988">rotate</a> (double deltax, bool dirx, double deltay, bool diry, double deltaz, bool dirz)</td></tr>
+<tr class="separator:aa68c89db7d9b2acd050fe7b6a8906988"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -109,42 +105,45 @@ Public Attributes</h2></td></tr>
 <tr class="separator:aff30a0d398845f7141692fa5d7493280"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a166c66868aa73a487fad0cbae308c9c6"></a>
+<a class="anchor" id="aa68c89db7d9b2acd050fe7b6a8906988"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void Plane3D::rotate </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>delta</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>theta</em>, </td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>deltax</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>dirdelta</em>, </td>
+          <td class="paramname"><em>dirx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>deltay</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>dirtheta</em>, </td>
+          <td class="paramname"><em>diry</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_vertex3_d.html">Vertex3D</a>&#160;</td>
-          <td class="paramname"><em>axis</em>&#160;</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>deltaz</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>dirz</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -152,83 +151,6 @@ Public Attributes</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a72b6c267c304c5765452b963d20b4b8b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Plane3D::translatex </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>dx</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af66b3d101511511e3090fb61e57d0975"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Plane3D::translatey </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>dy</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ac6f6330a15fc8b4babca1b9fb97fdf87"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Plane3D::translatez </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>dz</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -246,8 +168,9 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/hp/Desktop/COP290new/COP290/<a class="el" href="3_d_8h_source.html">3D.h</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>COP290new/include/<a class="el" href="3_d_8h_source.html">3D.h</a></li>
+<li>COP290new/src/<a class="el" href="3_d_8cpp.html">3D.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

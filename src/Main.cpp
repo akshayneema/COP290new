@@ -35,7 +35,7 @@ int file_inp(int argc, char** argv)
 
 	auto app = Gtk::Application::create(argc, argv, "org.gtkmm.exeample");
 	FileWindow window;
-	window.set_default_size(600, 360);
+	window.set_default_size(300, 80);
 	window.set_title("AutoCad File Select");
 
 	return app->run(window);

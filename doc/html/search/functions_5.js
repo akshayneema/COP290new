@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['viewtype',['viewtype',['../2_dto3_d_8h.html#a776e08df14c4c59ad7d987e9cb1cd812',1,'viewtype(TwoDBody twodbody):&#160;2Dto3D.h'],['../_auxilliary_func2_d_8h.html#ae40354fc7ce7198ef8ae37e21b3df90d',1,'viewtype(int x, int y):&#160;AuxilliaryFunc2D.h']]]
+  ['normalofplane',['normalofplane',['../3_dto2_d_8h.html#aa1d5affc106c07f4e11f26ef6ce62499',1,'normalofplane(double a, double b, double c, double d):&#160;3Dto2D.cpp'],['../3_dto2_d_8cpp.html#aa1d5affc106c07f4e11f26ef6ce62499',1,'normalofplane(double a, double b, double c, double d):&#160;3Dto2D.cpp']]]
 ];

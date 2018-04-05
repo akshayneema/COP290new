@@ -1,10 +1,19 @@
-\hypertarget{_main_8cpp}{}\section{/home/hp/\+Desktop/\+C\+O\+P290new/\+C\+O\+P290/\+Main.cpp File Reference}
-\label{_main_8cpp}\index{/home/hp/\+Desktop/\+C\+O\+P290new/\+C\+O\+P290/\+Main.\+cpp@{/home/hp/\+Desktop/\+C\+O\+P290new/\+C\+O\+P290/\+Main.\+cpp}}
+\hypertarget{_main_8cpp}{}\section{C\+O\+P290new/src/\+Main.cpp File Reference}
+\label{_main_8cpp}\index{C\+O\+P290new/src/\+Main.\+cpp@{C\+O\+P290new/src/\+Main.\+cpp}}
 {\ttfamily \#include $<$G\+L/glut.\+h$>$}\\*
-{\ttfamily \#include \char`\"{}Reduce3\+D\+Input.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}3\+Dto2\+D.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}Recreate2\+D\+Output.\+h\char`\"{}}\\*
-Include dependency graph for Main.\+cpp\+:\nopagebreak
+{\ttfamily \#include \char`\"{}2\+Dto3\+D.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$string$>$}\\*
+{\ttfamily \#include $<$vector$>$}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}myarea.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$gtkmm/application.\+h$>$}\\*
+{\ttfamily \#include $<$gtkmm/window.\+h$>$}\\*
+{\ttfamily \#include $<$fstream$>$}\\*
+{\ttfamily \#include $<$bits/stdc++.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+Include dependency graph for Main.\+cpp\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -14,15 +23,86 @@ Include dependency graph for Main.\+cpp\+:\nopagebreak
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-int \hyperlink{_main_8cpp_aea609e463d45a840fd2c6825cd4e1407}{main} (std\+::ifstream \&Input\+File)
+int \hyperlink{_main_8cpp_a66ab2f09f5967d82b6f0074d2fed926c}{file\+\_\+inp} (int argc, char $\ast$$\ast$argv)
+\item 
+int \hyperlink{_main_8cpp_a3b8c85a14ec234a76b141b3aa355a071}{file\+\_\+reader} (int argc, char $\ast$$\ast$argv)
+\item 
+int \hyperlink{_main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{_main_8cpp_ace1f4cd933b1a16c2a7e8496c509179c}{arg\+\_\+c}
+\item 
+char $\ast$$\ast$ \hyperlink{_main_8cpp_a199d9cb827ca76d6becbf20782728e12}{arg\+\_\+v}
+\item 
+int \hyperlink{_main_8cpp_ac765329451135abec74c45e1897abf26}{type} =0
+\item 
+string \hyperlink{_main_8cpp_a755d42f2e9c635ce2213e0efad62b796}{file\+\_\+name}
 \end{DoxyCompactItemize}
 
 
 \subsection{Function Documentation}
+\index{Main.\+cpp@{Main.\+cpp}!file\+\_\+inp@{file\+\_\+inp}}
+\index{file\+\_\+inp@{file\+\_\+inp}!Main.\+cpp@{Main.\+cpp}}
+\subsubsection[{\texorpdfstring{file\+\_\+inp(int argc, char $\ast$$\ast$argv)}{file_inp(int argc, char **argv)}}]{\setlength{\rightskip}{0pt plus 5cm}int file\+\_\+inp (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}\hypertarget{_main_8cpp_a66ab2f09f5967d82b6f0074d2fed926c}{}\label{_main_8cpp_a66ab2f09f5967d82b6f0074d2fed926c}
+\index{Main.\+cpp@{Main.\+cpp}!file\+\_\+reader@{file\+\_\+reader}}
+\index{file\+\_\+reader@{file\+\_\+reader}!Main.\+cpp@{Main.\+cpp}}
+\subsubsection[{\texorpdfstring{file\+\_\+reader(int argc, char $\ast$$\ast$argv)}{file_reader(int argc, char **argv)}}]{\setlength{\rightskip}{0pt plus 5cm}int file\+\_\+reader (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}\hypertarget{_main_8cpp_a3b8c85a14ec234a76b141b3aa355a071}{}\label{_main_8cpp_a3b8c85a14ec234a76b141b3aa355a071}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_main_8cpp_a3b8c85a14ec234a76b141b3aa355a071_cgraph}
+\end{center}
+\end{figure}
+
+
 \index{Main.\+cpp@{Main.\+cpp}!main@{main}}
 \index{main@{main}!Main.\+cpp@{Main.\+cpp}}
-\subsubsection[{\texorpdfstring{main(std\+::ifstream \&\+Input\+File)}{main(std::ifstream &InputFile)}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\subsubsection[{\texorpdfstring{main(int argc, char $\ast$$\ast$argv)}{main(int argc, char **argv)}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
 \begin{DoxyParamCaption}
-\item[{std\+::ifstream \&}]{Input\+File}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
 \end{DoxyParamCaption}
-)}\hypertarget{_main_8cpp_aea609e463d45a840fd2c6825cd4e1407}{}\label{_main_8cpp_aea609e463d45a840fd2c6825cd4e1407}
+)}\hypertarget{_main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{}\label{_main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=201pt]{_main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\index{Main.\+cpp@{Main.\+cpp}!arg\+\_\+c@{arg\+\_\+c}}
+\index{arg\+\_\+c@{arg\+\_\+c}!Main.\+cpp@{Main.\+cpp}}
+\subsubsection[{\texorpdfstring{arg\+\_\+c}{arg_c}}]{\setlength{\rightskip}{0pt plus 5cm}int arg\+\_\+c}\hypertarget{_main_8cpp_ace1f4cd933b1a16c2a7e8496c509179c}{}\label{_main_8cpp_ace1f4cd933b1a16c2a7e8496c509179c}
+\index{Main.\+cpp@{Main.\+cpp}!arg\+\_\+v@{arg\+\_\+v}}
+\index{arg\+\_\+v@{arg\+\_\+v}!Main.\+cpp@{Main.\+cpp}}
+\subsubsection[{\texorpdfstring{arg\+\_\+v}{arg_v}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$ arg\+\_\+v}\hypertarget{_main_8cpp_a199d9cb827ca76d6becbf20782728e12}{}\label{_main_8cpp_a199d9cb827ca76d6becbf20782728e12}
+\index{Main.\+cpp@{Main.\+cpp}!file\+\_\+name@{file\+\_\+name}}
+\index{file\+\_\+name@{file\+\_\+name}!Main.\+cpp@{Main.\+cpp}}
+\subsubsection[{\texorpdfstring{file\+\_\+name}{file_name}}]{\setlength{\rightskip}{0pt plus 5cm}string file\+\_\+name}\hypertarget{_main_8cpp_a755d42f2e9c635ce2213e0efad62b796}{}\label{_main_8cpp_a755d42f2e9c635ce2213e0efad62b796}
+\index{Main.\+cpp@{Main.\+cpp}!type@{type}}
+\index{type@{type}!Main.\+cpp@{Main.\+cpp}}
+\subsubsection[{\texorpdfstring{type}{type}}]{\setlength{\rightskip}{0pt plus 5cm}int type =0}\hypertarget{_main_8cpp_ac765329451135abec74c45e1897abf26}{}\label{_main_8cpp_ac765329451135abec74c45e1897abf26}

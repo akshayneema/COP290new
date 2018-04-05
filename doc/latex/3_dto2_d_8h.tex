@@ -1,78 +1,137 @@
-\hypertarget{3_dto2_d_8h}{}\section{/home/hp/\+Desktop/\+C\+O\+P290new/\+C\+O\+P290/3\+Dto2D.h File Reference}
-\label{3_dto2_d_8h}\index{/home/hp/\+Desktop/\+C\+O\+P290new/\+C\+O\+P290/3\+Dto2\+D.\+h@{/home/hp/\+Desktop/\+C\+O\+P290new/\+C\+O\+P290/3\+Dto2\+D.\+h}}
+\hypertarget{3_dto2_d_8h}{}\section{C\+O\+P290new/include/3\+Dto2D.h File Reference}
+\label{3_dto2_d_8h}\index{C\+O\+P290new/include/3\+Dto2\+D.\+h@{C\+O\+P290new/include/3\+Dto2\+D.\+h}}
 {\ttfamily \#include \char`\"{}3\+D.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}2\+D.\+h\char`\"{}}\\*
 {\ttfamily \#include $<$iostream$>$}\\*
 {\ttfamily \#include $<$fstream$>$}\\*
 {\ttfamily \#include $<$string$>$}\\*
 {\ttfamily \#include $<$vector$>$}\\*
-Include dependency graph for 3\+Dto2D.h\+:\nopagebreak
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include $<$set$>$}\\*
+Include dependency graph for 3\+Dto2D.h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{3_dto2_d_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=235pt]{3_dto2_d_8h__dep__incl}
+\includegraphics[width=350pt]{3_dto2_d_8h__dep__incl}
 \end{center}
 \end{figure}
-\subsection*{Macros}
-\begin{DoxyCompactItemize}
-\item 
-\#define \hyperlink{3_dto2_d_8h_ac6fd404474b751c083f09311e9d421ac}{O\+D2\+\_\+H}
-\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-std\+::vector$<$ float $>$ \hyperlink{3_dto2_d_8h_a2075cf7d8a5a2b03b220625722bae4b3}{normalofplane} (char $\ast$plane)
+std\+::vector$<$ double $>$ \hyperlink{3_dto2_d_8h_aa1d5affc106c07f4e11f26ef6ce62499}{normalofplane} (double a, double b, double c, double d)
 \item 
-void \hyperlink{3_dto2_d_8h_a9e1f994f69503bda7909e8a017c17b3c}{rotate3D} (\hyperlink{class_three_d_body}{Three\+D\+Body} threedbody, std\+::vector$<$ float $>$ normal, std\+::vector$<$ char $>$ plane)
+\hyperlink{class_three_d_body}{Three\+D\+Body} \hyperlink{3_dto2_d_8h_a863c474ca58c668c1b2be377198e8241}{rotate3D} (\hyperlink{class_three_d_body}{Three\+D\+Body} \&threedbody, std\+::vector$<$ double $>$ normal)
 \item 
-void \hyperlink{3_dto2_d_8h_a6aa5b86a823784b89de44bee6a057b7a}{hiddenedgedetection} (\hyperlink{class_three_d_body}{Three\+D\+Body} threedbody, std\+::vector$<$ char $>$ plane)
+std\+::vector$<$ \hyperlink{class_edge3_d}{Edge3D} $>$ \hyperlink{3_dto2_d_8h_aaf0349dc7b34ca0c038b764c2be18aec}{edge\+\_\+segmentation} (\hyperlink{class_three_d_body}{Three\+D\+Body} \&threedbody)
 \item 
-\hyperlink{class_two_d_body}{Two\+D\+Body} \hyperlink{3_dto2_d_8h_adda06f7fdd657e0b2430b637007df3a8}{Top\+View} (\hyperlink{class_three_d_body}{Three\+D\+Body} threedbody)
+void \hyperlink{3_dto2_d_8h_a300480e6d73c1684365a6ab0755f9f29}{cross\+Product} (double vect\+\_\+A\mbox{[}$\,$\mbox{]}, double vect\+\_\+B\mbox{[}$\,$\mbox{]}, double cross\+\_\+P\mbox{[}$\,$\mbox{]})
+\item 
+int \hyperlink{3_dto2_d_8h_a8a2c17d457d67148ccf5b95d2b18dcce}{raycast} (double x, double y, \hyperlink{class_plane2_d}{Plane2D} plane)
+\item 
+void \hyperlink{3_dto2_d_8h_aac1981fc6e5c4b2b9656cc816f2cb1d4}{hiddenedgedetection} (\hyperlink{class_three_d_body}{Three\+D\+Body} \&threedbody, double a, double b, double c, double d)
+\item 
+\hyperlink{class_two_d_body}{Two\+D\+Body} \hyperlink{3_dto2_d_8h_a467808619d4c582f765b502afac56599}{Top\+View} (\hyperlink{class_three_d_body}{Three\+D\+Body} \&threedbody)
+\item 
+void \hyperlink{3_dto2_d_8h_a28ad79f36a5e3dde8f6c201df6301af1}{Three\+D\+Bodi} (\hyperlink{class_three_d_body}{Three\+D\+Body} need)
+\item 
+void \hyperlink{3_dto2_d_8h_a6dc63695e5e947a0258fce994e65394a}{type\+\_\+equal} (int \hyperlink{_main_8cpp_ac765329451135abec74c45e1897abf26}{type})
 \end{DoxyCompactItemize}
 
 
-\subsection{Macro Definition Documentation}
-\index{3\+Dto2\+D.\+h@{3\+Dto2\+D.\+h}!O\+D2\+\_\+H@{O\+D2\+\_\+H}}
-\index{O\+D2\+\_\+H@{O\+D2\+\_\+H}!3\+Dto2\+D.\+h@{3\+Dto2\+D.\+h}}
-\subsubsection[{\texorpdfstring{O\+D2\+\_\+H}{OD2_H}}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\+D2\+\_\+H}\hypertarget{3_dto2_d_8h_ac6fd404474b751c083f09311e9d421ac}{}\label{3_dto2_d_8h_ac6fd404474b751c083f09311e9d421ac}
-
-
 \subsection{Function Documentation}
+\index{3\+Dto2\+D.\+h@{3\+Dto2\+D.\+h}!cross\+Product@{cross\+Product}}
+\index{cross\+Product@{cross\+Product}!3\+Dto2\+D.\+h@{3\+Dto2\+D.\+h}}
+\subsubsection[{\texorpdfstring{cross\+Product(double vect\+\_\+A[], double vect\+\_\+B[], double cross\+\_\+P[])}{crossProduct(double vect_A[], double vect_B[], double cross_P[])}}]{\setlength{\rightskip}{0pt plus 5cm}void cross\+Product (
+\begin{DoxyParamCaption}
+\item[{double}]{vect\+\_\+A\mbox{[}$\,$\mbox{]}, }
+\item[{double}]{vect\+\_\+B\mbox{[}$\,$\mbox{]}, }
+\item[{double}]{cross\+\_\+P\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\hypertarget{3_dto2_d_8h_a300480e6d73c1684365a6ab0755f9f29}{}\label{3_dto2_d_8h_a300480e6d73c1684365a6ab0755f9f29}
+\index{3\+Dto2\+D.\+h@{3\+Dto2\+D.\+h}!edge\+\_\+segmentation@{edge\+\_\+segmentation}}
+\index{edge\+\_\+segmentation@{edge\+\_\+segmentation}!3\+Dto2\+D.\+h@{3\+Dto2\+D.\+h}}
+\subsubsection[{\texorpdfstring{edge\+\_\+segmentation(\+Three\+D\+Body \&threedbody)}{edge_segmentation(ThreeDBody &threedbody)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf Edge3D}$>$ edge\+\_\+segmentation (
+\begin{DoxyParamCaption}
+\item[{{\bf Three\+D\+Body} \&}]{threedbody}
+\end{DoxyParamCaption}
+)}\hypertarget{3_dto2_d_8h_aaf0349dc7b34ca0c038b764c2be18aec}{}\label{3_dto2_d_8h_aaf0349dc7b34ca0c038b764c2be18aec}
 \index{3\+Dto2\+D.\+h@{3\+Dto2\+D.\+h}!hiddenedgedetection@{hiddenedgedetection}}
 \index{hiddenedgedetection@{hiddenedgedetection}!3\+Dto2\+D.\+h@{3\+Dto2\+D.\+h}}
-\subsubsection[{\texorpdfstring{hiddenedgedetection(\+Three\+D\+Body threedbody, std\+::vector$<$ char $>$ plane)}{hiddenedgedetection(ThreeDBody threedbody, std::vector< char > plane)}}]{\setlength{\rightskip}{0pt plus 5cm}void hiddenedgedetection (
+\subsubsection[{\texorpdfstring{hiddenedgedetection(\+Three\+D\+Body \&threedbody, double a, double b, double c, double d)}{hiddenedgedetection(ThreeDBody &threedbody, double a, double b, double c, double d)}}]{\setlength{\rightskip}{0pt plus 5cm}void hiddenedgedetection (
 \begin{DoxyParamCaption}
-\item[{{\bf Three\+D\+Body}}]{threedbody, }
-\item[{std\+::vector$<$ char $>$}]{plane}
+\item[{{\bf Three\+D\+Body} \&}]{threedbody, }
+\item[{double}]{a, }
+\item[{double}]{b, }
+\item[{double}]{c, }
+\item[{double}]{d}
 \end{DoxyParamCaption}
-)}\hypertarget{3_dto2_d_8h_a6aa5b86a823784b89de44bee6a057b7a}{}\label{3_dto2_d_8h_a6aa5b86a823784b89de44bee6a057b7a}
+)}\hypertarget{3_dto2_d_8h_aac1981fc6e5c4b2b9656cc816f2cb1d4}{}\label{3_dto2_d_8h_aac1981fc6e5c4b2b9656cc816f2cb1d4}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=323pt]{3_dto2_d_8h_aac1981fc6e5c4b2b9656cc816f2cb1d4_cgraph}
+\end{center}
+\end{figure}
+
+
 \index{3\+Dto2\+D.\+h@{3\+Dto2\+D.\+h}!normalofplane@{normalofplane}}
 \index{normalofplane@{normalofplane}!3\+Dto2\+D.\+h@{3\+Dto2\+D.\+h}}
-\subsubsection[{\texorpdfstring{normalofplane(char $\ast$plane)}{normalofplane(char *plane)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$float$>$ normalofplane (
+\subsubsection[{\texorpdfstring{normalofplane(double a, double b, double c, double d)}{normalofplane(double a, double b, double c, double d)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$double$>$ normalofplane (
 \begin{DoxyParamCaption}
-\item[{char $\ast$}]{plane}
+\item[{double}]{a, }
+\item[{double}]{b, }
+\item[{double}]{c, }
+\item[{double}]{d}
 \end{DoxyParamCaption}
-)}\hypertarget{3_dto2_d_8h_a2075cf7d8a5a2b03b220625722bae4b3}{}\label{3_dto2_d_8h_a2075cf7d8a5a2b03b220625722bae4b3}
+)}\hypertarget{3_dto2_d_8h_aa1d5affc106c07f4e11f26ef6ce62499}{}\label{3_dto2_d_8h_aa1d5affc106c07f4e11f26ef6ce62499}
+\index{3\+Dto2\+D.\+h@{3\+Dto2\+D.\+h}!raycast@{raycast}}
+\index{raycast@{raycast}!3\+Dto2\+D.\+h@{3\+Dto2\+D.\+h}}
+\subsubsection[{\texorpdfstring{raycast(double x, double y, Plane2\+D plane)}{raycast(double x, double y, Plane2D plane)}}]{\setlength{\rightskip}{0pt plus 5cm}int raycast (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{double}]{y, }
+\item[{{\bf Plane2D}}]{plane}
+\end{DoxyParamCaption}
+)}\hypertarget{3_dto2_d_8h_a8a2c17d457d67148ccf5b95d2b18dcce}{}\label{3_dto2_d_8h_a8a2c17d457d67148ccf5b95d2b18dcce}
 \index{3\+Dto2\+D.\+h@{3\+Dto2\+D.\+h}!rotate3D@{rotate3D}}
 \index{rotate3D@{rotate3D}!3\+Dto2\+D.\+h@{3\+Dto2\+D.\+h}}
-\subsubsection[{\texorpdfstring{rotate3\+D(\+Three\+D\+Body threedbody, std\+::vector$<$ float $>$ normal, std\+::vector$<$ char $>$ plane)}{rotate3D(ThreeDBody threedbody, std::vector< float > normal, std::vector< char > plane)}}]{\setlength{\rightskip}{0pt plus 5cm}void rotate3D (
+\subsubsection[{\texorpdfstring{rotate3\+D(\+Three\+D\+Body \&threedbody, std\+::vector$<$ double $>$ normal)}{rotate3D(ThreeDBody &threedbody, std::vector< double > normal)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Three\+D\+Body} rotate3D (
 \begin{DoxyParamCaption}
-\item[{{\bf Three\+D\+Body}}]{threedbody, }
-\item[{std\+::vector$<$ float $>$}]{normal, }
-\item[{std\+::vector$<$ char $>$}]{plane}
+\item[{{\bf Three\+D\+Body} \&}]{threedbody, }
+\item[{std\+::vector$<$ double $>$}]{normal}
 \end{DoxyParamCaption}
-)}\hypertarget{3_dto2_d_8h_a9e1f994f69503bda7909e8a017c17b3c}{}\label{3_dto2_d_8h_a9e1f994f69503bda7909e8a017c17b3c}
+)}\hypertarget{3_dto2_d_8h_a863c474ca58c668c1b2be377198e8241}{}\label{3_dto2_d_8h_a863c474ca58c668c1b2be377198e8241}
+\index{3\+Dto2\+D.\+h@{3\+Dto2\+D.\+h}!Three\+D\+Bodi@{Three\+D\+Bodi}}
+\index{Three\+D\+Bodi@{Three\+D\+Bodi}!3\+Dto2\+D.\+h@{3\+Dto2\+D.\+h}}
+\subsubsection[{\texorpdfstring{Three\+D\+Bodi(\+Three\+D\+Body need)}{ThreeDBodi(ThreeDBody need)}}]{\setlength{\rightskip}{0pt plus 5cm}void Three\+D\+Bodi (
+\begin{DoxyParamCaption}
+\item[{{\bf Three\+D\+Body}}]{need}
+\end{DoxyParamCaption}
+)}\hypertarget{3_dto2_d_8h_a28ad79f36a5e3dde8f6c201df6301af1}{}\label{3_dto2_d_8h_a28ad79f36a5e3dde8f6c201df6301af1}
 \index{3\+Dto2\+D.\+h@{3\+Dto2\+D.\+h}!Top\+View@{Top\+View}}
 \index{Top\+View@{Top\+View}!3\+Dto2\+D.\+h@{3\+Dto2\+D.\+h}}
-\subsubsection[{\texorpdfstring{Top\+View(\+Three\+D\+Body threedbody)}{TopView(ThreeDBody threedbody)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Two\+D\+Body} Top\+View (
+\subsubsection[{\texorpdfstring{Top\+View(\+Three\+D\+Body \&threedbody)}{TopView(ThreeDBody &threedbody)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Two\+D\+Body} Top\+View (
 \begin{DoxyParamCaption}
-\item[{{\bf Three\+D\+Body}}]{threedbody}
+\item[{{\bf Three\+D\+Body} \&}]{threedbody}
 \end{DoxyParamCaption}
-)}\hypertarget{3_dto2_d_8h_adda06f7fdd657e0b2430b637007df3a8}{}\label{3_dto2_d_8h_adda06f7fdd657e0b2430b637007df3a8}
+)}\hypertarget{3_dto2_d_8h_a467808619d4c582f765b502afac56599}{}\label{3_dto2_d_8h_a467808619d4c582f765b502afac56599}
+\index{3\+Dto2\+D.\+h@{3\+Dto2\+D.\+h}!type\+\_\+equal@{type\+\_\+equal}}
+\index{type\+\_\+equal@{type\+\_\+equal}!3\+Dto2\+D.\+h@{3\+Dto2\+D.\+h}}
+\subsubsection[{\texorpdfstring{type\+\_\+equal(int type)}{type_equal(int type)}}]{\setlength{\rightskip}{0pt plus 5cm}void type\+\_\+equal (
+\begin{DoxyParamCaption}
+\item[{int}]{type}
+\end{DoxyParamCaption}
+)}\hypertarget{3_dto2_d_8h_a6dc63695e5e947a0258fce994e65394a}{}\label{3_dto2_d_8h_a6dc63695e5e947a0258fce994e65394a}

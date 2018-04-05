@@ -7,72 +7,99 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{class_vertex3_d_a55c9e183f88bd026fb4563200f189895}{translatex} (float dx)
+void \hyperlink{class_vertex3_d_a6a4d46639e2d45b553770dfab060ed9a}{rotatex} (double delta, bool dirdelta)
 \item 
-void \hyperlink{class_vertex3_d_afecdb92ffcdc23ceed0772ac9ce42f05}{translatey} (float dy)
+void \hyperlink{class_vertex3_d_aa727424b65822afe147d0782dae6e271}{rotatey} (double delta, bool dirdelta)
 \item 
-void \hyperlink{class_vertex3_d_a74d4ae70ac0a9cb92e121d7607d42040}{translatez} (float dz)
+void \hyperlink{class_vertex3_d_aaa4ba2539160adee485082501d522509}{rotatez} (double delta, bool dirdelta)
 \item 
-void \hyperlink{class_vertex3_d_a3beec96a84611a22956c63b751d1ae40}{rotate} (float delta, float theta, bool dirdelta, bool dirtheta, \hyperlink{class_vertex3_d}{Vertex3D} axis)
+void \hyperlink{class_vertex3_d_a90c39da5c9d8a6d899d19f490c51bd01}{rotate} (double deltax, bool dirx, double deltay, bool diry, double deltaz, bool dirz)
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-float \hyperlink{class_vertex3_d_a31874fac8de9ea8aa004f7d62c3b0a82}{x}
+double \hyperlink{class_vertex3_d_a4f2e1e52715d4838267984cda8f69a81}{x}
 \item 
-float \hyperlink{class_vertex3_d_acc2ceb770e03d6facf4c921de0eaf3d8}{y}
+double \hyperlink{class_vertex3_d_a494593d78f61f44b90df1dce15edeb62}{y}
 \item 
-float \hyperlink{class_vertex3_d_af04a23eeeea792a53123e2d622395f8f}{z}
+double \hyperlink{class_vertex3_d_ae899efc1434544b4e179cb15b2a55491}{z}
+\item 
+double \hyperlink{class_vertex3_d_a37561365c6c6ff2805e0872d6ed5fd4a}{l}
+\item 
+string \hyperlink{class_vertex3_d_abf20eafb9ee16582a128d25fc38acb3e}{str}
 \end{DoxyCompactItemize}
 
 
 \subsection{Member Function Documentation}
 \index{Vertex3D@{Vertex3D}!rotate@{rotate}}
 \index{rotate@{rotate}!Vertex3D@{Vertex3D}}
-\subsubsection[{\texorpdfstring{rotate(float delta, float theta, bool dirdelta, bool dirtheta, Vertex3\+D axis)}{rotate(float delta, float theta, bool dirdelta, bool dirtheta, Vertex3D axis)}}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex3\+D\+::rotate (
+\subsubsection[{\texorpdfstring{rotate(double deltax, bool dirx, double deltay, bool diry, double deltaz, bool dirz)}{rotate(double deltax, bool dirx, double deltay, bool diry, double deltaz, bool dirz)}}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex3\+D\+::rotate (
 \begin{DoxyParamCaption}
-\item[{float}]{delta, }
-\item[{float}]{theta, }
-\item[{bool}]{dirdelta, }
-\item[{bool}]{dirtheta, }
-\item[{{\bf Vertex3D}}]{axis}
+\item[{double}]{deltax, }
+\item[{bool}]{dirx, }
+\item[{double}]{deltay, }
+\item[{bool}]{diry, }
+\item[{double}]{deltaz, }
+\item[{bool}]{dirz}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex3_d_a3beec96a84611a22956c63b751d1ae40}{}\label{class_vertex3_d_a3beec96a84611a22956c63b751d1ae40}
-\index{Vertex3D@{Vertex3D}!translatex@{translatex}}
-\index{translatex@{translatex}!Vertex3D@{Vertex3D}}
-\subsubsection[{\texorpdfstring{translatex(float dx)}{translatex(float dx)}}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex3\+D\+::translatex (
+)}\hypertarget{class_vertex3_d_a90c39da5c9d8a6d899d19f490c51bd01}{}\label{class_vertex3_d_a90c39da5c9d8a6d899d19f490c51bd01}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=299pt]{class_vertex3_d_a90c39da5c9d8a6d899d19f490c51bd01_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{Vertex3D@{Vertex3D}!rotatex@{rotatex}}
+\index{rotatex@{rotatex}!Vertex3D@{Vertex3D}}
+\subsubsection[{\texorpdfstring{rotatex(double delta, bool dirdelta)}{rotatex(double delta, bool dirdelta)}}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex3\+D\+::rotatex (
 \begin{DoxyParamCaption}
-\item[{float}]{dx}
+\item[{double}]{delta, }
+\item[{bool}]{dirdelta}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex3_d_a55c9e183f88bd026fb4563200f189895}{}\label{class_vertex3_d_a55c9e183f88bd026fb4563200f189895}
-\index{Vertex3D@{Vertex3D}!translatey@{translatey}}
-\index{translatey@{translatey}!Vertex3D@{Vertex3D}}
-\subsubsection[{\texorpdfstring{translatey(float dy)}{translatey(float dy)}}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex3\+D\+::translatey (
+)}\hypertarget{class_vertex3_d_a6a4d46639e2d45b553770dfab060ed9a}{}\label{class_vertex3_d_a6a4d46639e2d45b553770dfab060ed9a}
+\index{Vertex3D@{Vertex3D}!rotatey@{rotatey}}
+\index{rotatey@{rotatey}!Vertex3D@{Vertex3D}}
+\subsubsection[{\texorpdfstring{rotatey(double delta, bool dirdelta)}{rotatey(double delta, bool dirdelta)}}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex3\+D\+::rotatey (
 \begin{DoxyParamCaption}
-\item[{float}]{dy}
+\item[{double}]{delta, }
+\item[{bool}]{dirdelta}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex3_d_afecdb92ffcdc23ceed0772ac9ce42f05}{}\label{class_vertex3_d_afecdb92ffcdc23ceed0772ac9ce42f05}
-\index{Vertex3D@{Vertex3D}!translatez@{translatez}}
-\index{translatez@{translatez}!Vertex3D@{Vertex3D}}
-\subsubsection[{\texorpdfstring{translatez(float dz)}{translatez(float dz)}}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex3\+D\+::translatez (
+)}\hypertarget{class_vertex3_d_aa727424b65822afe147d0782dae6e271}{}\label{class_vertex3_d_aa727424b65822afe147d0782dae6e271}
+\index{Vertex3D@{Vertex3D}!rotatez@{rotatez}}
+\index{rotatez@{rotatez}!Vertex3D@{Vertex3D}}
+\subsubsection[{\texorpdfstring{rotatez(double delta, bool dirdelta)}{rotatez(double delta, bool dirdelta)}}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex3\+D\+::rotatez (
 \begin{DoxyParamCaption}
-\item[{float}]{dz}
+\item[{double}]{delta, }
+\item[{bool}]{dirdelta}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex3_d_a74d4ae70ac0a9cb92e121d7607d42040}{}\label{class_vertex3_d_a74d4ae70ac0a9cb92e121d7607d42040}
+)}\hypertarget{class_vertex3_d_aaa4ba2539160adee485082501d522509}{}\label{class_vertex3_d_aaa4ba2539160adee485082501d522509}
 
 
 \subsection{Member Data Documentation}
+\index{Vertex3D@{Vertex3D}!l@{l}}
+\index{l@{l}!Vertex3D@{Vertex3D}}
+\subsubsection[{\texorpdfstring{l}{l}}]{\setlength{\rightskip}{0pt plus 5cm}double Vertex3\+D\+::l}\hypertarget{class_vertex3_d_a37561365c6c6ff2805e0872d6ed5fd4a}{}\label{class_vertex3_d_a37561365c6c6ff2805e0872d6ed5fd4a}
+\index{Vertex3D@{Vertex3D}!str@{str}}
+\index{str@{str}!Vertex3D@{Vertex3D}}
+\subsubsection[{\texorpdfstring{str}{str}}]{\setlength{\rightskip}{0pt plus 5cm}string Vertex3\+D\+::str}\hypertarget{class_vertex3_d_abf20eafb9ee16582a128d25fc38acb3e}{}\label{class_vertex3_d_abf20eafb9ee16582a128d25fc38acb3e}
 \index{Vertex3D@{Vertex3D}!x@{x}}
 \index{x@{x}!Vertex3D@{Vertex3D}}
-\subsubsection[{\texorpdfstring{x}{x}}]{\setlength{\rightskip}{0pt plus 5cm}float Vertex3\+D\+::x}\hypertarget{class_vertex3_d_a31874fac8de9ea8aa004f7d62c3b0a82}{}\label{class_vertex3_d_a31874fac8de9ea8aa004f7d62c3b0a82}
+\subsubsection[{\texorpdfstring{x}{x}}]{\setlength{\rightskip}{0pt plus 5cm}double Vertex3\+D\+::x}\hypertarget{class_vertex3_d_a4f2e1e52715d4838267984cda8f69a81}{}\label{class_vertex3_d_a4f2e1e52715d4838267984cda8f69a81}
 \index{Vertex3D@{Vertex3D}!y@{y}}
 \index{y@{y}!Vertex3D@{Vertex3D}}
-\subsubsection[{\texorpdfstring{y}{y}}]{\setlength{\rightskip}{0pt plus 5cm}float Vertex3\+D\+::y}\hypertarget{class_vertex3_d_acc2ceb770e03d6facf4c921de0eaf3d8}{}\label{class_vertex3_d_acc2ceb770e03d6facf4c921de0eaf3d8}
+\subsubsection[{\texorpdfstring{y}{y}}]{\setlength{\rightskip}{0pt plus 5cm}double Vertex3\+D\+::y}\hypertarget{class_vertex3_d_a494593d78f61f44b90df1dce15edeb62}{}\label{class_vertex3_d_a494593d78f61f44b90df1dce15edeb62}
 \index{Vertex3D@{Vertex3D}!z@{z}}
 \index{z@{z}!Vertex3D@{Vertex3D}}
-\subsubsection[{\texorpdfstring{z}{z}}]{\setlength{\rightskip}{0pt plus 5cm}float Vertex3\+D\+::z}\hypertarget{class_vertex3_d_af04a23eeeea792a53123e2d622395f8f}{}\label{class_vertex3_d_af04a23eeeea792a53123e2d622395f8f}
+\subsubsection[{\texorpdfstring{z}{z}}]{\setlength{\rightskip}{0pt plus 5cm}double Vertex3\+D\+::z}\hypertarget{class_vertex3_d_ae899efc1434544b4e179cb15b2a55491}{}\label{class_vertex3_d_ae899efc1434544b4e179cb15b2a55491}
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/hp/\+Desktop/\+C\+O\+P290new/\+C\+O\+P290/\hyperlink{3_d_8h}{3\+D.\+h}\end{DoxyCompactItemize}
+C\+O\+P290new/include/\hyperlink{3_d_8h}{3\+D.\+h}\item 
+C\+O\+P290new/src/\hyperlink{3_d_8cpp}{3\+D.\+cpp}\end{DoxyCompactItemize}
